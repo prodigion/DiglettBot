@@ -16,6 +16,11 @@ class UtilityCog:
 
         await ctx.send(f'Hello {ctx.author.mention}. This command can only be used by you!!')
 
+    @commands.command(name='coolbot')
+    async def cool_bot(self, ctx):
+        """Is the bot cool?"""
+        await ctx.send('This bot is cool. :)')
+
     @commands.command(name='nests')
     @commands.guild_only()
     async def print_nests(self, ctx):
