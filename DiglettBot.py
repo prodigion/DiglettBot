@@ -37,7 +37,8 @@ def get_prefix(bot, message):
 
 # Below cogs represents our folder our cogs are in. Following is the file name. So 'meme.py' in cogs, would be cogs.meme
 # Think of it like a dot path import
-initial_extensions = ['cogs.members',
+initial_extensions = ['cogs.events',
+                      'cogs.members',
                       'cogs.raids',
                       'cogs.utilities',
                       'cogs.owner']
@@ -52,15 +53,5 @@ if __name__ == '__main__':
         except Exception as e:
             print(f'Failed to load extension {extension}.', file=sys.stderr)
             traceback.print_exc()
-
-@bot.event
-async def on_ready():
-    """http://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_ready"""
-
-    print(f'\n\nLogged in as: {bot.user.name} - {bot.user.id}\nVersion: {discord.__version__}\n')
-
-    # Changes our bots Playing Status. type=1(streaming) for a standard game you could remove type and url.
-    await bot.change_presence(activity=discord.Game(name='Pokemon Go', type=1))
-    print(f'Successfully logged in and booted...!')
 
 bot.run('<token>', bot=True, reconnect=True)
