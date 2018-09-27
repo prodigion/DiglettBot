@@ -12,12 +12,14 @@ class OwnerCog:
         """Command which Loads a Module.
         Remember to use dot path. e.g: cogs.owner"""
 
+        print("\nLoad module: " + cog)
         try:
             self.bot.load_extension(cog)
         except Exception as e:
             await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
         else:
-            await ctx.send('**`SUCCESS`**')
+            print("SUCCESS")
+            await ctx.message.delete()
 
     @commands.command(name='unload', hidden=True)
     @commands.is_owner()
@@ -25,12 +27,14 @@ class OwnerCog:
         """Command which Unloads a Module.
         Remember to use dot path. e.g: cogs.owner"""
 
+        print("\nUnload module: " + cog)
         try:
             self.bot.unload_extension(cog)
         except Exception as e:
             await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
         else:
-            await ctx.send('**`SUCCESS`**')
+            print("SUCCESS")
+            await ctx.message.delete()
 
     @commands.command(name='reload', hidden=True)
     @commands.is_owner()
@@ -38,13 +42,15 @@ class OwnerCog:
         """Command which Reloads a Module.
         Remember to use dot path. e.g: cogs.owner"""
 
+        print("\nReload module: " + cog)
         try:
             self.bot.unload_extension(cog)
             self.bot.load_extension(cog)
         except Exception as e:
             await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
         else:
-            await ctx.send('**`SUCCESS`**')
+            print("SUCCESS")
+            await ctx.message.delete()
 
 def setup(bot):
     bot.add_cog(OwnerCog(bot))
