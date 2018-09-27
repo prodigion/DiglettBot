@@ -26,7 +26,7 @@ class UtilityCog:
     async def print_nests(self, ctx):
         """Print nests"""
 
-        if ctx.channel.id == 328348774285967362:
+        if ctx.channel.name == "migration-chat":
           await ctx.send(f'Reposting NestDoc links; see below...\n\nhttps://goo.gl/jRvJWH (Active nests)\nhttps://goo.gl/hQ5B7B (Submit nesting Pokemon)')
 
         await ctx.message.delete()
