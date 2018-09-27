@@ -16,11 +16,5 @@ class EventsCog:
         await self.bot.change_presence(activity=discord.Game(name='Pokemon Go', type=1))
         print(f'Successfully logged in and booted...!')
 
-#    async def on_member_join(self, member: discord.Member):
-#        """https://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_member_join"""
-#
-#        message = f"Welcome to PokeOntario, {member.mention}! Set your team by typing `!mystic`, `!valor`, `!instinct` or `!harmony`. If you have any questions tag the `@Mods`."
-#        await self.bot.get_channel(259766286546894849).send(message)
-
 def setup(bot):
     bot.add_cog(EventsCog(bot))
