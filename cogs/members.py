@@ -59,37 +59,11 @@ class MembersCog:
         message = f"Welcome to PokeOntario, {member.mention}! Set your team by typing `!mystic`, `!valor`, `!instinct` or `!harmony`. If you have any questions tag the `@Mods`."
         await self.bot.get_channel(259766286546894849).send(message)
 
-    @commands.command(name='offtopic', aliases=['music'])
-    @commands.guild_only()
-    async def set_role(self, ctx):
-        """Set non-primary roles"""
-        if ctx.channel.name == "mod-spam":
-            role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
-            if role in ctx.author.roles:
-                await ctx.author.remove_roles(role)
-                await ctx.send(f'Role removed: ' + role.name)
-            else:
-                await ctx.author.add_roles(role)
-                await ctx.send(f'Role added: ' + role.name)
-
-    @commands.command(name='rh0', aliases=['rh1', 'rh2', 'rh3', 'rh4', 'rh5', 'rh6', 'rh7'])
-    @commands.guild_only()
-    async def set_role(self, ctx):
-        """Set non-primary roles"""
-        if ctx.channel.name == "mod-spam":
-            role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
-            if role in ctx.author.roles:
-                await ctx.author.remove_roles(role)
-                await ctx.send(f'Role removed: ' + role.name)
-            else:
-                await ctx.author.add_roles(role)
-                await ctx.send(f'Role added: ' + role.name)
-
     @commands.command(name='harmony', aliases=['instinct', 'mystic', 'valor'])
     @commands.guild_only()
     async def set_team(self, ctx):
         """Set team role"""
-        if ctx.channel.name == "mod-spam":
+        if ctx.channel.name == "team-select":
             await ctx.author.add_roles(discord.utils.get(ctx.guild.roles, name=ctx.invoked_with),
                                        discord.utils.get(ctx.guild.roles, name="chat"),
                                        atomic=True)
@@ -98,21 +72,48 @@ class MembersCog:
     @commands.command(name='hamilton', aliases=['burlington', 'niagara', 'brant', 'haldimand', 'norfolk'])
     @commands.guild_only()
     async def set_region(self, ctx):
-        "Set region role"""
+        """Set region role"""
         region = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
-        if ctx.channel.name == "mod-spam":
+        exraid = discord.utils.get(ctx.guild.roles, name="exraid")
+        if ctx.channel.name == "role-select":
             if region in ctx.author.roles:
                 await ctx.author.remove_roles(region, atomic=True)
                 await ctx.send(f'Roles removed: ' + region.name)
                 if region.name == "hamilton":
-                    await ctx.author.remove_roles(discord.utils.get(ctx.guild.roles, name="exraid"), atomic=True)
+                    await ctx.author.remove_roles(exraid, atomic=True)
                     await ctx.send(f'Roles removed: ' + "exraid")
             else:
                 await ctx.author.add_roles(region, atomic=True)
                 await ctx.send(f'Roles added: ' + region.name)
                 if region.name == "hamilton":
-                    await ctx.author.add_roles(discord.utils.get(ctx.guild.roles, name="exraid"), atomic=True)
+                    await ctx.author.add_roles(exraid, atomic=True)
                     await ctx.send(f'Roles added: ' + "exraid")
+
+    @commands.command(name='rh0', aliases=['rh1', 'rh2', 'rh3', 'rh4', 'rh5', 'rh6', 'rh7'])
+    @commands.guild_only()
+    async def set_role(self, ctx):
+        """Set region-notification roles"""
+        if ctx.channel.name == "role-select":
+            role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
+            if role in ctx.author.roles:
+                await ctx.author.remove_roles(role)
+                await ctx.send(f'Role removed: ' + role.name)
+            else:
+                await ctx.author.add_roles(role)
+                await ctx.send(f'Role added: ' + role.name)
+
+    @commands.command(name='offtopic', aliases=['music'])
+    @commands.guild_only()
+    async def set_role(self, ctx):
+        """Set non-primary roles"""
+        if ctx.channel.name == "role-select":
+            role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
+            if role in ctx.author.roles:
+                await ctx.author.remove_roles(role)
+                await ctx.send(f'Role removed: ' + role.name)
+            else:
+                await ctx.author.add_roles(role)
+                await ctx.send(f'Role added: ' + role.name)
 
 def setup(bot):
     bot.add_cog(MembersCog(bot))
