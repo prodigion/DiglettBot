@@ -67,7 +67,27 @@ class MembersCog:
             await ctx.author.add_roles(discord.utils.get(ctx.guild.roles, name=ctx.invoked_with),
                                        discord.utils.get(ctx.guild.roles, name="chat"),
                                        atomic=True)
-#            await ctx.send(f'Welcome to team ' + ctx.invoked_with.capitalize() + "!")
+            await ctx.send(f'Welcome to team ' + ctx.invoked_with.capitalize() + "!")
+            message = (
+              f"Now that you've selected a team, {ctx.author.mention}, the below commands are available. They work as toggles so you can join/leave them as you require. Join as many as you'd like!\n"
+              f"Tag `@Mods` or `@Coordinators` if you have any questions.\n"
+              f"\n"
+              f"Regions\n"
+              f"`!hamilton` - City of Hamilton\n"
+              f"`!burlington` - City of Burlington\n"
+              f"`!niagara` - Niagara Region\n"
+              f"`!brant` - County of Brant\n"
+              f"`!haldimand` - Haldimand County\n"
+              f"`!norfolk` - Norfolk County\n"
+              f"\n"
+              f"Categories:\n"
+              f"`!chat` - General Pokemon Go discussion\n"
+              f"`!exraid` - Hamilton exraids\n"
+              f"`!offtopic` - Non-Pokemon Go discussion\n"
+              f"`!music` - Music channels\n"
+            )
+
+            await self.bot.get_channel(460100742230048773).send(message)
 
     @commands.command(name='hamilton', aliases=['burlington', 'niagara', 'brant', 'haldimand', 'norfolk'])
     @commands.guild_only()
@@ -91,7 +111,7 @@ class MembersCog:
 
     @commands.command(name='rh0', aliases=['rh1', 'rh2', 'rh3', 'rh4', 'rh5', 'rh6', 'rh7'])
     @commands.guild_only()
-    async def set_role(self, ctx):
+    async def set_group(self, ctx):
         """Set region-notification roles"""
         if ctx.channel.name == "role-select":
             role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
@@ -102,7 +122,7 @@ class MembersCog:
                 await ctx.author.add_roles(role)
                 await ctx.send(f'Role added: ' + role.name)
 
-    @commands.command(name='offtopic', aliases=['music'])
+    @commands.command(name='offtopic', aliases=['music', 'chat'])
     @commands.guild_only()
     async def set_role(self, ctx):
         """Set non-primary roles"""
