@@ -40,6 +40,7 @@ def get_prefix(bot, message):
 initial_extensions = ['cogs.events',
                       'cogs.members',
                       'cogs.raids',
+                      'cogs.research',
                       'cogs.utilities',
                       'cogs.owner']
 

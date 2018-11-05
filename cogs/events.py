@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import aiomysql
 
 class EventsCog:
     """EventsCog"""
@@ -14,6 +15,10 @@ class EventsCog:
 
         # Changes our bots Playing Status. type=1(streaming) for a standard game you could remove type and url.
         await self.bot.change_presence(activity=discord.Game(name='Pokemon Go', type=1))
+        self.bot.pool = await aiomysql.create_pool(host='host', port=3306,
+                                                   user='user', password='pass',
+                                                   db='db')
+
         print(f'Successfully logged in and booted...!')
 
     async def on_message(self, message: discord.Message):
