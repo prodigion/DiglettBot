@@ -135,5 +135,18 @@ class MembersCog:
                 await ctx.author.add_roles(role)
                 await ctx.send(f'Role added: ' + role.name)
 
+    @commands.command(name='hundo')
+    @commands.guild_only()
+    async def set_notifications(self, ctx):
+        """Set notification roles"""
+        if ctx.channel.name == "role-select":
+            role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
+            if role in ctx.author.roles:
+                await ctx.author.remove_roles(role)
+                await ctx.send(f'Role removed: ' + role.name)
+            else:
+                await ctx.author.add_roles(role)
+                await ctx.send(f'Role added: ' + role.name)
+
 def setup(bot):
     bot.add_cog(MembersCog(bot))
