@@ -53,23 +53,45 @@ class MembersCog:
         await ctx.send(content=None, embed=embed)
         # Thanks to Gio for the Command.
 
-    async def on_member_join(self, member: discord.Member):
-        """https://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_member_join"""
-
-        message = f"Welcome to PokeOntario, {member.mention}! Set your team by typing `!mystic`, `!valor`, `!instinct` or `!harmony`. If you have any questions tag the `@Mods`."
-        await self.bot.get_channel(259766286546894849).send(message)
-
-    @commands.command(name='harmony', aliases=['instinct', 'mystic', 'valor'])
+    @commands.command(name='welcome')
     @commands.guild_only()
-    async def set_team(self, ctx):
-        """Set team role"""
-        if ctx.channel.name == "team-select":
-            await ctx.author.add_roles(discord.utils.get(ctx.guild.roles, name=ctx.invoked_with),
-                                       discord.utils.get(ctx.guild.roles, name="chat"),
-                                       atomic=True)
-            await ctx.send(f'Welcome to team ' + ctx.invoked_with.capitalize() + "!")
-            message = (
-              f"Now that you've selected a team, {ctx.author.mention}, the below commands are available. They work as toggles so you can join/leave them as you require. Join as many as you'd like!\n"
+    async def show_welcome(self, ctx):
+        welcomeMsg = await ctx.send("Welcome to PokeOntario, please choose a team! If you have any questions tag the `@Mods`.")
+        await ctx.message.delete()
+
+        await welcomeMsg.add_reaction(":instinct:408859733831843867")
+        await welcomeMsg.add_reaction(":valor:408859732280082444")
+        await welcomeMsg.add_reaction(":mystic:408859736134516759")
+        await welcomeMsg.add_reaction(":harmony:509206588553297930")
+
+    async def on_reaction_add(self, reaction: discord.Reaction, user: discord.User):
+        if reaction.message.channel.name == "team-select" and len(user.roles) < 2:
+            await reaction.message.remove_reaction(reaction.emoji, user)
+            if str(reaction.emoji) == "<:instinct:408859733831843867>":
+                welcomeMsg = f'Welcome to team Instinct {user.mention}!'
+                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="instinct"),
+                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                                     atomic=True)
+            elif str(reaction.emoji) == "<:valor:408859732280082444>":
+                welcomeMsg = f'Welcome to team Valor {user.mention}!'
+                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="valor"),
+                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                                     atomic=True)
+            elif str(reaction.emoji) == "<:mystic:408859736134516759>":
+                welcomeMsg = f'Welcome to team Mystic {user.mention}!'
+                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="mystic"),
+                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                                     atomic=True)
+            elif str(reaction.emoji) == "<:harmony:509206588553297930>":
+                welcomeMsg = f'Welcome to team Harmony {user.mention}!'
+                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="harmony"),
+                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                                     atomic=True)
+            else:
+                return
+
+            teamSelectMessage = (
+              f"Now that you've selected a team, {user.mention}, the below commands are available. They work as toggles so you can join/leave them as you require. Join as many as you'd like!\n"
               f"Tag `@Mods` or `@Coordinators` if you have any questions.\n"
               f"\n"
               f"Regions\n"
@@ -87,7 +109,8 @@ class MembersCog:
               f"`!music` - Music channels\n"
             )
 
-            await self.bot.get_channel(460100742230048773).send(message)
+            await discord.utils.get(reaction.message.guild.channels, name="role-select").send(welcomeMsg)
+            await discord.utils.get(reaction.message.guild.channels, name="role-select").send(embed=discord.Embed(description=teamSelectMessage))
 
     @commands.command(name='hamilton', aliases=['burlington', 'niagara', 'brant', 'haldimand', 'norfolk'])
     @commands.guild_only()

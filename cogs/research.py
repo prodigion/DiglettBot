@@ -37,7 +37,6 @@ class ResearchCog:
                             if len(questList) > 1500 or ctr == numResults:
                                 await ctx.send(embed=discord.Embed(description=questList))
                                 questList = f"Today's Research - {monName}\n\n"
-
                 except pymysql.err.OperationalError:
                     await ctx.send('Server is not currently available. Please try again later.')
 
