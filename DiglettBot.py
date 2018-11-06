@@ -49,6 +49,9 @@ bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett B
 with open('config.json', 'r') as f:
     bot.configs = json.load(f)
 
+with open('data/pokedex.json', 'r') as f:
+    bot.pokedex = json.load(f)
+
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
     for extension in initial_extensions:
