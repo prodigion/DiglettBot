@@ -15,10 +15,9 @@ class EventsCog:
 
         # Changes our bots Playing Status. type=1(streaming) for a standard game you could remove type and url.
         await self.bot.change_presence(activity=discord.Game(name='Pokemon Go', type=1))
-        self.bot.pool = await aiomysql.create_pool(host='host', port=3306,
-                                                   user='user', password='pass',
-                                                   db='db')
-
+        self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
+                                                   user=self.bot.configs['user'], password=self.bot.configs['pass'],
+                                                   db=self.bot.configs['db'])
         print(f'Successfully logged in and booted...!')
 
     async def on_message(self, message: discord.Message):

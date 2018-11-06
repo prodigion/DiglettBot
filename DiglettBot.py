@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
-
 import sys, traceback
+import json
 
 """This is a multi file example showcasing many features of the command extension and the use of cogs.
 These are examples only and are not intended to be used as a fully functioning bot. Rather they should give you a basic
@@ -46,6 +46,9 @@ initial_extensions = ['cogs.events',
 
 bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett Bot. Trio Trio Trio.')
 
+with open('config.json', 'r') as f:
+    bot.configs = json.load(f)
+
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
     for extension in initial_extensions:
@@ -55,4 +58,4 @@ if __name__ == '__main__':
             print(f'Failed to load extension {extension}.', file=sys.stderr)
             traceback.print_exc()
 
-bot.run('<token>', bot=True, reconnect=True)
+bot.run(bot.configs['token'], bot=True, reconnect=True)
