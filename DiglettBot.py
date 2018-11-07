@@ -39,7 +39,6 @@ def get_prefix(bot, message):
 # Think of it like a dot path import
 initial_extensions = ['cogs.events',
                       'cogs.members',
-                      'cogs.raids',
                       'cogs.research',
                       'cogs.utilities',
                       'cogs.owner']
