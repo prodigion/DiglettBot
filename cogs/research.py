@@ -14,10 +14,9 @@ class ResearchCog:
         await cur.execute(f"select * from pokestop where quest_pokemon_id={mon};")
         numResults = cur.rowcount
         if numResults == 0:
-            return
+            await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.pokedex[f'{mon:03}']}."))
         ctr = 0
         questList = f"Research for {datetime.date.today():%B %d} - {self.bot.pokedex[f'{mon:03}']}\n\n"
-        print(f'{mon:03}')
         async for r in cur:
             ctr += 1
             questList += f'({ctr}/{numResults}) Poketop: [{r[3]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
