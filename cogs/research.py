@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import aiomysql
 from pymysql.err import OperationalError
 import datetime
 
@@ -64,6 +65,23 @@ class ResearchCog:
                             async for r in cur:
                                 if r[0]:
                                     await self.get_quest(ctx, cur2, r[0])
+
+    @commands.command(name='reconnect')
+    @commands.guild_only()
+    @commands.has_role('Admins')
+    async def reconnect(self, ctx):
+        """List all encounters, sorted by Pokemon number"""
+
+        if self.bot.pool:
+            self.bot.pool.close()
+            await self.bot.pool.wait_closed()
+        try:
+            self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
+                                                       user=self.bot.configs['user'], password=self.bot.configs['pass'],
+                                                       db=self.bot.configs['db'])
+            await ctx.send("Success")
+        except:
+            await ctx.send("Failure")
 
 def setup(bot):
     bot.add_cog(ResearchCog(bot))

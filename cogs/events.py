@@ -18,9 +18,13 @@ class EventsCog:
 
         print(f'Successfully logged in and booted...!')
 
-        self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
+        try:
+            self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
                                                    user=self.bot.configs['user'], password=self.bot.configs['pass'],
                                                    db=self.bot.configs['db'])
+            print(self.bot.pool)
+        except:
+            pass
 
     async def on_message(self, message: discord.Message):
         for mention in message.role_mentions:
