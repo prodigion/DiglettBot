@@ -8,21 +8,35 @@ class ResearchCog:
     def __init__(self, bot):
         self.bot = bot
 
+    async def get_stats(self, ctx):
+        """How many pokestops have been scanned."""
+
+        async with self.bot.pool.acquire() as conn:
+            async with conn.cursor() as cur:
+                await cur.execute(f"select count(*) from pokestop;")
+                (self.numStops,) = await cur.fetchone()
+                await cur.execute(f"select count(*) from pokestop where quest_type is not null;")
+                (self.numScannedStops,) = await cur.fetchone()
+
     async def get_quest(self, ctx, cur, mon: int):
         """List all encounters for a specific Pokemon."""
+
+        header = f"Research for {datetime.date.today():%B %d} - {self.bot.pokedex[f'{mon:03}']}\n" \
+                 f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n\n"
 
         await cur.execute(f"select * from pokestop where quest_pokemon_id={mon};")
         numResults = cur.rowcount
         if numResults == 0:
             await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.pokedex[f'{mon:03}']}."))
         ctr = 0
-        questList = f"Research for {datetime.date.today():%B %d} - {self.bot.pokedex[f'{mon:03}']}\n\n"
+        questList = header
         async for r in cur:
             ctr += 1
-            questList += f'({ctr}/{numResults}) Poketop: [{r[3]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
-            if len(questList) > 1700 or ctr == numResults:
+            questList += f'({ctr}/{numResults}) PokeStop: [{r[3]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
+            if len(questList) > 1850 or ctr == numResults:
                 await ctx.send(embed=discord.Embed(description=questList))
-                questList = f"Research for {datetime.date.today():%B %d} - {self.bot.pokedex[f'{mon:03}']}\n\n"
+                await ctx.author.send(embed=discord.Embed(description=questList))
+                questList = header
 
     @commands.command(name='dig')
     @commands.guild_only()
@@ -40,10 +54,11 @@ class ResearchCog:
                 mon = 0
 
             try:
+                await self.get_stats(ctx)
                 async with self.bot.pool.acquire() as conn:
                     async with conn.cursor() as cur:
                         await self.get_quest(ctx, cur, int(mon))
-            except OperationalError:
+            except (OperationalError, RuntimeError):
                 await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
     @commands.command(name='dugtrio')
@@ -71,13 +86,13 @@ class ResearchCog:
     async def reconnect(self, ctx):
         """List all encounters, sorted by Pokemon number"""
 
-        if self.bot.pool:
-            self.bot.pool.close()
-            await self.bot.pool.wait_closed()
         try:
+            if self.bot.pool:
+                self.bot.pool.close()
+                await self.bot.pool.wait_closed()
             self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
                                                        user=self.bot.configs['user'], password=self.bot.configs['pass'],
-                                                       db=self.bot.configs['db'])
+                                                       db=self.bot.configs['db'], autocommit=True)
             await ctx.send("Success")
         except:
             await ctx.send("Failure")

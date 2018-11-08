@@ -20,8 +20,8 @@ class EventsCog:
 
         try:
             self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
-                                                   user=self.bot.configs['user'], password=self.bot.configs['pass'],
-                                                   db=self.bot.configs['db'])
+                                                       user=self.bot.configs['user'], password=self.bot.configs['pass'],
+                                                       db=self.bot.configs['db'], autocommit=True)
         except:
             pass
 
