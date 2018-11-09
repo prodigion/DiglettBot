@@ -21,6 +21,14 @@ class UtilityCog:
         """Is the bot cool?"""
         await ctx.send('This bot is cool. :)')
 
+    @commands.command(name='say', aliases=['copy', 'mimic'])
+    @commands.is_owner()
+    async def do_say(self, ctx, *, comment: str):
+        """A simple command which repeats our input."""
+
+        await ctx.message.delete()
+        await ctx.send(comment)
+
     @commands.command(name='nests')
     @commands.guild_only()
     async def print_nests(self, ctx):
@@ -37,12 +45,13 @@ class UtilityCog:
     async def clean_roles(self, ctx):
         """Clean Roles"""
 
-        forbiddenRoles = ['pichu', 'togepi', 'elekid', 'magby', 'smoochum', 'tyrogue', 'azurill', 'wynaut', 'riolu', 'mime jr', 'munchlax',
+        # Forbid Babies, Regionals, Special Research, item evolves, Gen2/3 unreleased, Gen4 unreleased
+        forbiddenRoles = ['pichu', 'cleffa', 'igglybuff', 'togepi', 'tyrogue', 'smoochum', 'elekid', 'magby', 'azurill', 'wynaut', 'budew', 'chingling', 'bonsly', 'mime jr', 'happiny', 'munchlax', 'riolu', 'mantyke',
                           'corsola', "farfetch'd", 'heracross', 'kangaskhan', 'mr mime', 'relicanth', 'solrock', 'torkoal', 'tropius', 'volbeat', 'zangoose', 'pachirisu', 'chatot', 'carnivine',
-                          'celebi', 'jirachi', 'mew',
-                          'delibird', 'espeon', 'flygon', 'gardevoir', 'kingdra', 'ludicolo', 'metagross', 'milotic', 'porygon2', 'salamence', 'scizor', 'slaking', 'steelix', 'sunflora', 'umbreon', 'wailord',
-                          'gorebyss', 'huntail', 'kecleon', 'smeargle',
-                          'budew', 'roserade', 'cranidos', 'rampardos', 'shieldon', 'bastiodon', 'burmy', 'wormadam', 'mothim', 'combee', 'vespiquen', 'buizel', 'floatzel', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'ambipom', 'mismagius', 'honchkrow', 'glameow', 'purugly', 'chingling', 'bronzor', 'bronzong', 'bonsly', 'happiny', 'spiritomb', 'gible', 'gabite', 'garchomp', 'hippopotas', 'hippowdon', 'skorupi', 'drapion', 'croagunk', 'toxicroak', 'finneon', 'lumineon', 'mantyke', 'snover', 'abomasnow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass', 'rotom', 'uxie', 'mesprit', 'azelf', 'dialga', 'palkia', 'heatran', 'regigigas', 'cresselia', 'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus'
+                          'celebi', 'jirachi', 'mew', 'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'spiritomb',
+                          'espeon', 'flygon', 'gardevoir', 'kingdra', 'ludicolo', 'metagross', 'milotic', 'porygon2', 'salamence', 'scizor', 'slaking', 'steelix', 'sunflora', 'umbreon', 'wailord', 'floatzel',
+                          'smeargle', 'kecleon', 'clamperl', 'huntail', 'gorebyss',
+                          'roserade', 'cranidos', 'rampardos', 'shieldon', 'bastiodon', 'burmy', 'wormadam', 'mothim', 'combee', 'vespiquen', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'ambipom', 'mismagius', 'honchkrow', 'glameow', 'purugly', 'bronzor', 'bronzong', 'gible', 'gabite', 'garchomp', 'hippopotas', 'hippowdon', 'skorupi', 'drapion', 'croagunk', 'toxicroak', 'finneon', 'lumineon', 'snover', 'abomasnow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass', 'rotom'
                          ]
         clearedRoles = 0
         for delRole in forbiddenRoles:
