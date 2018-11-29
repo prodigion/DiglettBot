@@ -22,7 +22,8 @@ initial_extensions = ['cogs.events',
                       'cogs.utilities',
                       'cogs.owner']
 
-bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett Bot. Trio Trio Trio.')
+with open ("TOKEN", "r") as tokenFile:
+    token = tokenFile.readline()
 
 with open('config.json', 'r') as f:
     bot.configs = json.load(f)
@@ -35,6 +36,7 @@ with open('data/items.json', 'r') as f:
 
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
+    bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett Bot. Trio Trio Trio.')
     for extension in initial_extensions:
         try:
             bot.load_extension(extension)
@@ -42,4 +44,4 @@ if __name__ == '__main__':
             print(f'Failed to load extension {extension}.', file=sys.stderr)
             traceback.print_exc()
 
-bot.run(bot.configs['token'], bot=True, reconnect=True)
+    bot.run(token, bot=True, reconnect=True)
