@@ -51,6 +51,9 @@ with open('config.json', 'r') as f:
 with open('data/pokedex.json', 'r') as f:
     bot.pokedex = json.load(f)
 
+with open('data/items.json', 'r') as f:
+    bot.items = json.load(f)
+
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
     for extension in initial_extensions:
