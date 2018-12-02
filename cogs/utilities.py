@@ -35,7 +35,7 @@ class UtilityCog:
         """Print nests"""
 
         if ctx.channel.name == "migration-chat":
-          await ctx.send(f'Reposting NestDoc links; see below...\n\nhttps://goo.gl/jRvJWH (Active nests)\nhttps://goo.gl/hQ5B7B (Submit nesting Pokemon)')
+          await ctx.send(self.bot.configs[str(ctx.guild.id)]['nests'])
 
         await ctx.message.delete()
 

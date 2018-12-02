@@ -60,7 +60,7 @@ class MembersCog:
 
     async def setWelcomeMessage(self, channel: discord.TextChannel):
         await channel.purge()
-        welcomeMsg = await channel.send("Welcome to PokeOntario, please choose a team! If you have any questions tag the `@Mods`.")
+        welcomeMsg = await channel.send(f"Welcome to {channel.guild.name}, please choose a team! If you have any questions tag the `@Mods`.")
 
         await welcomeMsg.add_reaction(":instinct:408859733831843867")
         await welcomeMsg.add_reaction(":valor:408859732280082444")

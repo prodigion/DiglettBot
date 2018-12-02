@@ -18,12 +18,14 @@ class EventsCog:
 
         print(f'Successfully logged in and booted...!')
 
-        try:
-            self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
-                                                       user=self.bot.configs['user'], password=self.bot.configs['pass'],
-                                                       db=self.bot.configs['db'], autocommit=True)
-        except:
-            pass
+        for guild in self.bot.guilds:
+            await self.bot.get_cog("MembersCog").setWelcomeMessage(discord.utils.get(guild.channels, name="team-select"))
+            try:
+                self.bot.pool = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
+                                                           user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
+                                                           db=self.bot.configs[guild]['db'], autocommit=True)
+            except:
+                pass
 
     async def on_message(self, message: discord.Message):
         for mention in message.role_mentions:

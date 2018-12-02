@@ -99,7 +99,7 @@ class ResearchCog:
                             await self.get_encounters(ctx, cur, int(mon))
                         elif type == "item":
                             await self.get_quests(ctx, cur, int(mon), "items")
-            except (OperationalError, RuntimeError):
+            except (OperationalError, RuntimeError, AttributeError):
                 await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
     @commands.command(name='dugtrio')
@@ -138,9 +138,10 @@ class ResearchCog:
             if self.bot.pool:
                 self.bot.pool.close()
                 await self.bot.pool.wait_closed()
-            self.bot.pool = await aiomysql.create_pool(host=self.bot.configs['host'], port=self.bot.configs['port'],
-                                                       user=self.bot.configs['user'], password=self.bot.configs['pass'],
-                                                       db=self.bot.configs['db'], autocommit=True)
+            guild = str(ctx.guild.id)
+            self.bot.pool = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
+                                                       user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
+                                                       db=self.bot.configs[guild]['db'], autocommit=True)
             await ctx.send("Success")
         except:
             await ctx.send("Failure")
