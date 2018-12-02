@@ -56,8 +56,11 @@ class MembersCog:
     @commands.command(name='welcome')
     @commands.guild_only()
     async def show_welcome(self, ctx):
-        welcomeMsg = await ctx.send("Welcome to PokeOntario, please choose a team! If you have any questions tag the `@Mods`.")
-        await ctx.message.delete()
+        await self.setWelcomeMessage(ctx.channel)
+
+    async def setWelcomeMessage(self, channel: discord.TextChannel):
+        await channel.purge()
+        welcomeMsg = await channel.send("Welcome to PokeOntario, please choose a team! If you have any questions tag the `@Mods`.")
 
         await welcomeMsg.add_reaction(":instinct:408859733831843867")
         await welcomeMsg.add_reaction(":valor:408859732280082444")
