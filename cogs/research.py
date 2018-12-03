@@ -118,10 +118,10 @@ class ResearchCog:
                     numResults = cur.rowcount
                     if numResults <= 1:
                         await ctx.send(f"No research found")
+                    await self.get_stats(ctx)
                     async with self.bot.pool.acquire() as conn2:
                         async with conn.cursor() as cur2:
                             async for r in cur:
-                                print(r)
                                 if r[0]:
                                     if type == "items":
                                         await self.get_quests(ctx, cur2, r[0], "items")
@@ -132,19 +132,23 @@ class ResearchCog:
     @commands.guild_only()
     @commands.has_role('Admins')
     async def reconnect(self, ctx):
-        """List all encounters, sorted by Pokemon number"""
-
+        """Reconnect to map DB"""
         try:
-            if self.bot.pool:
-                self.bot.pool.close()
-                await self.bot.pool.wait_closed()
-            guild = str(ctx.guild.id)
-            self.bot.pool = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
-                                                       user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
-                                                       db=self.bot.configs[guild]['db'], autocommit=True)
+            await self.connectDB(ctx.guild.id)
             await ctx.send("Success")
         except:
             await ctx.send("Failure")
+
+    async def connectDB(self, guild):
+        try:
+            self.bot.pool.close()
+            await self.bot.pool.wait_closed()
+        except:
+            pass
+        guild = str(guild)
+        self.bot.pool = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
+                                                   user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
+                                                   db=self.bot.configs[guild]['db'], autocommit=True)
 
 def setup(bot):
     bot.add_cog(ResearchCog(bot))

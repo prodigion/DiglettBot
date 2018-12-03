@@ -21,9 +21,7 @@ class EventsCog:
         for guild in self.bot.guilds:
             await self.bot.get_cog("MembersCog").setWelcomeMessage(discord.utils.get(guild.channels, name="team-select"))
             try:
-                self.bot.pool = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
-                                                           user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
-                                                           db=self.bot.configs[guild]['db'], autocommit=True)
+                await self.bot.get_cog("ResearchCog").connectDB(guild.id)
             except:
                 pass
 
