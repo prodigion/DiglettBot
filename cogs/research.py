@@ -18,28 +18,34 @@ class ResearchCog:
                 await cur.execute(f"select count(*) from pokestop where quest_type is not null;")
                 (self.numScannedStops,) = await cur.fetchone()
 
-    async def get_quests(self, ctx, cur, mon: int, type = "encounter"):
+    async def get_quests(self, ctx, cur, mon: int, type = "encounters"):
         """List all quests for a specific reward."""
 
-        if type == "encounter":
+        if type == "encounters":
             reward = self.bot.pokedex[f'{mon:03}']
-        elif type == "item":
+        elif type == "items":
             reward = self.bot.items[f'{mon}']
+        elif type == "stardust":
+            reward == "Stardust"
 
         header = f"Research for {datetime.date.today():%B %d} - {reward}\n" \
                  f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n\n"
 
-        if type == "encounter":
+        if type == "encounters":
             await cur.execute(f"select * from pokestop where quest_pokemon_id={mon};")
-        elif type == "item":
+        elif type == "items":
             await cur.execute(f"select * from pokestop where quest_item_id={mon};")
+        elif type == "stardust":
+            pass
 
         numResults = cur.rowcount
         if numResults == 0:
-            if type == "encounter":
+            if type == "encounters":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.pokedex[f'{mon:03}']}."))
-            elif type == "item":
+            elif type == "items":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.items[f'{mon}']}."))
+            elif type == "stardust":
+                await ctx.send(embed=discord.Embed(description="No results found for Stardust."))
         ctr = 0
         questList = header
         async for r in cur:
@@ -75,7 +81,7 @@ class ResearchCog:
     async def get_research(self, ctx, monName = ""):
         """List all encounters for a specific Pokemon."""
 
-        type = "mon"
+        type = "stardust" if monName.lower() == "stardust" else "encounters"
         if ctx.channel.name == "pokestop-reports":
             if monName == "":
                 await ctx.send("Please select a mon or item to search for. For example, `!dig Chansey`")
@@ -87,7 +93,7 @@ class ResearchCog:
                 except StopIteration:
                     mon = next(key for key, value in self.bot.items.items() if value.lower() == monName.lower())
                     monName = self.bot.items[mon]
-                    type = "item"
+                    type = "items"
             except StopIteration:
                 mon = 0
 
@@ -95,10 +101,10 @@ class ResearchCog:
                 await self.get_stats(ctx)
                 async with self.bot.pool.acquire() as conn:
                     async with conn.cursor() as cur:
-                        if type == "mon":
+                        if type == "encounters":
                             await self.get_encounters(ctx, cur, int(mon))
-                        elif type == "item":
-                            await self.get_quests(ctx, cur, int(mon), "items")
+                        elif type == "items" or type == "stardust":
+                            await self.get_quests(ctx, cur, int(mon), type)
             except (OperationalError, RuntimeError, AttributeError):
                 await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
@@ -111,10 +117,12 @@ class ResearchCog:
         if ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as cur:
-                    if type == "items":
-                        await cur.execute(f"select distinct quest_item_id from pokestop;")
-                    else:
+                    if type == "encounters":
                         await cur.execute(f"select distinct quest_pokemon_id from pokestop;")
+                    elif type == "items":
+                        await cur.execute(f"select distinct quest_item_id from pokestop;")
+                    elif type == "stardust":
+                        pass
                     numResults = cur.rowcount
                     if numResults <= 1:
                         await ctx.send(f"No research found")
@@ -123,8 +131,8 @@ class ResearchCog:
                         async with conn.cursor() as cur2:
                             async for r in cur:
                                 if r[0]:
-                                    if type == "items":
-                                        await self.get_quests(ctx, cur2, r[0], "items")
+                                    if type == "items" or type == "stardust":
+                                        await self.get_quests(ctx, cur2, r[0], type)
                                     else:
                                         await self.get_encounters(ctx, cur2, r[0])
 
