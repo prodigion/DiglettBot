@@ -18,7 +18,7 @@ class ResearchCog:
                 await cur.execute(f"select count(*) from pokestop where quest_type is not null;")
                 (self.numScannedStops,) = await cur.fetchone()
 
-    async def get_quests(self, ctx, cur, mon: int, type = "encounters"):
+    async def get_quests(self, ctx, cur, mon: int, type):
         """List all quests for a specific reward."""
 
         if type == "encounters":
@@ -32,11 +32,11 @@ class ResearchCog:
                  f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n\n"
 
         if type == "encounters":
-            await cur.execute(f"select * from pokestop where quest_pokemon_id={mon};")
+            await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon};")
         elif type == "items":
-            await cur.execute(f"select * from pokestop where quest_item_id={mon};")
+            await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 2 and quest_item_id={mon};")
         elif type == "stardust":
-            await cur.execute(f"select * from pokestop where json_extract(json_extract(quest_rewards,_utf8mb4'$[*].type'),_utf8mb4'$[0]') = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon};")
+            await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon};")
 
         numResults = cur.rowcount
         if numResults == 0:
@@ -50,7 +50,7 @@ class ResearchCog:
         questList = header
         async for r in cur:
             ctr += 1
-            questList += f'({ctr}/{numResults}) PokeStop: [{r[3]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
+            questList += f'({ctr}/{numResults}) PokeStop: [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
             if len(questList) > 1850 or ctr == numResults:
                 await ctx.send(embed=discord.Embed(description=questList))
                 await ctx.author.send(embed=discord.Embed(description=questList))
@@ -103,11 +103,11 @@ class ResearchCog:
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as cur:
                     if type == "encounters":
-                        await cur.execute(f"select distinct quest_pokemon_id from pokestop;")
+                        await cur.execute(f"select distinct quest_pokemon_id from pokestop where quest_reward_type = 7;")
                     elif type == "items":
-                        await cur.execute(f"select distinct quest_item_id from pokestop;")
+                        await cur.execute(f"select distinct quest_item_id from pokestop where quest_reward_type = 2;")
                     elif type == "stardust":
-                        await cur.execute(f"select distinct json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where json_extract(json_extract(quest_rewards,_utf8mb4'$[*].type'),_utf8mb4'$[0]') = 3;")
+                        await cur.execute(f"select distinct json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 3;")
                     numResults = cur.rowcount
                     if numResults <= 1:
                         await ctx.send(f"No research found")
