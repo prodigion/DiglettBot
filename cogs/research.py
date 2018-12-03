@@ -56,26 +56,6 @@ class ResearchCog:
                 await ctx.author.send(embed=discord.Embed(description=questList))
                 questList = header
 
-    async def get_encounters(self, ctx, cur, mon: int):
-        """List all encounters for a specific Pokemon."""
-
-        header = f"Research for {datetime.date.today():%B %d} - {self.bot.pokedex[f'{mon:03}']}\n" \
-                 f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n\n"
-
-        await cur.execute(f"select * from pokestop where quest_pokemon_id={mon};")
-        numResults = cur.rowcount
-        if numResults == 0:
-            await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.pokedex[f'{mon:03}']}."))
-        ctr = 0
-        questList = header
-        async for r in cur:
-            ctr += 1
-            questList += f'({ctr}/{numResults}) PokeStop: [{r[3]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
-            if len(questList) > 1850 or ctr == numResults:
-                await ctx.send(embed=discord.Embed(description=questList))
-                await ctx.author.send(embed=discord.Embed(description=questList))
-                questList = header
-
     @commands.command(name='dig')
     @commands.guild_only()
     async def get_research(self, ctx, monName = ""):
@@ -101,17 +81,14 @@ class ResearchCog:
                 await self.get_stats(ctx)
                 async with self.bot.pool.acquire() as conn:
                     async with conn.cursor() as cur:
-                        if type == "encounters":
-                            await self.get_encounters(ctx, cur, int(mon))
-                        elif type == "items" or type == "stardust":
-                            await self.get_quests(ctx, cur, int(mon), type)
+                        await self.get_quests(ctx, cur, int(mon), type)
             except (OperationalError, RuntimeError, AttributeError):
                 await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
     @commands.command(name='dugtrio')
     @commands.guild_only()
     @commands.has_role('Admins')
-    async def get_all_research(self, ctx, type=""):
+    async def get_all_research(self, ctx, type="encounters"):
         """List all encounters, sorted by Pokemon number"""
 
         if ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
@@ -130,11 +107,7 @@ class ResearchCog:
                     async with self.bot.pool.acquire() as conn2:
                         async with conn.cursor() as cur2:
                             async for r in cur:
-                                if r[0]:
-                                    if type == "items" or type == "stardust":
-                                        await self.get_quests(ctx, cur2, r[0], type)
-                                    else:
-                                        await self.get_encounters(ctx, cur2, r[0])
+                                if r[0]: await self.get_quests(ctx, cur2, r[0], type)
 
     @commands.command(name='reconnect')
     @commands.guild_only()
