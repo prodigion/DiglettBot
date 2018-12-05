@@ -17,11 +17,12 @@ def get_prefix(bot, message):
     return commands.when_mentioned_or(*prefixes)(bot, message)
 
 def load_data(bot):
+    bot.data = dict()
     with open('data/pokedex.json', 'r') as f:
-        bot.pokedex = json.load(f)
+        bot.data['pokedex'] = json.load(f)
 
     with open('data/items.json', 'r') as f:
-        bot.items = json.load(f)
+        bot.data['items'] = json.load(f)
 
 initial_extensions = ['cogs.configs',
                       'cogs.events',

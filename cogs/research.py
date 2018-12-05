@@ -22,9 +22,9 @@ class ResearchCog:
         """List all quests for a specific reward."""
 
         if type == "encounters":
-            reward = self.bot.pokedex[f'{mon:03}']
+            reward = self.bot.data['pokedex'][f'{mon:03}']
         elif type == "items":
-            reward = self.bot.items[f'{mon}']
+            reward = self.bot.data['items'][f'{mon}']
         elif type == "stardust":
             reward = f'Stardust ({mon})' if mon else 'Stardust'
 
@@ -41,9 +41,9 @@ class ResearchCog:
         numResults = cur.rowcount
         if numResults == 0:
             if type == "encounters":
-                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.pokedex[f'{mon:03}']}."))
+                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][f'{mon:03}']}."))
             elif type == "items":
-                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.items[f'{mon}']}."))
+                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][f'{mon}']}."))
             elif type == "stardust":
                 await ctx.send(embed=discord.Embed(description=f"No results found for Stardust ({mon})."))
         ctr = 0
@@ -71,12 +71,12 @@ class ResearchCog:
             else:
                 try:
                     try:
-                        mon = next(key for key, value in self.bot.pokedex.items() if value.lower() == monName.lower())
-                        monName = self.bot.pokedex[mon]
+                        mon = next(key for key, value in self.bot.data['pokedex'].items() if value.lower() == monName.lower())
+                        monName = self.bot.data['pokedex'][mon]
                         type = "encounters"
                     except StopIteration:
-                        mon = next(key for key, value in self.bot.items.items() if value.lower() == monName.lower())
-                        monName = self.bot.items[mon]
+                        mon = next(key for key, value in self.bot.data['items'].items() if value.lower() == monName.lower())
+                        monName = self.bot.data['items'][mon]
                         type = "items"
                 except StopIteration:
                     mon = 0
