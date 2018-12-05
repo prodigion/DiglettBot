@@ -3,6 +3,7 @@ from discord.ext import commands
 import aiomysql
 from pymysql.err import OperationalError
 import datetime
+import json
 
 class ResearchCog:
     def __init__(self, bot):
@@ -18,43 +19,71 @@ class ResearchCog:
                 await cur.execute(f"select count(*) from pokestop where quest_type is not null;")
                 (self.numScannedStops,) = await cur.fetchone()
 
+    def parse_quest_type(self, type, target):
+        return f"{self.bot.data['quests']['types'][type]} ({target})"
+
+    def parse_quest_conditions(self, conditions):
+        data = self.bot.data['quests']['conditions']
+        if not conditions: return ""
+        out = ""
+        for condition in conditions:
+            print(condition)
+            out += f"{data[condition['type']]} "
+            if condition.get('info'):
+                if condition['info'].get('throw_type_id'): out += f"{self.bot.data['activities'][condition['info']['throw_type_id']]} "
+                if condition['info'].get('pokemon_type_ids'):
+                    for type in condition['info']['pokemon_type_ids']:
+                        out += f"{self.bot.data['pokemon_types'][type]} "
+                if condition['info'].get('pokemon_ids'):
+                    for pokemon in condition['info']['pokemon_ids']:
+                        out += f"{self.bot.data['pokemon'][pokemon]} "
+                if condition['info'].get('raid_levels'): out += str(condition['info']['raid_levels']) + " "
+        return out + "\n"
+
     async def get_quests(self, ctx, cur, mon: int, type):
         """List all quests for a specific reward."""
 
         if type == "encounters":
-            reward = self.bot.data['pokedex'][f'{mon:03}']
+            reward = self.bot.data['pokedex'][mon]
         elif type == "items":
-            reward = self.bot.data['items'][f'{mon}']
+            reward = self.bot.data['items'][mon]
         elif type == "stardust":
             reward = f'Stardust ({mon})' if mon else 'Stardust'
 
         header = f"Research for {datetime.date.today():%B %d} - {reward}\n" \
-                 f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n\n"
+                 f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
 
         if type == "encounters":
+            await cur.execute(f"select quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} limit 1;")
+            async for r in cur:
+                header += self.parse_quest_type(r[0], r[1]) + "\n"
+                header += self.parse_quest_conditions(json.loads(r[2]))
             await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon};")
         elif type == "items":
-            await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 2 and quest_item_id={mon};")
+#            await cur.execute(f"select quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 2 and quest_item_id={mon} limit 1;")
+#            async for r in cur:
+#                header += self.bot.data['quests']['types'][str(r[0])] + f" ({r[1]})" + str(r[2]) + "\n"
+            await cur.execute(f"select name, lat, lon, json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 2 and quest_item_id={mon};")
         elif type == "stardust":
             await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon};")
 
         numResults = cur.rowcount
         if numResults == 0:
             if type == "encounters":
-                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][f'{mon:03}']}."))
+                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][mon]}."))
             elif type == "items":
-                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][f'{mon}']}."))
+                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][mon]}."))
             elif type == "stardust":
                 await ctx.send(embed=discord.Embed(description=f"No results found for Stardust ({mon})."))
         ctr = 0
-        questList = header
+        questList = header + "\n"
         async for r in cur:
             ctr += 1
             questList += f'({ctr}/{numResults}) PokeStop: [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
             if len(questList) > 1850 or ctr == numResults:
                 await ctx.send(embed=discord.Embed(description=questList))
                 await ctx.author.send(embed=discord.Embed(description=questList))
-                questList = header
+                questList = header + "\n"
 
     @commands.command(name='dig')
     @commands.guild_only()
@@ -103,11 +132,11 @@ class ResearchCog:
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as cur:
                     if type == "encounters":
-                        await cur.execute(f"select distinct quest_pokemon_id from pokestop where quest_reward_type = 7;")
+                        await cur.execute(f"select distinct quest_pokemon_id from pokestop where quest_reward_type = 7 order by quest_pokemon_id;")
                     elif type == "items":
-                        await cur.execute(f"select distinct quest_item_id from pokestop where quest_reward_type = 2;")
+                        await cur.execute(f"select distinct quest_item_id from pokestop where quest_reward_type = 2 order by quest_item_id;")
                     elif type == "stardust":
-                        await cur.execute(f"select distinct json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 3;")
+                        await cur.execute(f"select distinct json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount from pokestop where quest_reward_type = 3 order by amount;")
                     numResults = cur.rowcount
                     if numResults <= 1:
                         await ctx.send(f"No research found")

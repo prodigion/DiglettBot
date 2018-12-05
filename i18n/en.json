@@ -650,10 +650,10 @@
             "3": "Weather boost",
             "4": "Daily capture bonus",
             "5": "Daily spin bonus",
-            "6": "Win raid status",
+            "6": "Win raid",
             "7": "Raid level",
             "8": "Throw type",
-            "9": "Win gym battle status",
+            "9": "Win gym battle",
             "10": "Super effective charge",
             "11": "Item",
             "12": "Unique pokestop",
@@ -662,7 +662,7 @@
             "15": "Curve ball",
             "16": "Badge type",
             "17": "Player level",
-            "18": "Win battle status",
+            "18": "Win battle",
             "19": "New friend",
             "20": "Days in a row"
         }

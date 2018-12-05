@@ -16,6 +16,16 @@ def get_prefix(bot, message):
     # If we are in a guild, we allow for the user to mention us or use any of the prefixes in our list.
     return commands.when_mentioned_or(*prefixes)(bot, message)
 
+def load_data(bot):
+    with open('i18n/en.json', 'r') as f:
+        bot.data = json.load(f)
+
+    for data in ('pokedex', 'items', 'pokemon_types', 'activities'):
+        bot.data[data] = {int(k):v for k,v in bot.data[data].items()}
+
+    for data in ('types', 'conditions'):
+        bot.data['quests'][data] = {int(k):v for k,v in bot.data['quests'][data].items()}
+
 initial_extensions = ['cogs.configs',
                       'cogs.events',
                       'cogs.members',
@@ -29,9 +39,7 @@ with open ("TOKEN", "r") as tokenFile:
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
     bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett Bot. Trio Trio Trio.')
-
-    with open('i18n/en.json', 'r') as f:
-        bot.data = json.load(f)
+    load_data(bot)
 
     for extension in initial_extensions:
         try:
