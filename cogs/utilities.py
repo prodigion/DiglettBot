@@ -45,13 +45,19 @@ class UtilityCog:
     async def clean_roles(self, ctx):
         """Clean Roles"""
 
-        # Forbid Babies, Regionals, Special Research, item evolves, Gen2/3 unreleased, Gen4 unreleased
+        # Forbid Babies, Regionals, Special Research, Legendary (1, 2, 3, 4), Uncatchable (2, 3, 4), Unreleased (1, 2, 3, 4)
         forbiddenRoles = ['pichu', 'cleffa', 'igglybuff', 'togepi', 'tyrogue', 'smoochum', 'elekid', 'magby', 'azurill', 'wynaut', 'budew', 'chingling', 'bonsly', 'mime jr', 'happiny', 'munchlax', 'riolu', 'mantyke',
                           'corsola', "farfetch'd", 'heracross', 'kangaskhan', 'mr mime', 'relicanth', 'solrock', 'torkoal', 'tropius', 'volbeat', 'zangoose', 'pachirisu', 'chatot', 'carnivine',
-                          'celebi', 'jirachi', 'mew', 'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'spiritomb',
-                          'espeon', 'flygon', 'gardevoir', 'kingdra', 'ludicolo', 'metagross', 'milotic', 'porygon2', 'salamence', 'scizor', 'slaking', 'steelix', 'sunflora', 'umbreon', 'wailord', 'floatzel',
+                          'celebi', 'jirachi', 'mew', 'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'spiritomb', 'meltan', 'melmetal',
+                          'articuno', 'moltres', 'zapdos', 'mewtwo',
+                          'raikou', 'entei', 'suicune', 'lugia', 'ho-oh',
+                          'regirock', 'regice', 'registeel', 'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'deoxys',
+                          'uxie', 'mesprit', 'azelf', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+                          'bellossom', 'politoed', 'sunflora', 'espeon', 'umbreon', 'slowking', 'steelix', 'scizor', 'kingdra', 'porygon2',
+                          'nincada', 'ninjask', 'mawile', 'spinda', 'altaria', 'milotic', 'absol',
+                          'roserade', 'mismagius', 'honchkrow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass',
                           'smeargle', 'kecleon', 'clamperl', 'huntail', 'gorebyss',
-                          'roserade', 'cranidos', 'rampardos', 'shieldon', 'bastiodon', 'burmy', 'wormadam', 'mothim', 'combee', 'vespiquen', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'ambipom', 'mismagius', 'honchkrow', 'glameow', 'purugly', 'bronzor', 'bronzong', 'gible', 'gabite', 'garchomp', 'hippopotas', 'hippowdon', 'skorupi', 'drapion', 'croagunk', 'toxicroak', 'finneon', 'lumineon', 'snover', 'abomasnow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass', 'rotom'
+                          'cranidos', 'rampardos', 'shieldon', 'bastiodon', 'burmy', 'wormadam', 'mothim', 'combee', 'vespiquen', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'ambipom', 'glameow', 'purugly', 'gible', 'gabite', 'garchomp', 'hippopotas', 'hippowdon', 'rotom'
                          ]
         clearedRoles = 0
         for delRole in forbiddenRoles:
