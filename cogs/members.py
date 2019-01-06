@@ -148,7 +148,7 @@ class MembersCog:
                 await ctx.author.add_roles(role)
                 await ctx.send(f'Role added: ' + role.name)
 
-    @commands.command(name='offtopic', aliases=['music', 'chat'])
+    @commands.command(name='offtopic', aliases=['music', 'chat', 'exraid'])
     @commands.guild_only()
     async def set_role(self, ctx):
         """Set non-primary roles"""
