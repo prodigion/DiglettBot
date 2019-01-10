@@ -132,19 +132,35 @@ class ResearchCog:
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as cur:
                     if type == "encounters":
-                        await cur.execute(f"select distinct quest_pokemon_id from pokestop where quest_reward_type = 7 order by quest_pokemon_id;")
+                        await cur.execute(f"select quest_pokemon_id, quest_template, count(*) from pokestop where quest_reward_type = 7 group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
                     elif type == "items":
-                        await cur.execute(f"select distinct quest_item_id from pokestop where quest_reward_type = 2 order by quest_item_id;")
+                        await cur.execute(f"select quest_item_id, quest_template, count(*) from pokestop where quest_reward_type = 2 group by quest_item_id, quest_template order by quest_item_id;")
                     elif type == "stardust":
-                        await cur.execute(f"select distinct json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount from pokestop where quest_reward_type = 3 order by amount;")
+                        await cur.execute(f"select json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, count(*) from pokestop where quest_reward_type = 3 group by amount, quest_template order by amount;")
+
                     numResults = cur.rowcount
                     if numResults <= 1:
                         await ctx.send(f"No research found")
                     await self.get_stats(ctx)
-                    async with self.bot.pool.acquire() as conn2:
-                        async with conn.cursor() as cur2:
-                            async for r in cur:
-                                if r[0]: await self.get_quests(ctx, cur2, r[0], type)
+
+                    ctr = 0
+                    header = f"Available research for {datetime.date.today():%B %d}\n" \
+                             f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
+
+                    questList = header + "\n"
+                    async for r in cur:
+                        ctr += 1
+                        if type == "encounters":
+                            reward = self.bot.data['pokedex'][r[0]]
+                        elif type == "items":
+                            reward = self.bot.data['items'][r[0]]
+                        elif type == "stardust":
+                            reward = f'Stardust ({r[0]})'
+
+                        questList += f'{r[2]} quests for {reward} <{r[1]}>\n'
+                        if len(questList) > 1850 or ctr == numResults:
+                            await ctx.send(embed=discord.Embed(description=questList))
+                            questList = header + "\n"
 
     @commands.command(name='map')
     @commands.guild_only()
