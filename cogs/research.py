@@ -38,7 +38,11 @@ class ResearchCog:
                     for pokemon in condition['info']['pokemon_ids']:
                         out += f"{self.bot.data['pokemon'][pokemon]} "
                 if condition['info'].get('raid_levels'): out += str(condition['info']['raid_levels']) + " "
-        return out + "\n"
+        return out
+
+    def parse_quest_template(self, template):
+        if not template: return ""
+        return self.bot.data['quests']['templates'][template]
 
     async def get_quests(self, ctx, cur, mon: int, type):
         """List all quests for a specific reward."""
@@ -54,10 +58,13 @@ class ResearchCog:
                  f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
 
         if type == "encounters":
-            await cur.execute(f"select quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} limit 1;")
+            await cur.execute(f"select quest_type, quest_target, quest_conditions, quest_template from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} limit 1;")
             async for r in cur:
-                header += self.parse_quest_type(r[0], r[1]) + "\n"
-                header += self.parse_quest_conditions(json.loads(r[2]))
+                questRequirement = self.parse_quest_template(r[3])
+                if questRequirement == "":
+                    questRequirement = self.parse_quest_type(r[0], r[1]) + "\n"
+                    questRequirement += f"<{r[2]}> " + self.parse_quest_conditions(json.loads(r[2]))
+                header += questRequirement + "\n"
             await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon};")
         elif type == "items":
 #            await cur.execute(f"select quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 2 and quest_item_id={mon} limit 1;")
@@ -132,11 +139,11 @@ class ResearchCog:
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as cur:
                     if type == "encounters":
-                        await cur.execute(f"select quest_pokemon_id, quest_template, count(*) from pokestop where quest_reward_type = 7 group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
+                        await cur.execute(f"select quest_pokemon_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 7 group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
                     elif type == "items":
-                        await cur.execute(f"select quest_item_id, quest_template, count(*) from pokestop where quest_reward_type = 2 group by quest_item_id, quest_template order by quest_item_id;")
+                        await cur.execute(f"select quest_item_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 2 group by quest_item_id, quest_template order by quest_item_id;")
                     elif type == "stardust":
-                        await cur.execute(f"select json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, count(*) from pokestop where quest_reward_type = 3 group by amount, quest_template order by amount;")
+                        await cur.execute(f"select json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 3 group by amount, quest_template order by amount;")
 
                     numResults = cur.rowcount
                     if numResults <= 1:
@@ -157,7 +164,9 @@ class ResearchCog:
                         elif type == "stardust":
                             reward = f'Stardust ({r[0]})'
 
-                        questList += f'{r[2]} quests for {reward} <{r[1]}>\n'
+                        questRequirement = self.parse_quest_template(r[1])
+                        if questRequirement == "": questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
+                        questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
                         if len(questList) > 1850 or ctr == numResults:
                             await ctx.send(embed=discord.Embed(description=questList))
                             questList = header + "\n"
