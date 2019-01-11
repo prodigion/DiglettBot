@@ -27,7 +27,7 @@ class ResearchCog:
         if not conditions: return ""
         out = ""
         for condition in conditions:
-            print(condition)
+#            print(condition)
             out += f"{data[condition['type']]} "
             if condition.get('info'):
                 if condition['info'].get('throw_type_id'): out += f"{self.bot.data['activities'][condition['info']['throw_type_id']]} "
@@ -37,12 +37,15 @@ class ResearchCog:
                 if condition['info'].get('pokemon_ids'):
                     for pokemon in condition['info']['pokemon_ids']:
                         out += f"{self.bot.data['pokemon'][pokemon]} "
+#                if condition['info'].get('hit'): out += "in a row "
                 if condition['info'].get('raid_levels'): out += str(condition['info']['raid_levels']) + " "
         return out
 
     def parse_quest_template(self, template):
-        if not template: return ""
-        return self.bot.data['quests']['templates'][template]
+        try:
+            return self.bot.data['quests']['templates'][template]
+        except:
+            return ""
 
     async def get_quests(self, ctx, cur, mon: int, type):
         """List all quests for a specific reward."""
@@ -68,7 +71,7 @@ class ResearchCog:
             template = r[0]
             questRequirement = self.parse_quest_template(r[0])
             if questRequirement == "":
-                    questRequirement = self.parse_quest_type(r[0], r[1]) + "\n" + self.parse_quest_conditions(json.loads(r[2]))
+                    questRequirement = self.parse_quest_type(r[1], r[2]) + "\n" + self.parse_quest_conditions(json.loads(r[3]))
             questList += header + questRequirement + "\n\n"
 
             async with self.bot.pool.acquire() as conn:
