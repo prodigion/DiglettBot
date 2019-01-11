@@ -49,48 +49,50 @@ class ResearchCog:
 
         if type == "encounters":
             reward = self.bot.data['pokedex'][mon]
+            await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 7 and quest_pokemon_id = {mon} group by quest_template;")
         elif type == "items":
-            reward = self.bot.data['items'][mon]
+            await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions, json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 2 and quest_item_id = {mon} group by quest_template;")
         elif type == "stardust":
-            reward = f'Stardust ({mon})' if mon else 'Stardust'
+            reward = f'Stardust ({mon})'
+            await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} group by quest_template;")
 
-        header = f"Research for {datetime.date.today():%B %d} - {reward}\n" \
-                 f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
-
-        if type == "encounters":
-            await cur.execute(f"select quest_type, quest_target, quest_conditions, quest_template from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} limit 1;")
-            async for r in cur:
-                questRequirement = self.parse_quest_template(r[3])
-                if questRequirement == "":
-                    questRequirement = self.parse_quest_type(r[0], r[1]) + "\n"
-                    questRequirement += f"<{r[2]}> " + self.parse_quest_conditions(json.loads(r[2]))
-                header += questRequirement + "\n"
-            await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon};")
-        elif type == "items":
-#            await cur.execute(f"select quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 2 and quest_item_id={mon} limit 1;")
-#            async for r in cur:
-#                header += self.bot.data['quests']['types'][str(r[0])] + f" ({r[1]})" + str(r[2]) + "\n"
-            await cur.execute(f"select name, lat, lon, json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 2 and quest_item_id={mon};")
-        elif type == "stardust":
-            await cur.execute(f"select name, lat, lon from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon};")
-
-        numResults = cur.rowcount
-        if numResults == 0:
-            if type == "encounters":
-                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][mon]}."))
-            elif type == "items":
-                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][mon]}."))
-            elif type == "stardust":
-                await ctx.send(embed=discord.Embed(description=f"No results found for Stardust ({mon})."))
+        numTemplates = cur.rowcount
         ctr = 0
-        questList = header + "\n"
+        questList = ""
         async for r in cur:
             ctr += 1
-            questList += f'({ctr}/{numResults}) PokeStop: [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
-            if len(questList) > 1850 or ctr == numResults:
-                await ctx.send(embed=discord.Embed(description=questList))
-                await ctx.author.send(embed=discord.Embed(description=questList))
-                questList = header + "\n"
+            if type == "items": reward = f"{self.bot.data['items'][mon]} ({r[4]})"
+            header = f"Research for {datetime.date.today():%B %d} - {reward}\n" \
+                     f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
+
+            template = r[0]
+            questRequirement = self.parse_quest_template(r[0])
+            if questRequirement == "":
+                    questRequirement = self.parse_quest_type(r[0], r[1]) + "\n" + self.parse_quest_conditions(json.loads(r[2]))
+            questList += header + questRequirement + "\n\n"
+
+            async with self.bot.pool.acquire() as conn:
+                async with conn.cursor() as cur2:
+                    if type == "encounters":
+                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} and quest_template = '{r[0]}';")
+                    elif type == "items":
+                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 2 and quest_item_id={mon} and quest_template = '{r[0]}';")
+                    elif type == "stardust":
+                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} and quest_template = '{r[0]}';")
+
+                    numResults = cur2.rowcount
+                    ctr2 = 0
+                    async for r2 in cur2:
+                        ctr2 += 1
+                        questList += f'({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n'
+                        if len(questList) > 1850 or ctr2 == numResults and ctr == numTemplates:
+                            await ctx.send(embed=discord.Embed(description=questList))
+                            await ctx.author.send(embed=discord.Embed(description=questList))
+                            if ctr2 == numResults:
+                                questList = ""
+                            else:
+                                questList = header + questRequirement + "\n\n"
+                        elif ctr2 == numResults: questList += "\n"
 
     @commands.command(name='dig')
     @commands.guild_only()
@@ -103,7 +105,10 @@ class ResearchCog:
                 return
             elif monName.lower() == "stardust":
                 type = "stardust"
-                mon = amount # use mon to store stardust reward amount
+                if amount == 0:
+                    await ctx.send("Please select a stardust value to search for. For example, `!dig stardust 1000`")
+                else:
+                    mon = amount # use mon to store stardust reward amount
             else:
                 try:
                     try:
