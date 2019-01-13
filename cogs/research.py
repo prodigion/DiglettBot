@@ -60,6 +60,13 @@ class ResearchCog:
             await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} group by quest_template;")
 
         numTemplates = cur.rowcount
+        if numTemplates == 0:
+            if type == "encounters":
+                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][mon]}."))
+            elif type == "items":
+                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][mon]}."))
+            elif type == "stardust":
+                await ctx.send(embed=discord.Embed(description=f"No results found for Stardust ({mon})."))
         ctr = 0
         questList = ""
         async for r in cur:
