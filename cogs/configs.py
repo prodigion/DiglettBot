@@ -32,22 +32,27 @@ class ConfigsCog:
             json.dump(self.bot.configs, outfile, indent=4)
         print("Config SAVED")
 
-    @commands.command(name='dataload')
+    @commands.command(name='diglett')
     @commands.is_owner()
-    async def load_data(self, ctx):
-        self.loadData()
+    async def run_config(self, ctx, *, config):
+        if config == "nests":
+            pass
+        elif config == "research":
+            self.bot.configs[str(ctx.guild.id)]['research-channel'] = ctx.channel.id
+            self.saveConfigs()
+
         await ctx.message.delete()
 
-    @commands.command(name='configload')
+    @commands.command(name='dugtrio')
     @commands.is_owner()
-    async def load_config(self, ctx):
-        self.loadConfigs()
-        await ctx.message.delete()
+    async def run_config_owner(self, ctx, *, config):
+        if config == "data load":
+            self.loadData()
+        elif config == "config load":
+            self.loadData()
+        elif config == "config load":
+            self.loadData()
 
-    @commands.command(name='configsave')
-    @commands.is_owner()
-    async def write_configs(self, ctx):
-        self.saveConfigs()
         await ctx.message.delete()
 
     @commands.command(name='confignests')

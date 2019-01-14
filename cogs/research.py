@@ -109,7 +109,7 @@ class ResearchCog:
     async def get_research(self, ctx, monName = "", amount = 0):
         """List all encounters for a specific Pokemon."""
 
-        if ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['research-channel'] or ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
             if monName == "":
                 await ctx.send("Please select a valid mon or item to search for. For example, `!dig Chansey`")
                 return
@@ -144,13 +144,13 @@ class ResearchCog:
             except (OperationalError, RuntimeError, AttributeError):
                 await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
-    @commands.command(name='dugtrio')
+    @commands.command(name='trio')
     @commands.guild_only()
     @commands.has_role('Admins')
     async def get_all_research(self, ctx, type="encounters"):
         """List all encounters, sorted by Pokemon number"""
 
-        if ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['research-channel'] or ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as cur:
                     if type == "encounters":
