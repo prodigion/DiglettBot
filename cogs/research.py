@@ -190,7 +190,7 @@ class ResearchCog:
     @commands.guild_only()
     async def set_map(self, ctx):
         """Set map-notifications role"""
-        if ctx.channel.name == "role-select":
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['role-channel']:
             role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
             if role in ctx.author.roles:
                 await ctx.author.remove_roles(role)
@@ -205,7 +205,7 @@ class ResearchCog:
     async def reconnect(self, ctx):
         """Reconnect to map DB"""
         try:
-            await self.connectDB(ctx.guild.id)
+            await self.connectDB(ctx.guild)
             await ctx.send("Success")
         except:
             await ctx.send("Failure")
@@ -216,7 +216,7 @@ class ResearchCog:
             await self.bot.pool.wait_closed()
         except:
             pass
-        guild = str(guild)
+        guild = str(guild.id)
         self.bot.pool = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
                                                    user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
                                                    db=self.bot.configs[guild]['db'], autocommit=True)

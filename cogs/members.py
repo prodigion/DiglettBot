@@ -56,7 +56,8 @@ class MembersCog:
     @commands.command(name='welcome')
     @commands.guild_only()
     async def show_welcome(self, ctx):
-        await self.setWelcomeMessage(ctx.channel)
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['team-channel']:
+            await self.setWelcomeMessage(ctx.channel)
 
     async def setWelcomeMessage(self, channel: discord.TextChannel):
         await channel.purge()
@@ -68,27 +69,28 @@ class MembersCog:
         await welcomeMsg.add_reaction(":harmony:509206588553297930")
 
     async def on_reaction_add(self, reaction: discord.Reaction, user: discord.User):
-        if reaction.message.channel.name == "team-select" and len(user.roles) < 2:
+        guild = reaction.message.guild
+        if reaction.message.channel.id == self.bot.configs[str(guild.id)]['team-channel'] and len(user.roles) < 2:
             await reaction.message.remove_reaction(reaction.emoji, user)
             if str(reaction.emoji) == "<:instinct:408859733831843867>":
                 welcomeMsg = f'Welcome to team Instinct {user.mention}!'
-                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="instinct"),
-                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                await user.add_roles(discord.utils.get(guild.roles, name="instinct"),
+                                     discord.utils.get(guild.roles, name="chat"),
                                      atomic=True)
             elif str(reaction.emoji) == "<:valor:408859732280082444>":
                 welcomeMsg = f'Welcome to team Valor {user.mention}!'
-                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="valor"),
-                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                await user.add_roles(discord.utils.get(guild.roles, name="valor"),
+                                     discord.utils.get(guild.roles, name="chat"),
                                      atomic=True)
             elif str(reaction.emoji) == "<:mystic:408859736134516759>":
                 welcomeMsg = f'Welcome to team Mystic {user.mention}!'
-                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="mystic"),
-                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                await user.add_roles(discord.utils.get(guild.roles, name="mystic"),
+                                     discord.utils.get(guild.roles, name="chat"),
                                      atomic=True)
             elif str(reaction.emoji) == "<:harmony:509206588553297930>":
                 welcomeMsg = f'Welcome to team Harmony {user.mention}!'
-                await user.add_roles(discord.utils.get(reaction.message.guild.roles, name="harmony"),
-                                     discord.utils.get(reaction.message.guild.roles, name="chat"),
+                await user.add_roles(discord.utils.get(guild.roles, name="harmony"),
+                                     discord.utils.get(guild.roles, name="chat"),
                                      atomic=True)
             else:
                 return
@@ -112,8 +114,8 @@ class MembersCog:
               f"`!music` - Music channels\n"
             )
 
-            await discord.utils.get(reaction.message.guild.channels, name="role-select").send(welcomeMsg)
-            await discord.utils.get(reaction.message.guild.channels, name="role-select").send(embed=discord.Embed(description=teamSelectMessage))
+            await self.bot.get_channel(self.bot.configs[str(guild.id)]['role-channel']).send(welcomeMsg)
+            await self.bot.get_channel(self.bot.configs[str(guild.id)]['role-channel']).send(embed=discord.Embed(description=teamSelectMessage))
 
     @commands.command(name='hamilton', aliases=['burlington', 'niagara', 'brant', 'haldimand', 'norfolk'])
     @commands.guild_only()
@@ -121,7 +123,7 @@ class MembersCog:
         """Set region role"""
         region = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
         exraid = discord.utils.get(ctx.guild.roles, name="exraid")
-        if ctx.channel.name == "role-select":
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['role-channel']:
             if region in ctx.author.roles:
                 await ctx.author.remove_roles(region, atomic=True)
                 await ctx.send(f'Roles removed: ' + region.name)
@@ -139,7 +141,7 @@ class MembersCog:
     @commands.guild_only()
     async def set_group(self, ctx):
         """Set region-notification roles"""
-        if ctx.channel.name == "role-select":
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['role-channel']:
             role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
             if role in ctx.author.roles:
                 await ctx.author.remove_roles(role)
@@ -152,7 +154,7 @@ class MembersCog:
     @commands.guild_only()
     async def set_role(self, ctx):
         """Set non-primary roles"""
-        if ctx.channel.name == "role-select":
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['role-channel']:
             role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
             if role in ctx.author.roles:
                 await ctx.author.remove_roles(role)
@@ -165,7 +167,7 @@ class MembersCog:
     @commands.guild_only()
     async def set_notifications(self, ctx):
         """Set notification roles"""
-        if ctx.channel.name == "role-select":
+        if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['role-channel']:
             role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
             if role in ctx.author.roles:
                 await ctx.author.remove_roles(role)

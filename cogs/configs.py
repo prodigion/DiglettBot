@@ -37,6 +37,12 @@ class ConfigsCog:
     async def run_config(self, ctx, *, config):
         if config == "nests":
             pass
+        elif config == "team":
+            self.bot.configs[str(ctx.guild.id)]['team-channel'] = ctx.channel.id
+            self.saveConfigs()
+        elif config == "role":
+            self.bot.configs[str(ctx.guild.id)]['role-channel'] = ctx.channel.id
+            self.saveConfigs()
         elif config == "research":
             self.bot.configs[str(ctx.guild.id)]['research-channel'] = ctx.channel.id
             self.saveConfigs()

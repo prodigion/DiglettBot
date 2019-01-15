@@ -19,9 +19,9 @@ class EventsCog:
         print(f'Successfully logged in and booted...!')
 
         for guild in self.bot.guilds:
-            await self.bot.get_cog("MembersCog").setWelcomeMessage(discord.utils.get(guild.channels, name="team-select"))
+            await self.bot.get_cog("MembersCog").setWelcomeMessage(self.bot.get_channel(self.bot.configs[str(guild.id)]['team-channel']))
             try:
-                await self.bot.get_cog("ResearchCog").connectDB(guild.id)
+                await self.bot.get_cog("ResearchCog").connectDB(guild)
             except:
                 pass
 
