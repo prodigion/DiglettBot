@@ -9,6 +9,10 @@ class ResearchCog:
     def __init__(self, bot):
         self.bot = bot
 
+    def is_admin_check(ctx):
+        role = discord.utils.get(ctx.guild.roles, id=ctx.bot.configs[str(ctx.guild.id)]['admin-role'])
+        return role in ctx.author.roles
+
     async def get_stats(self, ctx):
         """How many pokestops have been scanned."""
 
@@ -146,7 +150,7 @@ class ResearchCog:
 
     @commands.command(name='trio')
     @commands.guild_only()
-    @commands.has_role('Admins')
+    @commands.check(is_admin_check)
     async def get_all_research(self, ctx, type="encounters"):
         """List all encounters, sorted by Pokemon number"""
 
@@ -201,7 +205,7 @@ class ResearchCog:
 
     @commands.command(name='reconnect')
     @commands.guild_only()
-    @commands.has_role('Admins')
+    @commands.check(is_admin_check)
     async def reconnect(self, ctx):
         """Reconnect to map DB"""
         try:

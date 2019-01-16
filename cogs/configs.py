@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from asyncio import TimeoutError
 import json
 
 class ConfigsCog:
@@ -34,9 +35,39 @@ class ConfigsCog:
 
     @commands.command(name='diglett')
     @commands.is_owner()
-    async def run_config(self, ctx, *, config):
-        if config == "nests":
-            pass
+    async def run_config(self, ctx, *, config = ""):
+        def check(msg):
+            return msg.content != "cancel" and msg.author == ctx.author and msg.channel == ctx.channel
+
+        if config == "":
+            await ctx.send("Configuration options: ```nests - Response to !nests command\n" \
+                                                     "admins - Assign role with admin access to DiglettBot\n" \
+                                                     "team - Channel for team selection\n" \
+                                                     "role - Channel for role selection\n" \
+                                                     "research - Channel for quest queries```")
+        elif config == "nests":
+            try:
+                await ctx.send("Please enter a response for the `!nests` command. Enter `cancel` to exit.")
+                msg = await self.bot.wait_for('message', timeout=60.0, check=check)
+                if msg:
+                    pass
+                    self.bot.configs[str(ctx.guild.id)]['nests'] = msg.content
+                    self.saveConfigs()
+            except TimeoutError:
+                await ctx.send("Timeout. Role not updated")
+        elif config == "admins":
+            try:
+                await ctx.send("Please enter a role name.  Enter `cancel` to exit.")
+                msg = await self.bot.wait_for('message', timeout=60.0, check=check)
+                role = discord.utils.get(ctx.guild.roles, name=msg.content)
+                if role:
+                    self.bot.configs[str(ctx.guild.id)]['admin-role'] = role.id
+                    self.saveConfigs()
+            except TimeoutError:
+                await ctx.send("Timeout. Role not updated")
+            except Exception as e:
+                await ctx.send("Error. Role not updated")
+                print(e)
         elif config == "team":
             self.bot.configs[str(ctx.guild.id)]['team-channel'] = ctx.channel.id
             self.saveConfigs()
