@@ -686,11 +686,11 @@
             "challenge_gym_win_hard_pkmn": "Win 3 Gym battles",
             "challenge_gym_win_moderate": "Win a gym battle",
             "challenge_gym_win_moderate_pkmn": "Win a gym battle",
-            "challenge_hatch_easy": "Hatch an egg",
-            "challenge_hatch_easy_pkmn": "Hatch an egg",
-            "challenge_hatch_hard": "Hatch 3 eggs",
-            "challenge_hatch_hard_pkmn": "Hatch 5 eggs",
-            "challenge_hatch_very_hard_pkmn": "Hatch 5 eggs",
+            "challenge_hatch_easy": "Hatch an Egg",
+            "challenge_hatch_easy_pkmn": "Hatch an Egg",
+            "challenge_hatch_hard": "Hatch 3 Eggs",
+            "challenge_hatch_hard_pkmn": "Hatch 5 Eggs",
+            "challenge_hatch_very_hard_pkmn": "Hatch 5 Eggs",
             "challenge_land_curveball_inarow_moderate": "Make 5 curveball throws in a row",
             "challenge_land_excellent_inarow_veryhard_pkmn": "Make 3 excellent throws in a row",
             "challenge_land_excellent_moderate": "Make an excellent throw",
@@ -735,12 +735,15 @@
             "t1_2019_gym_win_hard_pkmn": "Win 5 gym battles",
             "t1_2019_land_great_curve_inarow_veryhard": "Make 5 Great curveball throws in a row",
             "t1_2019_land_nice_easy_pkmn": "Make 5 Nice Throws",
-            "t1_2019_quest_hatch_egg_plural": "Hatch 5 eggs",
-            "t1_2019_quest_hatch_egg_singular": "Hatch an egg",
+            "t1_2019_quest_hatch_egg_plural": "Hatch 5 Eggs",
+            "t1_2019_quest_hatch_egg_singular": "Hatch an Egg",
             "t1_2019_raid_participate_easy": "Battle in a raid",
             "t1_2019_raid_win_tier3_hard_pkmn": "Win a level 3 or higher raid",
             "t1_2019_spin_medium": "Spin 10 Pokestops or Gyms",
-            "t1_2019_transfer_pokemon_plural": "Transfer 3 Pokemon"
+            "t1_2019_transfer_pokemon_plural": "Transfer 3 Pokemon",
+            "challenge_hoenn19_catch_specific_plural": "Hoenn Celebration: Catch 10 Zigzagoon or Taillow",
+            "challenge_hoenn19_evolve_specific_plural": "Hoenn Celebration: Evolve 3 Wurmple",
+            "challenge_hoenn19_hatch_eggs": "Hoenn Celebration: Hatch 2 Eggs"
         }
     }
 }
