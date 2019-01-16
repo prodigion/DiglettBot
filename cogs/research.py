@@ -36,7 +36,7 @@ class ResearchCog:
                         out += f"{self.bot.data['pokemon_types'][type]} "
                 if condition['info'].get('pokemon_ids'):
                     for pokemon in condition['info']['pokemon_ids']:
-                        out += f"{self.bot.data['pokemon'][pokemon]} "
+                        out += f"{self.bot.data['pokedex'][pokemon]} "
 #                if condition['info'].get('hit'): out += "in a row "
                 if condition['info'].get('raid_levels'): out += str(condition['info']['raid_levels']) + " "
         return out

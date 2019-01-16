@@ -54,10 +54,13 @@ class ConfigsCog:
     async def run_config_owner(self, ctx, *, config):
         if config == "data load":
             self.loadData()
+            await ctx.send("Data load complete")
+        elif config == "config save":
+            self.saveConfigs()
+            await ctx.send("Config saveed")
         elif config == "config load":
-            self.loadData()
-        elif config == "config load":
-            self.loadData()
+            self.loadConfigs()
+            await ctx.send("Config loaded")
 
         await ctx.message.delete()
 
