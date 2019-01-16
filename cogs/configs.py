@@ -8,9 +8,6 @@ class ConfigsCog:
 
     def __init__(self, bot):
         self.bot = bot
-        self.bot.configs = {}
-        self.loadConfigs()
-        self.loadData()
 
     def loadData(self):
         with open('i18n/en.json', 'r') as f:
@@ -31,7 +28,7 @@ class ConfigsCog:
     def saveConfigs(self):
         with open('configs.json', 'w') as outfile:
             json.dump(self.bot.configs, outfile, indent=4)
-        print("Config SAVED")
+        print("Configuration saved")
 
     @commands.command(name='diglett')
     @commands.is_owner()
@@ -94,12 +91,6 @@ class ConfigsCog:
             await ctx.send("Config loaded")
 
         await ctx.message.delete()
-
-    @commands.command(name='confignests')
-    @commands.is_owner()
-    async def setNests(self, ctx, *, msg):
-        self.bot.configs[str(ctx.guild.id)]['nests'] = msg
-        self.saveConfigs()
 
 def setup(bot):
     bot.add_cog(ConfigsCog(bot))

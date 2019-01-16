@@ -7,11 +7,15 @@ class EventsCog:
 
     def __init__(self, bot):
         self.bot = bot
+        self.bot.configs = {}
 
     async def on_ready(self):
         """http://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_ready"""
 
-        print(f'\n\nLogged in as: {self.bot.user.name} - {self.bot.user.id}\nVersion: {discord.__version__}\n')
+        self.bot.get_cog("ConfigsCog").loadConfigs()
+        self.bot.get_cog("ConfigsCog").loadData()
+
+        print(f'\nLogged in as: {self.bot.user.name} - {self.bot.user.id}\nVersion: {discord.__version__}\n')
 
         # Changes our bots Playing Status. type=1(streaming) for a standard game you could remove type and url.
         await self.bot.change_presence(activity=discord.Game(name='Pokemon Go', type=1))
@@ -19,7 +23,6 @@ class EventsCog:
         print(f'Successfully logged in and booted...!')
 
         for guild in self.bot.guilds:
-            await self.bot.get_cog("MembersCog").setWelcomeMessage(self.bot.get_channel(self.bot.configs[str(guild.id)]['team-channel']))
             try:
                 await self.bot.get_cog("ResearchCog").connectDB(guild)
             except:
