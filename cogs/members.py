@@ -74,24 +74,27 @@ class MembersCog:
             message = await self.bot.get_channel(payload.channel_id).get_message(payload.message_id)
             user = guild.get_member(payload.user_id)
             if payload.channel_id == 462262985423978496 or payload.channel_id == self.bot.configs[str(guild.id)]['team-channel'] and len(user.roles) < 2:
-                await message.remove_reaction(payload.emoji, user)
                 if str(payload.emoji) == "<:instinct:408859733831843867>":
                     welcomeMsg = f'Welcome to team Instinct {user.mention}!'
+                    await message.remove_reaction(payload.emoji, user)
                     await user.add_roles(discord.utils.get(guild.roles, name="instinct"),
                                          discord.utils.get(guild.roles, name="chat"),
                                          atomic=True)
                 elif str(payload.emoji) == "<:valor:408859732280082444>":
                     welcomeMsg = f'Welcome to team Valor {user.mention}!'
+                    await message.remove_reaction(payload.emoji, user)
                     await user.add_roles(discord.utils.get(guild.roles, name="valor"),
                                          discord.utils.get(guild.roles, name="chat"),
                                          atomic=True)
                 elif str(payload.emoji) == "<:mystic:408859736134516759>":
                     welcomeMsg = f'Welcome to team Mystic {user.mention}!'
+                    await message.remove_reaction(payload.emoji, user)
                     await user.add_roles(discord.utils.get(guild.roles, name="mystic"),
                                          discord.utils.get(guild.roles, name="chat"),
                                          atomic=True)
                 elif str(payload.emoji) == "<:harmony:509206588553297930>":
                     welcomeMsg = f'Welcome to team Harmony {user.mention}!'
+                    await message.remove_reaction(payload.emoji, user)
                     await user.add_roles(discord.utils.get(guild.roles, name="harmony"),
                                          discord.utils.get(guild.roles, name="chat"),
                                          atomic=True)
