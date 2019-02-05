@@ -85,7 +85,7 @@ class ConfigsCog:
             await ctx.send("Data load complete")
         elif config == "config save":
             self.saveConfigs()
-            await ctx.send("Config saveed")
+            await ctx.send("Config saved")
         elif config == "config load":
             self.loadConfigs()
             await ctx.send("Config loaded")
