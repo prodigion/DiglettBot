@@ -23,10 +23,22 @@ class EventsCog:
         print(f'Successfully logged in and booted...!')
 
         for guild in self.bot.guilds:
+            if str(guild.id) not in self.bot.configs:
+                self.bot.configs[str(guild.id)] = dict()
+                self.bot.get_cog("ConfigsCog").saveConfigs()
             try:
                 await self.bot.get_cog("ResearchCog").connectDB(guild)
             except:
                 pass
+
+    async def on_guild_join(self, guild):
+        if str(guild.id) not in self.bot.configs:
+            self.bot.configs[str(guild.id)] = dict()
+            self.bot.get_cog("ConfigsCog").saveConfigs()
+        try:
+            await self.bot.get_cog("ResearchCog").connectDB(guild)
+        except:
+            pass
 
     async def on_message(self, message: discord.Message):
         for mention in message.role_mentions:
