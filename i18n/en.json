@@ -747,7 +747,8 @@
             "challenge_jan19rsd_buddywalk_singular": "Feebas Research: Earn 1 Buddy Candy",
 	    "challenge_jan19rsd_hatch_egg_singular": "Feebas Research: Hatch 1 Egg",
 	    "challenge_jan19rsd_land_great_plural": "Feebas Research: Make 10 Great Throws",
-	    "challenge_jan19rsd_land_nice_plural": "Feebas Research: Make 15 Nice Throws"
+	    "challenge_jan19rsd_land_nice_plural": "Feebas Research: Make 15 Nice Throws",
+	    "challenge_lunar19_friends_trade_plural": "Trade 10 Pokemon with a friend"
         }
     }
 }

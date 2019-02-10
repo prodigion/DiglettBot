@@ -60,7 +60,7 @@ class ResearchCog:
         elif type == "items":
             await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions, json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 2 and quest_item_id = {mon} group by quest_template;")
         elif type == "stardust":
-            reward = f'Stardust ({mon})'
+            reward = f'<:stardust:543911550734434319>{mon}'
             await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} group by quest_template;")
 
         numTemplates = cur.rowcount
@@ -70,7 +70,7 @@ class ResearchCog:
             elif type == "items":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][mon]}."))
             elif type == "stardust":
-                await ctx.send(embed=discord.Embed(description=f"No results found for Stardust ({mon})."))
+                await ctx.send(embed=discord.Embed(description=f"No results found for <:stardust:543911550734434319>{mon}."))
         ctr = 0
         questList = ""
         async for r in cur:
@@ -181,7 +181,7 @@ class ResearchCog:
                         elif type == "items":
                             reward = self.bot.data['items'][r[0]]
                         elif type == "stardust":
-                            reward = f'Stardust ({r[0]})'
+                            reward = f'<:stardust:543911550734434319>{r[0]}'
 
                         questRequirement = self.parse_quest_template(r[1])
                         if questRequirement == "": questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
