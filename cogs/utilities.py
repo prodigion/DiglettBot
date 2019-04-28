@@ -47,7 +47,7 @@ class UtilityCog:
 
         # Forbid Babies, Regionals, Special Research, Legendary (1, 2, 3, 4), Uncatchable (2, 3, 4), Unreleased (1, 2, 3, 4)
         forbiddenRoles = ['pichu', 'cleffa', 'igglybuff', 'togepi', 'tyrogue', 'smoochum', 'elekid', 'magby', 'azurill', 'wynaut', 'budew', 'chingling', 'bonsly', 'mime jr', 'happiny', 'munchlax', 'riolu', 'mantyke',
-                          'corsola', "farfetch'd", 'heracross', 'kangaskhan', 'mr mime', 'relicanth', 'solrock', 'torkoal', 'tropius', 'volbeat', 'zangoose', 'pachirisu', 'chatot', 'carnivine',
+                          'corsola', "farfetch'd", 'heracross', 'kangaskhan', 'mr mime', 'relicanth', 'lunatone', 'torkoal', 'tropius', 'volbeat', 'zangoose', 'pachirisu', 'chatot', 'carnivine',
                           'celebi', 'jirachi', 'mew', 'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'spiritomb', 'meltan', 'melmetal',
                           'articuno', 'moltres', 'zapdos', 'mewtwo',
                           'raikou', 'entei', 'suicune', 'lugia', 'ho-oh',
@@ -56,8 +56,8 @@ class UtilityCog:
                           'bellossom', 'politoed', 'sunflora', 'espeon', 'umbreon', 'slowking', 'steelix', 'scizor', 'kingdra', 'porygon2',
                           'nincada', 'ninjask', 'mawile', 'spinda', 'altaria', 'milotic', 'absol',
                           'roserade', 'mismagius', 'honchkrow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass',
-                          'smeargle', 'kecleon', 'clamperl', 'huntail', 'gorebyss',
-                          'rampardos', 'bastiodon', 'burmy', 'wormadam', 'mothim', 'vespiquen', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'ambipom', 'glameow', 'purugly', 'gible', 'gabite', 'garchomp', 'hippopotas', 'hippowdon', 'rotom'
+                          'smeargle', 'kecleon',
+                          'rampardos', 'bastiodon', 'burmy', 'wormadam', 'mothim', 'vespiquen', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'ambipom', 'gible', 'gabite', 'garchomp', 'hippopotas', 'hippowdon', 'rotom'
                          ]
         clearedRoles = 0
         for delRole in forbiddenRoles:

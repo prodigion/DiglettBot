@@ -761,7 +761,28 @@
 	    "challenge_equinox19_catch_medium_pkmn": "Catch 3 Bulbasaur or Chikorita",
 	    "challenge_equinox19_evolve_type_grass_plural": "Evolve 5 Grass Type Pokemon",
 	    "challenge_equinox19_evolve_type_grass_plural_2": "Evolve 2 Grass Type Pokemon",
-	    "challenge_equinox19_catch_type_grass_plural": "Catch 10 Grass Type Pokemon"
+	    "challenge_equinox19_catch_type_grass_plural": "Catch 10 Grass Type Pokemon",
+	    "marrd_2019_easy spin": "Spin 2 PokeStops", 
+	    "marrd_2019_easy_berry": "Use 3 Berries to help catch Pokemon",
+	    "marrd_2019_easy_catch_castform": "Catch a Castform",
+	    "marrd_2019_easy_catch_weather_1": "Catch 3/5 Pokemon with Weather Boost",
+	    "marrd_2019_easy_catch_weather_2": "Catch 5/3 Pokemon with Weather Boost",
+	    "marrd_2019_easy_gym": "Battle in a Gym",
+	    "marrd_2019_easy_land_curve": "Make 5 Curveball Throws",
+	    "marrd_2019_easy_land_great": "Make 3 Great Throws",
+	    "marrd_2019_easy_land_great_inarow": "Make 2 Great Throws in a row",
+	    "marrd_2019_easy_land_nice": "Make 5 Nice Throws",
+	    "marrd_2019_easy_land_nice_inarow": "Make 3 Nice Throws in a row",
+	    "marrd_2019_easy_raid_participate": "Battle in a raid",
+	    "marrd_2019_easy_supereffective_charge": "Use a supereffective Charged Attack in a Gym battle",
+	    "bugout_2019_easy_catch_wurm": "Catch 2 Wurmple",
+	    "bugout_2019_easy_catch_bug": "Catch 10 Bug-type Pokemon",
+	    "bugout_2019_medium_evolve_bug": "Evolve 3 Bug-type Pokemon",
+	    "bugout_2019_easy_catch_ledspin": "Catch 5 Ledyba or Spinarak",
+	    "bugout_2019_medium_catch_bug": "Catch 15 Bug-type Pokemon",
+	    "easter_2019_easy_hatch": "Hatch an Egg",
+	    "easter_2019_medium_hatch": "Hatch 3 Eggs",
+	    "easter_2019_hard_hatch": "Hatch 5 Eggs"
         }
     }
 }
