@@ -18,7 +18,7 @@ class ResearchCog:
 
         async with self.bot.pool.acquire() as conn:
             async with conn.cursor() as cur:
-                await cur.execute(f"select count(*) from pokestop;")
+                await cur.execute(f"select count(*) from pokestop where url is not null;")
                 (self.numStops,) = await cur.fetchone()
                 await cur.execute(f"select count(*) from pokestop where quest_type is not null;")
                 (self.numScannedStops,) = await cur.fetchone()
