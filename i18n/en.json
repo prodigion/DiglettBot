@@ -782,7 +782,31 @@
 	    "bugout_2019_medium_catch_bug": "Catch 15 Bug-type Pokemon",
 	    "easter_2019_easy_hatch": "Hatch an Egg",
 	    "easter_2019_medium_hatch": "Hatch 3 Eggs",
-	    "easter_2019_hard_hatch": "Hatch 5 Eggs"
+	    "easter_2019_hard_hatch": "Hatch 5 Eggs",
+	    "t2_2019__berry_pinap_pkmn": "Use 10 Pinap berries while catching Pokemon",
+	    "t2_2019_adventure_buddywalk_hard": "Earn 5 candies walking with your buddy",
+	    "t2_2019_berry_easy_pkmn": "Use 5 berries to help catch Pokemon",
+	    "t2_2019_berry_nanab_pkmn": "Use 5 Nanab berries to help catch Pokemon",
+	    "t2_2019_catch_basic_types_easy_pkmn": "Catch 10 Grass, Water, or Fire-type Pokemon",
+	    "t2_2019_catch_easy": "Catch 10 Pokemon",
+	    "t2_2019_catch_fighting_easy_pkmn": "Catch 5 Fighting-type Pokemon",
+	    "t2_2019_catch_ground_hard_pkmn": "Catch 10 Ground-type Pokemon",
+	    "t2_2019_catch_ice_medium_pkmn": "Catch 5 Water-type Pokemon",
+	    "t2_2019_catch_types_hard_pkmn": "Catch 5 Flying, Psychic, or Dark-type Pokemon",
+	    "t2_2019_catch_types_medium_pkmn": "Catch 3 Electric, Normal, or Poison-type Pokemon",
+	    "t2_2019_evolve_easy_pkmn": "Evolve a Pokemon",
+	    "t2_2019_evolve_item": "Use an item to evolve a Pokemon",
+	    "t2_2019_friends_trade": "Trade a Pokemon",
+	    "t2_2019_gym_easy_pkmn": "Battle in a gym",
+	    "t2_2019_gym_win_hard_pkmn": "Win 5 gym battles",
+	    "t2_2019_land_great_curve_inarow_veryhard": "Make 5 Great curveball throws in a row",
+	    "t2_2019_land_nice_easy_pkmn": "Make 5 Nice Throws",
+	    "t2_2019_quest_hatch_egg_plural": "Hatch 3 Eggs",
+	    "t2_2019_quest_hatch_egg_singular": "Hatch an Egg",
+	    "t2_2019_raid_participate_easy": "Battle in a raid",
+	    "t2_2019_raid_win_tier2_medium_pkmn": "Win a level 2 or higher raid",
+	    "t2_2019_spin_medium": "Spin 10 Pokestops",
+	    "t2_2019_transfer_pokemon_plural": "Transfer 3 Pokemon"
         }
     }
 }
