@@ -52,7 +52,7 @@ class UtilityCog:
                           'articuno', 'moltres', 'zapdos', 'mewtwo',
                           'raikou', 'entei', 'suicune', 'lugia', 'ho-oh',
                           'regirock', 'regice', 'registeel', 'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'deoxys',
-                          'uxie', 'mesprit', 'azelf', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+                          'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
                           'bellossom', 'politoed', 'sunflora', 'espeon', 'umbreon', 'slowking', 'steelix', 'scizor', 'kingdra', 'porygon2',
                           'nincada', 'ninjask', 'mawile', 'spinda', 'altaria', 'milotic', 'absol',
                           'roserade', 'mismagius', 'honchkrow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass',
