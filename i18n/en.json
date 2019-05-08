@@ -806,7 +806,11 @@
 	    "t2_2019_raid_participate_easy": "Battle in a raid",
 	    "t2_2019_raid_win_tier2_medium_pkmn": "Win a level 2 or higher raid",
 	    "t2_2019_spin_medium": "Spin 10 Pokestops",
-	    "t2_2019_transfer_pokemon_plural": "Transfer 3 Pokemon"
+	    "t2_2019_transfer_pokemon_plural": "Transfer 3 Pokemon",
+	    "detective_2019_easy_catch_pd": "Detective Pikachu: Catch the Water-type Pokemon carried in a backpack (Psyduck)",
+	    "detective_2019_medium_catch_sja": "Detective Pikachu: Catch 10 Jigglypuff, Aipom, or Snubbull",
+	    "detective_2019_easy_catch_fl": "Detective Pikachu: Catch the Fire-Type Evolution of Eevee (2 Flareon)",
+	    "detective_2019_easy_catch_bu": "Detective Pikachu: Catch the Seed Pokemon that is seen walking in a river (Bulbasaur)"
         }
     }
 }
