@@ -170,7 +170,7 @@ class MembersCog:
                 await ctx.author.add_roles(role)
                 await ctx.send(f'Role added: ' + role.name)
 
-    @commands.command(name='hundo')
+    @commands.command(name='hundo', aliases=['nundo'])
     @commands.guild_only()
     async def set_notifications(self, ctx):
         """Set notification roles"""
