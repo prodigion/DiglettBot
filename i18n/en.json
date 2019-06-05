@@ -801,16 +801,29 @@
 	    "t2_2019_gym_win_hard_pkmn": "Win 5 gym battles",
 	    "t2_2019_land_great_curve_inarow_veryhard": "Make 5 Great curveball throws in a row",
 	    "t2_2019_land_nice_easy_pkmn": "Make 5 Nice Throws",
-	    "t2_2019_quest_hatch_egg_plural": "Hatch 3 Eggs",
+	    "t2_2019_quest_hatch_egg_plural": "Hatch 5 Eggs",
 	    "t2_2019_quest_hatch_egg_singular": "Hatch an Egg",
 	    "t2_2019_raid_participate_easy": "Battle in a raid",
 	    "t2_2019_raid_win_tier2_medium_pkmn": "Win a level 2 or higher raid",
 	    "t2_2019_spin_medium": "Spin 10 Pokestops",
 	    "t2_2019_transfer_pokemon_plural": "Transfer 3 Pokemon",
+	    "t2_2019_friends_gifts": "Send 10 gifts",
 	    "detective_2019_easy_catch_pd": "Detective Pikachu: Catch the Water-type Pokemon carried in a backpack (Psyduck)",
 	    "detective_2019_medium_catch_sja": "Detective Pikachu: Catch 10 Jigglypuff, Aipom, or Snubbull",
 	    "detective_2019_easy_catch_fl": "Detective Pikachu: Catch the Fire-Type Evolution of Eevee (2 Flareon)",
-	    "detective_2019_easy_catch_bu": "Detective Pikachu: Catch the Seed Pokemon that is seen walking in a river (Bulbasaur)"
+	    "detective_2019_easy_catch_bu": "Detective Pikachu: Catch the Seed Pokemon that is seen walking in a river (Bulbasaur)",
+	    "raidweek_2019_easy_raid": "Win a raid",
+	    "raidweek_2019_medium_raid": "Win 3 raids",
+	    "raidweek_2019_hard_raid": "Win 5 raids",
+	    "challenge_adventure2019_evolve_moderate_pkmn": "Adventure Week 2019: Evolve a Lileep or Anorith",
+	    "challenge_adventure2019_catch_fossils_moderate_pkmn": "Adventure Week 2019: Catch 5 Omanyte or Kabuto",
+	    "challenge_adventure2019_hatch_easy_pkmn": "Adventure Week 2019: Hatch 2 Eggs",
+	    "challenge_adventure2019_buddywalk_moderate_pkmn": "Adventure Week 2019: Earn 3 Candies walking with your Buddy",
+	    "challenge_adventure2019_spin_very_hard_pkmn": "Adventure Week 2019: Spin 25 Pokestops",
+	    "challenge_adventure2019_spinnew_moderate_pkmn": "Adventure Week 2019: Spin 2 Pokestops you haven't visited before",
+	    "challenge_adventure2019_catch_aron_moderate": "Adventure Week 2019: Catch 5 Aron",
+	    "challenge_adventure2019_hatch_easy": "Adventure Week 2019: Hatch 2 Eggs"
+
         }
     }
 }

@@ -57,7 +57,7 @@ class UtilityCog:
                           'nincada', 'ninjask', 'mawile', 'spinda', 'altaria', 'milotic', 'absol',
                           'roserade', 'mismagius', 'honchkrow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass',
                           'smeargle', 'kecleon',
-                          'rampardos', 'bastiodon', 'burmy', 'wormadam', 'mothim', 'vespiquen', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'ambipom', 'gible', 'gabite', 'garchomp', 'hippopotas', 'hippowdon', 'rotom'
+                          'rampardos', 'bastiodon', 'wormadam', 'mothim', 'vespiquen', 'gastrodon', 'ambipom', 'garchomp', 'rotom'
                          ]
         clearedRoles = 0
         for delRole in forbiddenRoles:
