@@ -154,6 +154,7 @@ class ResearchCog:
     async def get_all_research(self, ctx, type="encounters"):
         """List all encounters, sorted by Pokemon number"""
 
+        missingQuestTemplates = []
         if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['research-channel'] or ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as cur:
@@ -184,11 +185,15 @@ class ResearchCog:
                             reward = f'<:stardust:543911550734434319>{r[0]}'
 
                         questRequirement = self.parse_quest_template(r[1])
-                        if questRequirement == "": questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
+                        if questRequirement == "":
+                            questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
+                            missingQuestTemplates.append(r[1])
                         questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
                         if len(questList) > 1850 or ctr == numResults:
                             await ctx.send(embed=discord.Embed(description=questList))
                             questList = header + "\n"
+            if missingQuestTemplates: await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(set(missingQuestTemplates))))
+
 
     @commands.command(name='map')
     @commands.guild_only()
