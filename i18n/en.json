@@ -822,8 +822,12 @@
 	    "challenge_adventure2019_spin_very_hard_pkmn": "Adventure Week 2019: Spin 25 Pokestops",
 	    "challenge_adventure2019_spinnew_moderate_pkmn": "Adventure Week 2019: Spin 2 Pokestops you haven't visited before",
 	    "challenge_adventure2019_catch_aron_moderate": "Adventure Week 2019: Catch 5 Aron",
-	    "challenge_adventure2019_hatch_easy": "Adventure Week 2019: Hatch 2 Eggs"
-
+	    "challenge_adventure2019_hatch_easy": "Adventure Week 2019: Hatch 2 Eggs",
+	    "gofestd_2019_easy_evolve": "GO Fest Global: Evolve 3 Pokemon",
+	    "gofestd_2019_easy_hatch": "GO Fest Global: Hatch an Egg",
+	    "gofestd_2019_easy_land_great": "GO Fest Global: Land 2 Great Curveballs in a row",
+	    "gofestd_2019_medium_raid": "GO Fest Global: Win a Raid",
+	    "gofestd_2019_medium_win_gym_battle": "GO Fest Global: Win 3 Gym battles"
         }
     }
 }
