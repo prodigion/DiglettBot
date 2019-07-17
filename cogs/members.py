@@ -144,7 +144,7 @@ class MembersCog:
                     await ctx.author.add_roles(exraid, atomic=True)
                     await ctx.send(f'Roles added: ' + "exraid")
 
-    @commands.command(name='rh0', aliases=['rh1', 'rh2', 'rh3', 'rh4', 'rh5', 'rh6', 'rh7'])
+    @commands.command(name='rh0', aliases=['rh1', 'rh2', 'rh3', 'rh4', 'rh5', 'rh6', 'rh7', 'rh8', 'rh9'])
     @commands.guild_only()
     async def set_group(self, ctx):
         """Set region-notification roles"""
