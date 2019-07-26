@@ -108,6 +108,27 @@ class ResearchCog:
                                 questList = header + questRequirement + "\n\n"
                         elif ctr2 == numResults: questList += "\n"
 
+    async def get_rocket(self, ctx, cur):
+        """List all currently know rocket locations."""
+
+        await cur.execute(f"select name, lat, lon, incident_expire_timestamp from pokestop where incident_expire_timestamp is not null order by incident_expire_timestamp desc;")
+        numResults = cur.rowcount
+        if numResults == 0:
+            await ctx.send(embed=discord.Embed(description=f"Team Rocket is in hiding! No results found"))
+
+        header = f"On {datetime.datetime.now():%B %d @ %I:%M %p} Team Rocket can be found until...\n\n"
+        ctr = 0
+        rocketList = header
+        async for r in cur:
+            ctr += 1
+            rocketList += f'{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
+            if len(rocketList) > 1850 or ctr == numResults:
+                await ctx.send(embed=discord.Embed(description=rocketList))
+                rTime = datetime.datetime.fromtimestamp(int(r[3])) - datetime.datetime.now()
+                if rTime.seconds < 900: return
+                if ctr != numResults:
+                    rocketList = header
+
     @commands.command(name='dig')
     @commands.guild_only()
     async def get_research(self, ctx, monName = "", amount = 0):
@@ -123,6 +144,9 @@ class ResearchCog:
                     await ctx.send("Please select a stardust value to search for. For example, `!dig stardust 1000`")
                 else:
                     mon = amount # use mon to store stardust reward amount
+            elif monName.lower() == "rocket":
+                type = "rocket"
+                mon = "Rocket"
             else:
                 try:
                     try:
@@ -141,10 +165,15 @@ class ResearchCog:
                 return
 
             try:
-                await self.get_stats(ctx)
-                async with self.bot.pool.acquire() as conn:
-                    async with conn.cursor() as cur:
-                        await self.get_quests(ctx, cur, int(mon), type)
+                if type == "rocket":
+                    async with self.bot.pool.acquire() as conn:
+                        async with conn.cursor() as cur:
+                            await self.get_rocket(ctx, cur)
+                else:
+                    await self.get_stats(ctx)
+                    async with self.bot.pool.acquire() as conn:
+                        async with conn.cursor() as cur:
+                            await self.get_quests(ctx, cur, int(mon), type)
             except (OperationalError, RuntimeError, AttributeError):
                 await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
