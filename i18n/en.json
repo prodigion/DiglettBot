@@ -827,7 +827,12 @@
 	    "gofestd_2019_easy_hatch": "GO Fest Global: Hatch an Egg",
 	    "gofestd_2019_easy_land_great": "GO Fest Global: Land 2 Great Curveballs in a row",
 	    "gofestd_2019_medium_raid": "GO Fest Global: Win a Raid",
-	    "gofestd_2019_medium_win_gym_battle": "GO Fest Global: Win 3 Gym battles"
+	    "gofestd_2019_medium_win_gym_battle": "GO Fest Global: Win 3 Gym battles",
+	    "gofesty_2019_easy_evolve": "GO Fest Global: Evolve 3 Pokemon",
+	    "gofesty_2019_easy_hatch": "GO Fest Global: Hatch an Egg",
+	    "gofesty_2019_easy_land_great": "GO Fest Global: Make 3 Great Curveball throws in a row",
+	    "gofesty_2019_medium_raid": "GO Fest Global: Win a Raid"
+	    "gofesty_2019_medium_win_gym_battle": "GO Fest Global: Win 3 Gym battles",
         }
     }
 }
