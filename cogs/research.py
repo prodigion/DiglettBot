@@ -215,6 +215,7 @@ class ResearchCog:
 
                         questRequirement = self.parse_quest_template(r[1])
                         if questRequirement == "":
+#                            print(r)
                             questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
                             missingQuestTemplates.append(r[1])
                         questList += f'{r[3]} quests for {reward} ({questRequirement})\n'

@@ -641,7 +641,8 @@
             "22": "Add friend",
             "23": "Trade pokemon",
             "24": "Send gift",
-            "25": "Evolve into pokemon"
+            "25": "Evolve into pokemon",
+            "29": "Rocket Battle"
         },
         "conditions": {
             "0": "Unset",
@@ -831,8 +832,16 @@
 	    "gofesty_2019_easy_evolve": "GO Fest Global: Evolve 3 Pokemon",
 	    "gofesty_2019_easy_hatch": "GO Fest Global: Hatch an Egg",
 	    "gofesty_2019_easy_land_great": "GO Fest Global: Make 3 Great Curveball throws in a row",
-	    "gofesty_2019_medium_raid": "GO Fest Global: Win a Raid"
+	    "gofesty_2019_medium_raid": "GO Fest Global: Win a Raid",
 	    "gofesty_2019_medium_win_gym_battle": "GO Fest Global: Win 3 Gym battles",
+	    "waterfest_2019_buddy_candy_easy": "Water Festival: Earn a Candy walking with your buddy",
+	    "waterfest_2019_catch_easy": "Water Festival: Catch 5 Water-Type Pokemon",
+	    "waterfest_2019_catch_medium": "Water Festival: Catch 10 Water-type Pokemon",
+	    "waterfest_2019_evolve_easy": "Water Festival: Evolve 3 Carvanha or Barboach",
+	    "waterfest_2019_hatch_hard": "Water Festival: Hatch 5 Eggs",
+	    "waterfest_2019_raids_medium": "Water Festival: Win 2 Raids",
+	    "waterfest_2019_rocket_medium": "Water Festival: Defeat a Team GO Rocket Grunt",
+	    "waterfest_2019_snapshot_easy": "Water Festival: Take 5 Snapshots of Water-type Pokemon"
         }
     }
 }
