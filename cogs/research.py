@@ -5,7 +5,7 @@ from pymysql.err import OperationalError
 import datetime
 import json
 
-class ResearchCog:
+class ResearchCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -73,7 +73,8 @@ class ResearchCog:
                 await ctx.send(embed=discord.Embed(description=f"No results found for <:stardust:543911550734434319>{mon}."))
         ctr = 0
         questList = ""
-        async for r in cur:
+        results = await cur.fetchall()
+        for r in results:
             ctr += 1
             if type == "items": reward = f"{self.bot.data['items'][mon]} ({r[4]})"
             header = f"Research for {datetime.date.today():%B %d} - {reward}\n" \
@@ -96,7 +97,8 @@ class ResearchCog:
 
                     numResults = cur2.rowcount
                     ctr2 = 0
-                    async for r2 in cur2:
+                    results2 = await cur2.fetchall()
+                    for r2 in results2:
                         ctr2 += 1
                         questList += f'({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n'
                         if len(questList) > 1850 or ctr2 == numResults and ctr == numTemplates:
@@ -119,7 +121,8 @@ class ResearchCog:
         header = f"On {datetime.datetime.now():%B %d @ %I:%M %p} Team Rocket can be found until...\n\n"
         ctr = 0
         rocketList = header
-        async for r in cur:
+        results = await cur.fetchall()
+        for r in results:
             ctr += 1
             rocketList += f'{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
             if len(rocketList) > 1850 or ctr == numResults:
@@ -204,7 +207,8 @@ class ResearchCog:
                              f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
 
                     questList = header + "\n"
-                    async for r in cur:
+                    results = await cur.fetchall()
+                    for r in results:
                         ctr += 1
                         if type == "encounters":
                             reward = self.bot.data['pokedex'][r[0]]

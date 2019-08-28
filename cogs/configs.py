@@ -3,7 +3,7 @@ from discord.ext import commands
 from asyncio import TimeoutError
 import json
 
-class ConfigsCog:
+class ConfigsCog(commands.Cog):
     """ConfigsCog"""
 
     def __init__(self, bot):

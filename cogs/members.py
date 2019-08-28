@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class MembersCog:
+class MembersCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -68,10 +68,11 @@ class MembersCog:
         await welcomeMsg.add_reaction(":mystic:408859736134516759")
         await welcomeMsg.add_reaction(":harmony:509206588553297930")
 
+    @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         try:
             guild = self.bot.get_guild(payload.guild_id)
-            message = await self.bot.get_channel(payload.channel_id).get_message(payload.message_id)
+            message = await self.bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
             user = guild.get_member(payload.user_id)
             if payload.channel_id == 462262985423978496 or payload.channel_id == self.bot.configs[str(guild.id)]['team-channel'] and len(user.roles) < 2:
                 if str(payload.emoji) == "<:instinct:408859733831843867>":

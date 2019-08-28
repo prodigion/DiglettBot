@@ -3,7 +3,7 @@ from discord.ext import commands
 
 """Utility functions"""
 
-class UtilityCog:
+class UtilityCog(commands.Cog):
     """UtilityCog"""
 
     def __init__(self, bot):

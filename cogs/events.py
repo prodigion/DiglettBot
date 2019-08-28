@@ -2,13 +2,14 @@ import discord
 from discord.ext import commands
 import aiomysql
 
-class EventsCog:
+class EventsCog(commands.Cog):
     """EventsCog"""
 
     def __init__(self, bot):
         self.bot = bot
         self.bot.configs = {}
 
+    @commands.Cog.listener()
     async def on_ready(self):
         """http://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_ready"""
 
@@ -31,6 +32,7 @@ class EventsCog:
             except:
                 pass
 
+    @commands.Cog.listener()
     async def on_guild_join(self, guild):
         if str(guild.id) not in self.bot.configs:
             self.bot.configs[str(guild.id)] = dict()
@@ -40,6 +42,7 @@ class EventsCog:
         except:
             pass
 
+    @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         for mention in message.role_mentions:
           if mention.name in ["rh0", "rh1", "rh2", "rh3", "rh4", "rh5", "rh6", "rh7", "rh8", "rh9", "hundo", "nundo"]:

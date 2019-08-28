@@ -31,10 +31,6 @@ if __name__ == '__main__':
     bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett Bot. Trio Trio Trio.')
 
     for extension in initial_extensions:
-        try:
-            bot.load_extension(extension)
-        except Exception as e:
-            print(f'Failed to load extension {extension}.', file=sys.stderr)
-            traceback.print_exc()
+        bot.load_extension(extension)
 
     bot.run(token, bot=True, reconnect=True)
