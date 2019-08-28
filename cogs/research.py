@@ -8,6 +8,7 @@ import json
 class ResearchCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.bot.pool = {}
 
     def is_admin_check(ctx):
         role = discord.utils.get(ctx.guild.roles, id=ctx.bot.configs[str(ctx.guild.id)]['admin-role'])
@@ -16,7 +17,7 @@ class ResearchCog(commands.Cog):
     async def get_stats(self, ctx):
         """How many pokestops have been scanned."""
 
-        async with self.bot.pool.acquire() as conn:
+        async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
             async with conn.cursor() as cur:
                 await cur.execute(f"select count(*) from pokestop where url is not null;")
                 (self.numStops,) = await cur.fetchone()
@@ -86,7 +87,7 @@ class ResearchCog(commands.Cog):
                     questRequirement = self.parse_quest_type(r[1], r[2]) + "\n" + self.parse_quest_conditions(json.loads(r[3]))
             questList += header + questRequirement + "\n\n"
 
-            async with self.bot.pool.acquire() as conn:
+            async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                 async with conn.cursor() as cur2:
                     if type == "encounters":
                         await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} and quest_template = '{r[0]}';")
@@ -169,12 +170,12 @@ class ResearchCog(commands.Cog):
 
             try:
                 if type == "rocket":
-                    async with self.bot.pool.acquire() as conn:
+                    async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                         async with conn.cursor() as cur:
                             await self.get_rocket(ctx, cur)
                 else:
                     await self.get_stats(ctx)
-                    async with self.bot.pool.acquire() as conn:
+                    async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                         async with conn.cursor() as cur:
                             await self.get_quests(ctx, cur, int(mon), type)
             except (OperationalError, RuntimeError, AttributeError):
@@ -188,7 +189,7 @@ class ResearchCog(commands.Cog):
 
         missingQuestTemplates = []
         if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['research-channel'] or ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
-            async with self.bot.pool.acquire() as conn:
+            async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                 async with conn.cursor() as cur:
                     if type == "encounters":
                         await cur.execute(f"select quest_pokemon_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 7 group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
@@ -254,15 +255,17 @@ class ResearchCog(commands.Cog):
             await ctx.send("Failure")
 
     async def connectDB(self, guild):
+        guild = str(guild.id)
+
         try:
-            self.bot.pool.close()
-            await self.bot.pool.wait_closed()
+            self.bot.pool[guild].close()
+            await self.bot.pool[guild].wait_closed()
         except:
             pass
-        guild = str(guild.id)
-        self.bot.pool = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
-                                                   user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
-                                                   db=self.bot.configs[guild]['db'], autocommit=True)
+
+        self.bot.pool[guild] = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
+                                                          user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
+                                                          db=self.bot.configs[guild]['db'], autocommit=True)
 
 def setup(bot):
     bot.add_cog(ResearchCog(bot))
