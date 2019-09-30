@@ -878,7 +878,10 @@
 			"t3_2019_raid_participate_easy": "Battle in a Raid",
 			"t3_2019_snapshot_easy_pkmn": "Take 5 snapshots of Eevee",
 			"t3_2019_spin_medium": "Spin 10 Pokestops",
-			"t3_2019_transfer_pokemon_plural": "Transfer 3 Pokemon"
+			"t3_2019_transfer_pokemon_plural": "Transfer 3 Pokemon",
+			"wte_2019_friend_medium": "Make 1 New friend",
+			"wte_2019_trade_distance_hard_z": "Make a 10,000km Trade",
+			"wte_2019_gifts_easy": "Send 25 Gifts to Friends"
 		}
 	}
 }
