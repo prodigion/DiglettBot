@@ -179,7 +179,7 @@ class ResearchCog(commands.Cog):
                         async with conn.cursor() as cur:
                             await self.get_quests(ctx, cur, int(mon), type)
             except (OperationalError, RuntimeError, AttributeError):
-                await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
+                self.connectDBFail(ctx)
 
     @commands.command(name='trio')
     @commands.guild_only()
@@ -189,44 +189,48 @@ class ResearchCog(commands.Cog):
 
         missingQuestTemplates = []
         if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['research-channel'] or ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
-            async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
-                async with conn.cursor() as cur:
-                    if type == "encounters":
-                        await cur.execute(f"select quest_pokemon_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 7 group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
-                    elif type == "items":
-                        await cur.execute(f"select quest_item_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 2 group by quest_item_id, quest_template order by quest_item_id;")
-                    elif type == "stardust":
-                        await cur.execute(f"select json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 3 group by amount, quest_template order by amount;")
-
-                    numResults = cur.rowcount
-                    if numResults <= 1:
-                        await ctx.send(f"No research found")
-                    await self.get_stats(ctx)
-
-                    ctr = 0
-                    header = f"Available research for {datetime.date.today():%B %d}\n" \
-                             f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
-
-                    questList = header + "\n"
-                    results = await cur.fetchall()
-                    for r in results:
-                        ctr += 1
+            try:
+                async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
+                    async with conn.cursor() as cur:
                         if type == "encounters":
-                            reward = self.bot.data['pokedex'][r[0]]
+                            await cur.execute(f"select quest_pokemon_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 7 group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
                         elif type == "items":
-                            reward = self.bot.data['items'][r[0]]
+                            await cur.execute(f"select quest_item_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 2 group by quest_item_id, quest_template order by quest_item_id;")
                         elif type == "stardust":
-                            reward = f'<:stardust:543911550734434319>{r[0]}'
+                            await cur.execute(f"select json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 3 group by amount, quest_template order by amount;")
 
-                        questRequirement = self.parse_quest_template(r[1])
-                        if questRequirement == "":
-#                            print(r)
-                            questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
-                            missingQuestTemplates.append(r[1])
-                        questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
-                        if len(questList) > 1850 or ctr == numResults:
-                            await ctx.send(embed=discord.Embed(description=questList))
-                            questList = header + "\n"
+                        numResults = cur.rowcount
+                        if numResults <= 1:
+                            await ctx.send(f"No research found")
+                        await self.get_stats(ctx)
+
+                        ctr = 0
+                        header = f"Available research for {datetime.date.today():%B %d}\n" \
+                                 f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
+
+                        questList = header + "\n"
+                        results = await cur.fetchall()
+                        for r in results:
+                            ctr += 1
+                            if type == "encounters":
+                                reward = self.bot.data['pokedex'][r[0]]
+                            elif type == "items":
+                                reward = self.bot.data['items'][r[0]]
+                            elif type == "stardust":
+                                reward = f'<:stardust:543911550734434319>{r[0]}'
+
+                            questRequirement = self.parse_quest_template(r[1])
+                            if questRequirement == "":
+    #                            print(r)
+                                questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
+                                missingQuestTemplates.append(r[1])
+                            questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
+                            if len(questList) > 1850 or ctr == numResults:
+                                await ctx.send(embed=discord.Embed(description=questList))
+                                questList = header + "\n"
+            except (OperationalError, RuntimeError, AttributeError):
+                self.connectDBFail(ctx)
+
             if missingQuestTemplates: await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(set(missingQuestTemplates))))
 
 
@@ -266,6 +270,9 @@ class ResearchCog(commands.Cog):
         self.bot.pool[guild] = await aiomysql.create_pool(host=self.bot.configs[guild]['host'], port=self.bot.configs[guild]['port'],
                                                           user=self.bot.configs[guild]['user'], password=self.bot.configs[guild]['pass'],
                                                           db=self.bot.configs[guild]['db'], autocommit=True)
+
+    async def connectDBFail(self, ctx):
+        await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
 def setup(bot):
     bot.add_cog(ResearchCog(bot))
