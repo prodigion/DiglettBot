@@ -179,7 +179,7 @@ class ResearchCog(commands.Cog):
                         async with conn.cursor() as cur:
                             await self.get_quests(ctx, cur, int(mon), type)
             except (OperationalError, RuntimeError, AttributeError):
-                self.connectDBFail(ctx)
+                await self.connectDBFail(ctx)
 
     @commands.command(name='trio')
     @commands.guild_only()
@@ -229,7 +229,7 @@ class ResearchCog(commands.Cog):
                                 await ctx.send(embed=discord.Embed(description=questList))
                                 questList = header + "\n"
             except (OperationalError, RuntimeError, AttributeError):
-                self.connectDBFail(ctx)
+                await self.connectDBFail(ctx)
 
             if missingQuestTemplates: await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(set(missingQuestTemplates))))
 
