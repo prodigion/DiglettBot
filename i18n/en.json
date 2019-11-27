@@ -1044,7 +1044,12 @@
 			"halloween_2019_catch_gastly_shuppet_easy_pkmn": "Halloween: Catch 5 Gastly or Shuppet.",
 			"halloween_2019_evolve_hard_pkmn": "Halloween: Evolve 3 Drifloon or Stunky.",
 			"halloween_2019_catch_ghost_med_pkmn": "Halloween: Catch 10 Ghost-type Pokemon.",
-			"type_2019_supereffective_charge": "Supereffective Week: Use a supereffective Charged Attack in a Gym battle."
+			"type_2019_supereffective_charge": "Supereffective Week: Use a supereffective Charged Attack in a Gym battle.",
+			"friendfest_2019_catch_f": "Friend Fest: Catch a Nidoran Male",
+			"friendfest_2019_catch_m": "Friend Fest: Catch a Nidoran Female",
+			"friendfest_2019_new_friend_medium": "Friend Fest: Add 3 friends",
+			"friendfest_2019_trade": "Friend Fest: Trade a Pokemon with a friend",
+			"friendfest_2019_trainer_battle_easy": "Friend Fest: Win a Trainer Battle against another Trainer"
 		}
 	}
 }
