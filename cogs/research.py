@@ -8,7 +8,6 @@ import json
 class ResearchCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.bot.pool = {}
 
     def is_admin_check(ctx):
         role = discord.utils.get(ctx.guild.roles, id=ctx.bot.configs[str(ctx.guild.id)]['admin-role'])
