@@ -112,15 +112,25 @@ class ResearchCog(commands.Cog):
                                 questList = header + questRequirement + "\n\n"
                         elif ctr2 == numResults: questList += "\n"
 
-    async def get_rocket(self, ctx, cur):
+    async def get_rocket(self, ctx, cur, type):
         """List all currently know rocket locations."""
 
-        await cur.execute(f"select name, lat, lon, incident_expire_timestamp from pokestop where incident_expire_timestamp is not null order by incident_expire_timestamp desc;")
+        if type == "executive":
+            grunt_query = "(41,42,43)"
+            header = f"On {datetime.date.today():%B %d} Team Rocket Executive can be found until 10:00PM...\n\n"
+        elif type == "giovanni":
+            grunt_query = "(44,45,46)"
+            header = f"On {datetime.date.today():%B %d} Team Rocket Giovanni or Decoy can be found until 10:00PM...\n\n"
+        else:
+            grunt_query = "(4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,47,48,49,50)"
+            header = f"On {datetime.datetime.now():%B %d @ %I:%M %p} Team Rocket can be found until...\n\n"
+
+        await cur.execute(f"select name, lat, lon, incident_expire_timestamp from pokestop where incident_expire_timestamp is not null and grunt_type in {grunt_query} order by incident_expire_timestamp desc;")
+
         numResults = cur.rowcount
         if numResults == 0:
             await ctx.send(embed=discord.Embed(description=f"Team Rocket is in hiding! No results found"))
 
-        header = f"On {datetime.datetime.now():%B %d @ %I:%M %p} Team Rocket can be found until...\n\n"
         footer = ""
         if self.bot.configs[str(ctx.guild.id)]['map-info']: footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info']
 
@@ -129,7 +139,10 @@ class ResearchCog(commands.Cog):
         results = await cur.fetchall()
         for r in results:
             ctr += 1
-            rocketList += f'{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
+            if type == "grunt":
+                rocketList += f'{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
+            else:
+                rocketList += f'at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
             if len(rocketList + footer) > 1850 or ctr == numResults:
                 await ctx.send(embed=discord.Embed(description=rocketList + footer))
                 rTime = datetime.datetime.fromtimestamp(int(r[3])) - datetime.datetime.now()
@@ -139,31 +152,36 @@ class ResearchCog(commands.Cog):
 
     @commands.command(name='dig')
     @commands.guild_only()
-    async def get_research(self, ctx, monName = "", amount = 0):
-        """List all encounters for a specific Pokemon."""
+    async def get_research(self, ctx, *, researchString):
+        """Scan database for pokestop research and rocket encounters."""
 
         if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['research-channel'] or ctx.channel.name == "pokestop-reports" or ctx.channel.name == "mod-spam":
-            if monName == "":
+            if researchString == "":
                 await ctx.send("Please select a valid mon or item to search for. For example, `!dig Chansey`")
                 return
-            elif monName.lower() == "stardust":
+            elif researchString[:8].lower() == "stardust":
                 type = "stardust"
+                try:
+                    amount = int(researchString[8:])
+                except ValueError:
+                    amount = 0
                 if amount == 0:
                     await ctx.send("Please select a stardust value to search for. For example, `!dig stardust 1000`")
                 else:
                     mon = amount # use mon to store stardust reward amount
-            elif monName.lower() == "rocket":
+            elif researchString.lower() in ["grunt", "executive", "giovanni"]:
                 type = "rocket"
-                mon = "Rocket"
+                mon = researchString.lower()
+
             else:
                 try:
                     try:
-                        mon = next(key for key, value in self.bot.data['pokedex'].items() if value.lower() == monName.lower())
-                        monName = self.bot.data['pokedex'][mon]
+                        mon = next(key for key, value in self.bot.data['pokedex'].items() if value.lower() == researchString.lower())
+                        researchString = self.bot.data['pokedex'][mon]
                         type = "encounters"
                     except StopIteration:
-                        mon = next(key for key, value in self.bot.data['items'].items() if value.lower() == monName.lower())
-                        monName = self.bot.data['items'][mon]
+                        mon = next(key for key, value in self.bot.data['items'].items() if value.lower() == researchString.lower())
+                        researchString = self.bot.data['items'][mon]
                         type = "items"
                 except StopIteration:
                     mon = 0
@@ -176,7 +194,7 @@ class ResearchCog(commands.Cog):
                 if type == "rocket":
                     async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                         async with conn.cursor() as cur:
-                            await self.get_rocket(ctx, cur)
+                            await self.get_rocket(ctx, cur, mon)
                 else:
                     await self.get_stats(ctx)
                     async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
