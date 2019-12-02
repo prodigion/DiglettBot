@@ -79,6 +79,8 @@ class ResearchCog(commands.Cog):
             if type == "items": reward = f"{self.bot.data['items'][mon]} ({r[4]})"
             header = f"Research for {datetime.date.today():%B %d} - {reward}\n" \
                      f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
+            footer = ""
+            if self.bot.configs[str(ctx.guild.id)]['map-info']: footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info']
 
             template = r[0]
             questRequirement = self.parse_quest_template(r[0])
@@ -101,9 +103,9 @@ class ResearchCog(commands.Cog):
                     for r2 in results2:
                         ctr2 += 1
                         questList += f'({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n'
-                        if len(questList) > 1850 or ctr2 == numResults and ctr == numTemplates:
-                            await ctx.send(embed=discord.Embed(description=questList))
-                            await ctx.author.send(embed=discord.Embed(description=questList))
+                        if len(questList + footer) > 1850 or ctr2 == numResults and ctr == numTemplates:
+                            await ctx.send(embed=discord.Embed(description=questList + footer))
+                            await ctx.author.send(embed=discord.Embed(description=questList + footer))
                             if ctr2 == numResults:
                                 questList = ""
                             else:
@@ -119,14 +121,17 @@ class ResearchCog(commands.Cog):
             await ctx.send(embed=discord.Embed(description=f"Team Rocket is in hiding! No results found"))
 
         header = f"On {datetime.datetime.now():%B %d @ %I:%M %p} Team Rocket can be found until...\n\n"
+        footer = ""
+        if self.bot.configs[str(ctx.guild.id)]['map-info']: footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info']
+
         ctr = 0
         rocketList = header
         results = await cur.fetchall()
         for r in results:
             ctr += 1
             rocketList += f'{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
-            if len(rocketList) > 1850 or ctr == numResults:
-                await ctx.send(embed=discord.Embed(description=rocketList))
+            if len(rocketList + footer) > 1850 or ctr == numResults:
+                await ctx.send(embed=discord.Embed(description=rocketList + footer))
                 rTime = datetime.datetime.fromtimestamp(int(r[3])) - datetime.datetime.now()
                 if rTime.seconds < 900: return
                 if ctr != numResults:
@@ -206,6 +211,8 @@ class ResearchCog(commands.Cog):
                         ctr = 0
                         header = f"Available research for {datetime.date.today():%B %d}\n" \
                                  f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
+                        footer = ""
+                        if self.bot.configs[str(ctx.guild.id)]['map-info']: footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info']
 
                         questList = header + "\n"
                         results = await cur.fetchall()
@@ -224,14 +231,13 @@ class ResearchCog(commands.Cog):
                                 questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
                                 missingQuestTemplates.append(r[1])
                             questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
-                            if len(questList) > 1850 or ctr == numResults:
-                                await ctx.send(embed=discord.Embed(description=questList))
+                            if len(questList + footer) > 1850 or ctr == numResults:
+                                await ctx.send(embed=discord.Embed(description=questList + footer))
                                 questList = header + "\n"
             except (OperationalError, RuntimeError, AttributeError):
                 await self.connectDBFail(ctx)
 
             if missingQuestTemplates: await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(set(missingQuestTemplates))))
-
 
     @commands.command(name='map')
     @commands.guild_only()

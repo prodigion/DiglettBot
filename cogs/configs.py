@@ -34,7 +34,7 @@ class ConfigsCog(commands.Cog):
     @commands.is_owner()
     async def run_config(self, ctx, *, config = ""):
         def check(msg):
-            return msg.content != "cancel" and msg.author == ctx.author and msg.channel == ctx.channel
+            return msg.author == ctx.author and msg.channel == ctx.channel
 
         if config == "":
             await ctx.send("Configuration options: ```nests - Response to !nests command\n" \
@@ -47,19 +47,42 @@ class ConfigsCog(commands.Cog):
                 await ctx.send("Please enter a response for the `!nests` command. Enter `cancel` to exit.")
                 msg = await self.bot.wait_for('message', timeout=60.0, check=check)
                 if msg:
-                    pass
+                    if msg.content == "cancel":
+                        await ctx.send("Cancelled")
+                        return
                     self.bot.configs[str(ctx.guild.id)]['nests'] = msg.content
                     self.saveConfigs()
+                    await ctx.send("Nests command updated")
             except TimeoutError:
                 await ctx.send("Timeout. Role not updated")
+        elif config == "map info":
+            try:
+                await ctx.send("Please enter the map information. Enter `cancel` to exit.")
+                msg = await self.bot.wait_for('message', timeout=60.0, check=check)
+                if msg:
+                    if msg.content == "cancel":
+                        await ctx.send("Cancelled")
+                        return
+                    self.bot.configs[str(ctx.guild.id)]['map-info'] = msg.content
+                    self.saveConfigs()
+                    await ctx.send("Map info updated")
+            except TimeoutError:
+                await ctx.send("Timeout. Map info not updated")
+            except Exception as e:
+                await ctx.send("Error. Map info not updated")
+                print(e)
         elif config == "admins":
             try:
                 await ctx.send("Please enter a role name.  Enter `cancel` to exit.")
                 msg = await self.bot.wait_for('message', timeout=60.0, check=check)
-                role = discord.utils.get(ctx.guild.roles, name=msg.content)
-                if role:
+                if msg:
+                    if msg.content == "cancel":
+                        await ctx.send("Cancelled")
+                        return
+                    role = discord.utils.get(ctx.guild.roles, name=msg.content)
                     self.bot.configs[str(ctx.guild.id)]['admin-role'] = role.id
                     self.saveConfigs()
+                    await ctx.send("Admin role updated")
             except TimeoutError:
                 await ctx.send("Timeout. Role not updated")
             except Exception as e:
@@ -68,14 +91,15 @@ class ConfigsCog(commands.Cog):
         elif config == "team":
             self.bot.configs[str(ctx.guild.id)]['team-channel'] = ctx.channel.id
             self.saveConfigs()
+            await ctx.send("Team selection channel updated")
         elif config == "role":
             self.bot.configs[str(ctx.guild.id)]['role-channel'] = ctx.channel.id
             self.saveConfigs()
+            await ctx.send("Role selection channel updated")
         elif config == "research":
             self.bot.configs[str(ctx.guild.id)]['research-channel'] = ctx.channel.id
             self.saveConfigs()
-
-        await ctx.message.delete()
+            await ctx.send("Pokestop research channel updated")
 
     @commands.command(name='dugtrio')
     @commands.is_owner()
