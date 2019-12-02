@@ -97,7 +97,38 @@ class ConfigsCog(commands.Cog):
             self.saveConfigs()
             await ctx.send("Role selection channel updated")
         elif config == "research":
-            self.bot.configs[str(ctx.guild.id)]['research-channel'] = ctx.channel.id
+            try:
+                await ctx.send("Please enter a city name.  Enter `delete` to de-register this channel. Enter `cancel` to exit.")
+                msg = await self.bot.wait_for('message', timeout=60.0, check=check)
+                if msg:
+                    if msg.content == "cancel":
+                        await ctx.send("Cancelled")
+                        return
+                    if msg.content == "delete":
+                        city = self.bot.configs[str(ctx.guild.id)]['cities'].pop(str(ctx.channel.id))
+                        await ctx.send(city['city'] + " deleted")
+                        self.saveConfigs()
+                        return
+                    cityName = msg.content
+                    await ctx.send("City: " + cityName)
+
+                await ctx.send("Please enter a geofence.  Enter `cancel` to exit.")
+                msg = await self.bot.wait_for('message', timeout=60.0, check=check)
+                if msg:
+                    if msg.content == "cancel":
+                        await ctx.send("Cancelled")
+                        return
+                    geofence = msg.content
+            except TimeoutError:
+                await ctx.send("Timeout. City not updated")
+            except Exception as e:
+                await ctx.send("Error. City not updated")
+                print(e)
+            city = {
+              "city": cityName,
+              "geofence": geofence
+            }
+            self.bot.configs[str(ctx.guild.id)]['cities'][str(ctx.channel.id)] = city
             self.saveConfigs()
             await ctx.send("Pokestop research channel updated")
 

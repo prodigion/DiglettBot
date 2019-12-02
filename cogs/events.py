@@ -27,6 +27,7 @@ class EventsCog(commands.Cog):
         for guild in self.bot.guilds:
             if str(guild.id) not in self.bot.configs:
                 self.bot.configs[str(guild.id)] = dict()
+                self.bot.configs[str(guild.id)]['cities'] = dict()
                 self.bot.get_cog("ConfigsCog").saveConfigs()
             try:
                 await self.bot.get_cog("ResearchCog").connectDB(guild)
