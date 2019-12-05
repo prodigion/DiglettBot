@@ -670,6 +670,9 @@
 		"404": "Incense Floral",
 		"405": "Incense Beluga Box",
 		"501": "Lure Module",
+		"502": "Glacial Lure Module",
+		"503": "Mossy Lure Module",
+		"504": "Magnetic Lure Module",
 		"602": "X Attack",
 		"603": "X Defense",
 		"604": "X Miracle",
@@ -692,6 +695,8 @@
 		"1103": "Metal Coat",
 		"1104": "Dragon Scale",
 		"1105": "Up-Grade",
+		"1106": "Sinnoh Stone",
+		"1107": "Unova Stone",
 		"1201": "Fast TM",
 		"1202": "Charge TM",
 		"1301": "Rare Candy",
@@ -1101,7 +1106,20 @@
 			"friendfest_2019_catch_m": "Friend Fest: Catch a Nidoran Female",
 			"friendfest_2019_new_friend_medium": "Friend Fest: Add 3 friends",
 			"friendfest_2019_trade": "Friend Fest: Trade a Pokemon with a friend",
-			"friendfest_2019_trainer_battle_easy": "Friend Fest: Win a Trainer Battle against another Trainer"
+			"friendfest_2019_trainer_battle_easy": "Friend Fest: Win a Trainer Battle against another Trainer",
+			"evo_2019_catch_h": "Evolution Event: Catch 10 Horsea",
+			"evo_2019_catch_o": "Evolution Event: Catch 5 Onix",
+			"evo_2019_catch_p": "Evolution Event: Catch 5 Porygon",
+			"evo_2019_catch_p_s": "Evolution Event: Catch 10 Poliwag or Slowpoke",
+			"evo_2019_catch_s": "Evolution Event: Catch 10 Sunkern",
+			"evo_2019_evolve_1": "Evolution Event: Evolve 5 Pokemon",
+			"evo_2019_evolve_2": "Evolution Event: Evolve 10 Pokemon",
+			"evo_2019_evolve_f": "Evolution Event: Evolve a Feebas",
+			"evo_2019_evolve_item": "Evolution Event: Use an item to evolve a Pokemon",
+			"evo_2019_evolve_o": "Evolution Event: Evolve an Onix",
+			"evo_2019_hatch": "Evolution Event: Hatch 7 Eggs",
+			"evo_2019_raid": "Evolution Event: Win 5 Raids",
+			"evo_2019_rocket_l": "Evolution Event: Win 3 times against the Team GO Rocket Leaders"
 		}
 	}
 }
