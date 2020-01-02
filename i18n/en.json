@@ -1125,7 +1125,22 @@
 			"holiday_2019_catch_sd": "Holiday Event: Catch 5 Delibird or Snover",
 			"holiday_2019_hatch": "Holiday Event: Hatch 7 Eggs",
 			"holiday_2019_snapshot": "Holiday Event: Take 5 snapshots of Ice-type Pokemon",
-			"holidayw_2019_evolve": "Holiday Event: Evolve 10 Ice-type Pokemon"
+			"holidayw_2019_evolve": "Holiday Event: Evolve 10 Ice-type Pokemon",
+			"jan_2020_buddy_affection_medium": "Earn 5 hearts with your buddy",
+			"jan_2020_buddy_snapshot_easy": "Take a snapshot of your buddy",
+			"jan_2020_catch_fire_medium_pkmn": "Catch 5 Fire-type Pokemon",
+			"jan_2020_catch_types_easy_pkmn": "Catch 3 Normal, Water, or Ice-type Pokemon",
+			"jan_2020_catch_unique_ice_hard_pkmn": "Catch 3 different species of Ice-type Pokemon",
+			"jan_2020_evolve_easy_pkmn": "Evolve a Pokemon",
+			"jan_2020_friends_gifts": "Send 2 gifts to friends",
+			"jan_2020_friends_trade": "Trade a Pokemon",
+			"jan_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"jan_2020_pvp_hard": "Battle another Trainer 3 times",
+			"jan_2020_quest_hatch_egg_plural": "Hatch 7 Eggs",
+			"jan_2020_raid_participate_easy": "Battle in a Raid",
+			"jan_2020_rocket_easy": "Defeat a Team Rocket Grunt",
+			"jan_2020_spin_medium": "Spin 10 Pokestops",
+			"jan_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
 		}
 	}
 }
