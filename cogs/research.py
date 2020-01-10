@@ -75,21 +75,19 @@ class ResearchCog(commands.Cog):
             elif type == "stardust":
                 await ctx.send(embed=discord.Embed(description=f"No results found for <:stardust:543911550734434319>{mon}."))
         ctr = 0
-        questList = ""
+        questList = f"Research for {datetime.date.today():%B %d} - {self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
+        footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info'] if self.bot.configs[str(ctx.guild.id)]['map-info'] else ""
+
         results = await cur.fetchall()
         for r in results:
             ctr += 1
             if type == "items": reward = f"{self.bot.data['items'][mon]} ({r[4]})"
-            header = f"Research for {datetime.date.today():%B %d} - {reward}\n" \
-                     f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
-            footer = ""
-            if self.bot.configs[str(ctx.guild.id)]['map-info']: footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info']
 
             template = r[0]
             questRequirement = self.parse_quest_template(r[0])
             if questRequirement == "":
                     questRequirement = self.parse_quest_type(r[1], r[2]) + "\n" + self.parse_quest_conditions(json.loads(r[3]))
-            questList += header + questRequirement + "\n\n"
+            questList += f"{reward} - {questRequirement}\n\n"
 
             async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                 async with conn.cursor() as cur2:
@@ -112,7 +110,7 @@ class ResearchCog(commands.Cog):
                             if ctr2 == numResults:
                                 questList = ""
                             else:
-                                questList = header + questRequirement + "\n\n"
+                                questList = f"{reward} - {questRequirement}\n\n"
                         elif ctr2 == numResults: questList += "\n"
 
     async def get_rocket(self, ctx, cur, type):
@@ -136,8 +134,7 @@ class ResearchCog(commands.Cog):
         if numResults == 0:
             await ctx.send(embed=discord.Embed(description=f"Team Rocket is in hiding! No results found"))
 
-        footer = ""
-        if self.bot.configs[str(ctx.guild.id)]['map-info']: footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info']
+        footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info'] if self.bot.configs[str(ctx.guild.id)]['map-info'] else ""
 
         ctr = 0
         rocketList = header
@@ -236,8 +233,8 @@ class ResearchCog(commands.Cog):
                         ctr = 0
                         header = f"Available research for {datetime.date.today():%B %d}\n" \
                                  f"{self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
-                        footer = ""
-                        if self.bot.configs[str(ctx.guild.id)]['map-info']: footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info']
+
+                        footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info'] if self.bot.configs[str(ctx.guild.id)]['map-info'] else ""
 
                         questList = header + "\n"
                         results = await cur.fetchall()
