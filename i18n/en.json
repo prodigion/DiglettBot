@@ -1140,7 +1140,11 @@
 			"jan_2020_raid_participate_easy": "Battle in a Raid",
 			"jan_2020_rocket_easy": "Defeat a Team Rocket Grunt",
 			"jan_2020_spin_medium": "Spin 10 Pokestops",
-			"jan_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
+			"jan_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
+			"challenge_february2020_vote_dratini_community_day": "Vote for Dratini Community Day! Catch 20 Pokemon",
+			"challenge_february2020_vote_machop_community_day": "Vote for Machop Community Day! Catch 20 Pokemon",
+			"challenge_february2020_vote_rhyhorn_community_day": "Vote for Rhyhorn Community Day! Catch 20 Pokemon",
+			"challenge_february2020_vote_vulpix_community_day": "Vote for Vulpix Community Day! Catch 20 Pokemon"
 		}
 	}
 }
