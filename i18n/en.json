@@ -1158,7 +1158,24 @@
 			"feb_2020_raid_participate_easy": "Battle in a Raid",
 			"feb_2020_rocket_easy": "Defeat 3 Team Go Rocket Grunts",
 			"feb_2020_spin_medium": "Spin 10 Pokestops",
-			"feb_2020_transfer_pokemon_plural": "Transfer 5 Pokemon"
+			"feb_2020_transfer_pokemon_plural": "Transfer 5 Pokemon",
+			"mrd_berry_easy": "Use 3 berries to help catch Pokemon",
+			"mrd_catch_normal_easy": "Catch 5 Normal-Type Pokemon",
+			"mrd_catch_pb_easy": "Catch a Bidoof or Patrat",
+			"mrd_catch_ppm_easy": "Catch a Pikachu, Plusle, or Minun",
+			"mrd_catch_rs_easy": "Catch a Rattata or Sentret",
+			"mrd_evolve_easy": "Evolve 2 Normal-type Pokemon",
+			"mrd_gym_easy": "Battle in a Gym",
+			"mrd_land_curve_easy": "Make 5 Curveball Throws",
+			"mrd_land_great_easy": "Make 3 Great Throws",
+			"mrd_land_great_inarow_easy": "Make 2 Great Throws in a row",
+			"mrd_land_nice_easy": "Make 5 Nice Throws",
+			"mrd_land_nice_inarow_easy": "Make 3 Nice Throws in a row",
+			"mrd_raid_participate_easy": "Battle in a Raid",
+			"mrd_rocket_medium": "Defeat a Team GO Rocket Grunt",
+			"mrd_spin_easy": "Spin 2 PokeStops",
+			"mrd_supereffective_charge_easy": "Use a supereffective charged attack in a gym battle"
+
 		}
 	}
 }
