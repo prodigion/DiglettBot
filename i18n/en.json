@@ -1174,8 +1174,12 @@
 			"mrd_raid_participate_easy": "Battle in a Raid",
 			"mrd_rocket_medium": "Defeat a Team GO Rocket Grunt",
 			"mrd_spin_easy": "Spin 2 PokeStops",
-			"mrd_supereffective_charge_easy": "Use a supereffective charged attack in a gym battle"
-
+			"mrd_supereffective_charge_easy": "Use a supereffective charged attack in a gym battle",
+			"sinnoh_2020_catch_medium1": "Sinnoh Celebration: Catch 5 Turtwig, Chimchar or Piplup",
+			"sinnoh_2020_catch_medium2": "Sinnoh Celebration: Catch 5 Kricketot",
+			"sinnoh_2020_evolve_item": "Sinnoh Celebration: Use a Sinnoh Stone to evolve a Pokemon",
+			"sinnoh_2020_hatch_hard": "Sinnoh Celebration: Hatch 5 Eggs",
+			"sinnoh_2020_raids_medium": "Sinnoh Celebration: Win a Raid"
 		}
 	}
 }
