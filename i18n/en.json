@@ -1179,7 +1179,13 @@
 			"sinnoh_2020_catch_medium2": "Sinnoh Celebration: Catch 5 Kricketot",
 			"sinnoh_2020_evolve_item": "Sinnoh Celebration: Use a Sinnoh Stone to evolve a Pokemon",
 			"sinnoh_2020_hatch_hard": "Sinnoh Celebration: Hatch 5 Eggs",
-			"sinnoh_2020_raids_medium": "Sinnoh Celebration: Win a Raid"
+			"sinnoh_2020_raids_medium": "Sinnoh Celebration: Win a Raid",
+			"valentine_2020_catch_medium1": "Valentine's day: Catch 5 Slowpoke or Whismur",
+			"valentine_2020_catch_medium2": "Valentine's day: Catch 14 Luvdisc",
+			"valentine_2020_evolve": "Valentine's day: Evolve a Hoppip.",
+			"valentine_2020_hatch_hard": "Valentine's day: Hatch 3 eggs.",
+			"valentine_2020_rocket_medium": "Valentine's day: Defeat 3 Team GO Rocket Grunts"
+
 		}
 	}
 }
