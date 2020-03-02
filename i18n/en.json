@@ -1184,8 +1184,22 @@
 			"valentine_2020_catch_medium2": "Valentine's day: Catch 14 Luvdisc",
 			"valentine_2020_evolve": "Valentine's day: Evolve a Hoppip.",
 			"valentine_2020_hatch_hard": "Valentine's day: Hatch 3 eggs.",
-			"valentine_2020_rocket_medium": "Valentine's day: Defeat 3 Team GO Rocket Grunts"
-
+			"valentine_2020_rocket_medium": "Valentine's day: Defeat 3 Team GO Rocket Grunts",
+			"mar_2020_buddy_affection_medium": "Earn 5 hearts with your buddy",
+			"mar_2020_buddy_snapshot_easy": "Take a snapshot of your buddy",
+			"mar_2020_catch_fire_medium_pkmn": "Catch 5 Fire-type Pokemon",
+			"mar_2020_catch_types_easy_pkmn": "Catch 3 Grass-, Fire- or Ground-type Pokemon",
+			"mar_2020_catch_unique_ice_hard_pkmn": "Catch 7 different species of Grass-type Pokemon",
+			"mar_2020_evolve_easy_pkmn": "Evolve a Pokemon",
+			"mar_2020_friends_gifts": "Send 10 Gifts to friends",
+			"mar_2020_friends_trade": "Trade a Pokemon",
+			"mar_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"mar_2020_pvp_hard": "Battle another trainer",
+			"mar_2020_quest_hatch_egg_plural": "Hatch 7 Eggs",
+			"mar_2020_raid_participate_easy": "Battle in a raid",
+			"mar_2020_rocket_easy": "Defeat 3 Team GO Rocket Grunts",
+			"mar_2020_spin_medium": "Spin 10 Pokestops",
+			"mar_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
 		}
 	}
 }
