@@ -1199,7 +1199,10 @@
 			"mar_2020_raid_participate_easy": "Battle in a raid",
 			"mar_2020_rocket_easy": "Defeat 3 Team GO Rocket Grunts",
 			"mar_2020_spin_medium": "Spin 10 Pokestops",
-			"mar_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
+			"mar_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
+			"rtakeover_2019_rocket_1": "Rocket Take-Over: Defeat a Team GO Rocket Grunts",
+			"rtakeover_2019_rocket_2": "Rocket Take-Over: Defeat 3 Team GO Rocket Grunts",
+			"rtakeover_2019_rocket_l": "Rocket Take-Over: Defeat a Team GO Rocket Leader"
 		}
 	}
 }
