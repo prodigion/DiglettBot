@@ -1202,7 +1202,11 @@
 			"mar_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
 			"rtakeover_2019_rocket_1": "Rocket Take-Over: Defeat a Team GO Rocket Grunts",
 			"rtakeover_2019_rocket_2": "Rocket Take-Over: Defeat 3 Team GO Rocket Grunts",
-			"rtakeover_2019_rocket_l": "Rocket Take-Over: Defeat a Team GO Rocket Leader"
+			"rtakeover_2019_rocket_l": "Rocket Take-Over: Defeat a Team GO Rocket Leader",
+			"challenge_psychicspec2020_battle_rocket": "Defeat a Team GO Rocket Grunt",
+			"challenge_psychicspec2020_catch_psychic_easy": "Catch 10 Psychic-type Pokemon",
+			"challenge_psychicspec2020_catch_specific": "Catch 5 Natu",
+			"challenge_psychicspec2020_evolve_specific": "Evolve 1 Abra"
 		}
 	}
 }
