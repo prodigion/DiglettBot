@@ -858,7 +858,8 @@
 			"26": "Unknown 26",
 			"27": "Trainer Battle",
 			"28": "Take a snapshot",
-			"29": "Rocket Battle"
+			"29": "Rocket Battle",
+			"33": "Give a treat"
 		},
 		"conditions": {
 			"0": "Unset",
@@ -1206,7 +1207,11 @@
 			"challenge_psychicspec2020_battle_rocket": "Defeat a Team GO Rocket Grunt",
 			"challenge_psychicspec2020_catch_psychic_easy": "Catch 10 Psychic-type Pokemon",
 			"challenge_psychicspec2020_catch_specific": "Catch 5 Natu",
-			"challenge_psychicspec2020_evolve_specific": "Evolve 1 Abra"
+			"challenge_psychicspec2020_evolve_specific": "Evolve 1 Abra",
+			"challenge_trickster2020_buddy_candy": "Earn 3 candy walking with your buddy",
+			"challenge_trickster2020_catch_ditto": "Catch 3 Ditto",
+			"challenge_trickster2020_catch_specific": "Catch 3 Voltorb",
+			"challenge_trickster2020_feed_berry": "Give your buddy a treat"
 		}
 	}
 }
