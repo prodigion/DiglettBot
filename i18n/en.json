@@ -1211,7 +1211,20 @@
 			"challenge_trickster2020_buddy_candy": "Earn 3 candy walking with your buddy",
 			"challenge_trickster2020_catch_ditto": "Catch 3 Ditto",
 			"challenge_trickster2020_catch_specific": "Catch 3 Voltorb",
-			"challenge_trickster2020_feed_berry": "Give your buddy a treat"
+			"challenge_trickster2020_feed_berry": "Give your buddy a treat",
+			"apr_2020_buddy_affection_medium": "Earn 5 hearts with your buddy",
+			"apr_2020_buddy_snapshot_grass": "Take a Snapshot of a Grass-type Pokemon",
+			"apr_2020_catch_rock_medium_pkmn": "Catch 3 Rock-type Pokemon",
+			"apr_2020_catch_types_easy_pkmn": "Catch 3 Grass-, Fire- or Ground-type Pokemon",
+			"apr_2020_catch_unique_grass_hard_pkmn": "Catch 3 different species of Grass-type Pokemon", 
+			"apr_2020_evolve_easy_pkmn": "Evolve a Pokemon",
+			"apr_2020_friends_gifts": "Send 10 Gifts to friends",
+			"apr_2020_friends_trade": "Trade a Pokemon",
+			"apr_2020_gbl_win_easy": "Win 1 GO Battle League Battle",
+			"apr_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"apr_2020_pvp_hard": "Battle another trainer",
+			"apr_2020_quest_hatch_egg_plural": "Hatch an Egg",
+			"apr_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
 		}
 	}
 }
