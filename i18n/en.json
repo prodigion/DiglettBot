@@ -1229,7 +1229,11 @@
 			"easter_2020_hatch_easy2": "Hatch 2 Eggs",
 			"easter_2020_hatch_medium": "Hatch 3 Eggs",
 			"easter_2020_hatch_hard1": "Hatch 4 Eggs",
-			"easter_2020_hatch_hard2": "Hatch 5 Eggs"
+			"easter_2020_hatch_hard2": "Hatch 5 Eggs",
+			"challenge_buddy420_play": "Play with your buddy",
+			"challenge_buddy420_treat": "Give your buddy a treat",
+			"challenge_buddy420_snapshot": "Take a snapshot of your buddy",
+			"challenge_buddy420_candy": "Earn a candy walking with your buddy"
 		}
 	}
 }
