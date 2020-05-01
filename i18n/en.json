@@ -1233,7 +1233,30 @@
 			"challenge_buddy420_play": "Play with your buddy",
 			"challenge_buddy420_treat": "Give your buddy a treat",
 			"challenge_buddy420_snapshot": "Take a snapshot of your buddy",
-			"challenge_buddy420_candy": "Earn a candy walking with your buddy"
+			"challenge_buddy420_candy": "Earn a candy walking with your buddy",
+			"may_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"may_2020_catch_types_easy_pkmn": "Catch 3 Water-, Bug- or Electric-type Pokemon",
+			"may_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
+			"may_2020_rocket_easy": "Win a Raid",
+			"may_2020_friends_gifts": "Send 3 Gifts to friends",
+			"may_2020_quest_hatch_egg_plural": "Hatch an Egg",
+			"may_2020_gbl_win_easy": "Win 1 GO Battle League Battle",
+			"may_2020_evolve_easy_pkmn": "Evolve a Pokemon",
+			"may_2020_friends_trade": "Trade a Pokemon",
+			"may_2020_catch_electric_medium_pkmn": "Catch 3 Electric-type Pokemon",
+			"may_2020_buddy_snapshot_grass": "Take a Snapshot of a Grass-type Pokemon",
+			"may_2020_pvp_hard": "Battle another trainer",
+			"may_2020_spin_medium": "Give your buddy 3 treats",
+			"may_2020_buddy_affection_medium": "Earn 5 hearts with your buddy",
+			"may_2020_catch_unique_hard_pkmn": "Catch 4 different species of Pokemon",
+			"challenge_throwback2020_kanto_snapshot": "Take a snapshot of your buddy",
+			"challenge_throwback2020_kanto_battle": "Battle another Trainer",
+			"challenge_throwback2020_kanto_power": "Power up a Pokemon",
+			"challenge_throwback2020_kanto_feed": "Give your buddy 3 treats",
+			"challenge_throwback2020_kanto_catch_seven": "Catch 7 Pokemon",
+			"challenge_throwback2020_kanto_catch_poison": "Catch 3 Poison-type Pokemon",
+			"challenge_throwback2020_kanto_transfer": "Transfer 7 Pokemon",
+			"challenge_throwback2020_kanto_play": "Play with your buddy"
 		}
 	}
 }
