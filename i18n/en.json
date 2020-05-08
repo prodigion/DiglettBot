@@ -1256,7 +1256,15 @@
 			"challenge_throwback2020_kanto_catch_seven": "Catch 7 Pokemon",
 			"challenge_throwback2020_kanto_catch_poison": "Catch 3 Poison-type Pokemon",
 			"challenge_throwback2020_kanto_transfer": "Transfer 7 Pokemon",
-			"challenge_throwback2020_kanto_play": "Play with your buddy"
+			"challenge_throwback2020_kanto_play": "Play with your buddy",
+			"challenge_throwback2020_johto_trade": "Trade a Pokemon",
+			"challenge_throwback2020_johto_throw": "Make 5 Curveball Throws",
+			"challenge_throwback2020_johto_play": "Play with your buddy",
+			"challenge_throwback2020_johto_heart": "Earn a heart with your buddy",
+			"challenge_throwback2020_johto_hatch": "Hatch an Egg",
+			"challenge_throwback2020_johto_catch_normal": "Catch 3 Normal-type Pokemon",
+			"challenge_throwback2020_johto_catch_fire": "Catch 3 Fire-type Pokemon",
+			"challenge_throwback2020_johto_berry": "Use 5 berries to help catch Pokemon"
 		}
 	}
 }
