@@ -1264,7 +1264,16 @@
 			"challenge_throwback2020_johto_hatch": "Hatch an Egg",
 			"challenge_throwback2020_johto_catch_normal": "Catch 3 Normal-type Pokemon",
 			"challenge_throwback2020_johto_catch_fire": "Catch 3 Fire-type Pokemon",
-			"challenge_throwback2020_johto_berry": "Use 5 berries to help catch Pokemon"
+			"challenge_throwback2020_johto_berry": "Use 5 berries to help catch Pokemon",
+			"challenge_throwback2020_hoenn_battle": "Battle another Trainer",
+			"challenge_throwback2020_hoenn_catch_electric": "Catch an Electric-type Pokemon",
+			"challenge_throwback2020_hoenn_catch_normal": "Catch 3 Normal-type Pokemon",
+			"challenge_throwback2020_hoenn_evolve": "Evolve a Pokemon",
+			"challenge_throwback2020_hoenn_gift": "Send 2 Gifts to Friends",
+			"challenge_throwback2020_hoenn_heart": "Earn a heart with your buddy",
+			"challenge_throwback2020_hoenn_play": "Play with your buddy",
+			"challenge_throwback2020_hoenn_trade": "Trade a Pokemon",
+			"challenge_throwback2020_hoenn_treat": "Give your buddy a treat"
 		}
 	}
 }
