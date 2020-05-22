@@ -1273,7 +1273,15 @@
 			"challenge_throwback2020_hoenn_heart": "Earn a heart with your buddy",
 			"challenge_throwback2020_hoenn_play": "Play with your buddy",
 			"challenge_throwback2020_hoenn_trade": "Trade a Pokemon",
-			"challenge_throwback2020_hoenn_treat": "Give your buddy a treat"
+			"challenge_throwback2020_hoenn_treat": "Give your buddy a treat",
+			"challenge_throwback2020_sinnoh_battle": "Battle another Trainer",
+			"challenge_throwback2020_sinnoh_catch_easy": "Catch 2 Pokemon",
+			"challenge_throwback2020_sinnoh_catch_normal": "Catch 3 Normal-type Pokemon",
+			"challenge_throwback2020_sinnoh_feed": "Give your buddy a treat",
+			"challenge_throwback2020_sinnoh_hatch": "Hatch an Egg",
+			"challenge_throwback2020_sinnoh_heart": "Earn a heart with your buddy",
+			"challenge_throwback2020_sinnoh_play": "Play with your buddy",
+			"challenge_throwback2020_sinnoh_transfer": "Transfer 3 Pokemon"
 		}
 	}
 }
