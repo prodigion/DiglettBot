@@ -1540,7 +1540,12 @@
 			"jun_2020_raid_win": "Win a Raid",
 			"jun_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
 			"jun_2020_buddy_affection": "Earn 5 hearts with your Buddy",
-			"jun_2020_catch_unique_pkmn": "Catch 5 different species of Pokemon"
+			"jun_2020_catch_unique_pkmn": "Catch 5 different species of Pokemon",
+			"challenge_solstice2020_catch_berry": "Use 4 Berries to help catch Pokemon",
+			"challenge_solstice2020_catch_dark": "Catch 3 Dark-type Pokemon",
+			"challenge_solstice2020_catch_fire": "Catch 3 Fire-type Pokemon",
+			"challenge_solstice2020_catch_unique": "Catch 7 different species of Pokemon",
+			"challenge_solstice2020_feed_berry": "Give your buddy a treat"
 		}
 	}
 }
