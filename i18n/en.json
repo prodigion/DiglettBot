@@ -1545,7 +1545,13 @@
 			"challenge_solstice2020_catch_dark": "Catch 3 Dark-type Pokemon",
 			"challenge_solstice2020_catch_fire": "Catch 3 Fire-type Pokemon",
 			"challenge_solstice2020_catch_unique": "Catch 7 different species of Pokemon",
-			"challenge_solstice2020_feed_berry": "Give your buddy a treat"
+			"challenge_solstice2020_feed_berry": "Give your buddy a treat",
+			"challenge_bugout2020_catch_berry": "Use 3 Berries to help catch Pokemon",
+			"challenge_bugout2020_catch_bug_easy": "Catch 7 Bug-type Pokemon",
+			"challenge_bugout2020_catch_bug_hard": "Catch 15 Bug-type Pokemon",
+			"challenge_bugout2020_curveball": "Make 5 Curveball Throws",
+			"challenge_bugout2020_hatch": "Hatch an Egg",
+			"challenge_bugout2020_trade": "Trade a Pokemon"
 		}
 	}
 }
