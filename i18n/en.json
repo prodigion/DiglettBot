@@ -1551,7 +1551,31 @@
 			"challenge_bugout2020_catch_bug_hard": "Catch 15 Bug-type Pokemon",
 			"challenge_bugout2020_curveball": "Make 5 Curveball Throws",
 			"challenge_bugout2020_hatch": "Hatch an Egg",
-			"challenge_bugout2020_trade": "Trade a Pokemon"
+			"challenge_bugout2020_trade": "Trade a Pokemon",
+			"jul_2020_berry_catch": "Use 5 Berries to help catch Pokemon",
+			"jul_2020_buddy_affection": "Earn 5 hearts with your Buddy",
+			"jul_2020_buddy_snapshot_rock": "Take a Snapshot of a Rock-type Pokemon",
+			"jul_2020_catch_rock_pkmn": "Catch 3 Rock-type Pokemon",
+			"jul_2020_catch_unique_pkmn": "Catch 5 different species of Pokemon",
+			"jul_2020_catch_weather_pkmn": "Catch 3 Pokemon with Weather Boost",
+			"jul_2020_evolve_pkmn": "Evolve a Pokemon",
+			"jul_2020_feed_treat": "Give your buddy 3 Treats",
+			"jul_2020_friends_gifts": "Send 3 Gifts to Friends",
+			"jul_2020_friends_trade": "Trade a Pokemon",
+			"jul_2020_gbl_win": "Win in the GO Battle League",
+			"jul_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"jul_2020_quest_hatch_egg_single": "Hatch an Egg",
+			"jul_2020_raid_win": "Win a Raid",
+			"jul_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
+			"challenge_anniversary2020_berry": "Use 4 Berries to help catch Pokemon",
+			"challenge_anniversary2020_buddy": "Earn a candy walking with your Buddy",
+			"challenge_anniversary2020_catch_easy": "Catch 4 Flying-type Pokemon",
+			"challenge_anniversary2020_catch_hard": "Catch 8 Flying-type Pokemon",
+			"challenge_anniversary2020_catch_normal": "Catch 6 Flying-type Pokemon",
+			"challenge_anniversary2020_gift": "Send a Gift to a Friend",
+			"challenge_anniversary2020_hatch": "Hatch an Egg",
+			"challenge_anniversary2020_raid": "Win a Raid",
+			"challenge_anniversary2020_weather": "Catch 2 Pokemon with Weather Boost"
 		}
 	}
 }
