@@ -3,6 +3,7 @@ from discord.ext import commands
 
 """Utility functions"""
 
+
 class UtilityCog(commands.Cog):
     """UtilityCog"""
 
@@ -35,7 +36,7 @@ class UtilityCog(commands.Cog):
         """Print nests"""
 
         if ctx.channel.name == "migration-chat":
-          await ctx.send(self.bot.configs[str(ctx.guild.id)]['nests'])
+            await ctx.send(self.bot.configs[str(ctx.guild.id)]['nests'])
 
         await ctx.message.delete()
 
@@ -61,16 +62,17 @@ class UtilityCog(commands.Cog):
                          ]
         clearedRoles = 0
         for delRole in forbiddenRoles:
-          role = discord.utils.get(ctx.guild.roles, name=delRole)
-          if role:
-            try:
-              await role.delete()
-              await ctx.send(f"The role {role.name} has been deleted!")
-              clearedRoles += 1
-            except discord.Forbidden:
-              await ctx.send("Missing Permissions to delete this role!")
+            role = discord.utils.get(ctx.guild.roles, name=delRole)
+            if role:
+                try:
+                    await role.delete()
+                    await ctx.send(f"The role {role.name} has been deleted!")
+                    clearedRoles += 1
+                except discord.Forbidden:
+                    await ctx.send("Missing Permissions to delete this role!")
 
         await ctx.send(f"{clearedRoles} Roles cleared.")
+
 
 def setup(bot):
     bot.add_cog(UtilityCog(bot))

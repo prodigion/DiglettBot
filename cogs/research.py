@@ -5,9 +5,12 @@ from pymysql.err import OperationalError
 import datetime
 import json
 
+
 class ResearchCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.numStops = 0
+        self.numScannedStops = 0
 
     def is_admin_check(ctx):
         role = discord.utils.get(ctx.guild.roles, id=ctx.bot.configs[str(ctx.guild.id)]['admin-role'])
@@ -25,26 +28,29 @@ class ResearchCog(commands.Cog):
                 await cur.execute(f"select count(*) from pokestop where quest_type is not null and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat));")
                 (self.numScannedStops,) = await cur.fetchone()
 
-    def parse_quest_type(self, type, target):
-        return f"{self.bot.data['quests']['types'][type]} ({target})"
+    def parse_quest_type(self, quest_type, target):
+        return f"{self.bot.data['quests']['types'][quest_type]} ({target})"
 
     def parse_quest_conditions(self, conditions):
         data = self.bot.data['quests']['conditions']
-        if not conditions: return ""
+        if not conditions:
+            return ""
         out = ""
         for condition in conditions:
-#            print(condition)
+            # print(condition)
             out += f"{data[condition['type']]} "
             if condition.get('info'):
-                if condition['info'].get('throw_type_id'): out += f"{self.bot.data['activities'][condition['info']['throw_type_id']]} "
+                if condition['info'].get('throw_type_id'):
+                    out += f"{self.bot.data['activities'][condition['info']['throw_type_id']]} "
                 if condition['info'].get('pokemon_type_ids'):
-                    for type in condition['info']['pokemon_type_ids']:
-                        out += f"{self.bot.data['pokemon_types'][type]} "
+                    for pkmn_type in condition['info']['pokemon_type_ids']:
+                        out += f"{self.bot.data['pokemon_types'][pkmn_type]} "
                 if condition['info'].get('pokemon_ids'):
                     for pokemon in condition['info']['pokemon_ids']:
                         out += f"{self.bot.data['pokedex'][pokemon]} "
 #                if condition['info'].get('hit'): out += "in a row "
-                if condition['info'].get('raid_levels'): out += str(condition['info']['raid_levels']) + " "
+                if condition['info'].get('raid_levels'):
+                    out += str(condition['info']['raid_levels']) + " "
         return out
 
     def parse_quest_template(self, template):
@@ -53,26 +59,26 @@ class ResearchCog(commands.Cog):
         except:
             return ""
 
-    async def get_quests(self, ctx, cur, mon: int, type):
+    async def get_quests(self, ctx, cur, mon: int, quest_type):
         """List all quests for a specific reward."""
 
         geofence = self.bot.configs[str(ctx.guild.id)]['cities'][str(ctx.channel.id)]['geofence']
-        if type == "encounters":
+        if quest_type == "encounters":
             reward = self.bot.data['pokedex'][mon]
             await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 7 and quest_pokemon_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_template;")
-        elif type == "items":
+        elif quest_type == "items":
             await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions, json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 2 and quest_item_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_template;")
-        elif type == "stardust":
+        elif quest_type == "stardust":
             reward = f'<:stardust:543911550734434319>{mon}'
             await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_template;")
 
         numTemplates = cur.rowcount
         if numTemplates == 0:
-            if type == "encounters":
+            if quest_type == "encounters":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][mon]}."))
-            elif type == "items":
+            elif quest_type == "items":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][mon]}."))
-            elif type == "stardust":
+            elif quest_type == "stardust":
                 await ctx.send(embed=discord.Embed(description=f"No results found for <:stardust:543911550734434319>{mon}."))
         ctr = 0
         questList = f"Research for {datetime.date.today():%B %d} - {self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
@@ -81,21 +87,23 @@ class ResearchCog(commands.Cog):
         results = await cur.fetchall()
         for r in results:
             ctr += 1
-            if type == "items": reward = f"{self.bot.data['items'][mon]} ({r[4]})"
+            if quest_type == "items":
+                reward = f"{self.bot.data['items'][mon]} ({r[4]})"
+            else:
+                reward = ""
 
-            template = r[0]
             questRequirement = self.parse_quest_template(r[0])
             if questRequirement == "":
-                    questRequirement = self.parse_quest_type(r[1], r[2]) + "\n" + self.parse_quest_conditions(json.loads(r[3]))
+                questRequirement = self.parse_quest_type(r[1], r[2]) + "\n" + self.parse_quest_conditions(json.loads(r[3]))
             questList += f"{reward} - {questRequirement}\n\n"
 
             async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                 async with conn.cursor() as cur2:
-                    if type == "encounters":
+                    if quest_type == "encounters":
                         await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
-                    elif type == "items":
+                    elif quest_type == "items":
                         await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 2 and quest_item_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
-                    elif type == "stardust":
+                    elif quest_type == "stardust":
                         await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
 
                     numResults = cur2.rowcount
@@ -111,17 +119,18 @@ class ResearchCog(commands.Cog):
                                 questList = ""
                             else:
                                 questList = f"{reward} - {questRequirement}\n\n"
-                        elif ctr2 == numResults: questList += "\n"
+                        elif ctr2 == numResults:
+                            questList += "\n"
 
-    async def get_rocket(self, ctx, cur, type):
+    async def get_rocket(self, ctx, cur, rocket_type):
         """List all currently know rocket locations."""
 
         geofence = self.bot.configs[str(ctx.guild.id)]['cities'][str(ctx.channel.id)]['geofence']
 
-        if type == "executive":
+        if rocket_type == "executive":
             grunt_query = "(41,42,43)"
             header = f"On {datetime.date.today():%B %d} Team Rocket Executive can be found until 10:00PM...\n\n"
-        elif type == "giovanni":
+        elif rocket_type == "giovanni":
             grunt_query = "(44,45,46)"
             header = f"On {datetime.date.today():%B %d} Team Rocket Giovanni or Decoy can be found until 10:00PM...\n\n"
         else:
@@ -141,14 +150,15 @@ class ResearchCog(commands.Cog):
         results = await cur.fetchall()
         for r in results:
             ctr += 1
-            if type == "grunt":
+            if rocket_type == "grunt":
                 rocketList += f'{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
             else:
                 rocketList += f'at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
             if len(rocketList + footer) > 1850 or ctr == numResults:
                 await ctx.send(embed=discord.Embed(description=rocketList + footer))
                 rTime = datetime.datetime.fromtimestamp(int(r[3])) - datetime.datetime.now()
-                if rTime.seconds < 900: return
+                if rTime.seconds < 900:
+                    return
                 if ctr != numResults:
                     rocketList = header
 
@@ -156,13 +166,15 @@ class ResearchCog(commands.Cog):
     @commands.guild_only()
     async def get_research(self, ctx, *, researchString):
         """Scan database for pokestop research and rocket encounters."""
+        mon = 0
+        query_type = ""
 
         if str(ctx.channel.id) in self.bot.configs[str(ctx.guild.id)]['cities']:
             if researchString == "":
                 await ctx.send("Please select a valid mon or item to search for. For example, `!dig Chansey`")
                 return
             elif researchString[:8].lower() == "stardust":
-                type = "stardust"
+                query_type = "stardust"
                 try:
                     amount = int(researchString[8:])
                 except ValueError:
@@ -170,9 +182,9 @@ class ResearchCog(commands.Cog):
                 if amount == 0:
                     await ctx.send("Please select a stardust value to search for. For example, `!dig stardust 1000`")
                 else:
-                    mon = amount # use mon to store stardust reward amount
+                    mon = amount  # use mon to store stardust reward amount
             elif researchString.lower() in ["grunt", "executive", "giovanni"]:
-                type = "rocket"
+                query_type = "rocket"
                 mon = researchString.lower()
 
             else:
@@ -180,11 +192,11 @@ class ResearchCog(commands.Cog):
                     try:
                         mon = next(key for key, value in self.bot.data['pokedex'].items() if value.lower() == researchString.lower())
                         researchString = self.bot.data['pokedex'][mon]
-                        type = "encounters"
+                        query_type = "encounters"
                     except StopIteration:
                         mon = next(key for key, value in self.bot.data['items'].items() if value.lower() == researchString.lower())
                         researchString = self.bot.data['items'][mon]
-                        type = "items"
+                        query_type = "items"
                 except StopIteration:
                     mon = 0
 
@@ -193,7 +205,7 @@ class ResearchCog(commands.Cog):
                 return
 
             try:
-                if type == "rocket":
+                if query_type == "rocket":
                     async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                         async with conn.cursor() as cur:
                             await self.get_rocket(ctx, cur, mon)
@@ -201,14 +213,14 @@ class ResearchCog(commands.Cog):
                     await self.get_stats(ctx)
                     async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                         async with conn.cursor() as cur:
-                            await self.get_quests(ctx, cur, int(mon), type)
+                            await self.get_quests(ctx, cur, int(mon), query_type)
             except (OperationalError, RuntimeError, AttributeError):
                 await self.connectDBFail(ctx)
 
     @commands.command(name='trio')
     @commands.guild_only()
     @commands.check(is_admin_check)
-    async def get_all_research(self, ctx, type="encounters"):
+    async def get_all_research(self, ctx, query_type="encounters"):
         """List all encounters, sorted by Pokemon number"""
 
         missingQuestTemplates = []
@@ -218,11 +230,11 @@ class ResearchCog(commands.Cog):
             try:
                 async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                     async with conn.cursor() as cur:
-                        if type == "encounters":
+                        if query_type == "encounters":
                             await cur.execute(f"select quest_pokemon_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 7 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
-                        elif type == "items":
+                        elif query_type == "items":
                             await cur.execute(f"select quest_item_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 2 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_item_id, quest_template order by quest_item_id;")
-                        elif type == "stardust":
+                        elif query_type == "stardust":
                             await cur.execute(f"select json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 3 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by amount, quest_template order by amount;")
 
                         numResults = cur.rowcount
@@ -240,16 +252,16 @@ class ResearchCog(commands.Cog):
                         results = await cur.fetchall()
                         for r in results:
                             ctr += 1
-                            if type == "encounters":
+                            if query_type == "encounters":
                                 reward = self.bot.data['pokedex'][r[0]]
-                            elif type == "items":
+                            elif query_type == "items":
                                 reward = self.bot.data['items'][r[0]]
-                            elif type == "stardust":
+                            elif query_type == "stardust":
                                 reward = f'<:stardust:543911550734434319>{r[0]}'
 
                             questRequirement = self.parse_quest_template(r[1])
                             if questRequirement == "":
-    #                            print(r)
+                                # print(r)
                                 questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
                                 missingQuestTemplates.append(r[1])
                             questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
@@ -259,7 +271,8 @@ class ResearchCog(commands.Cog):
             except (OperationalError, RuntimeError, AttributeError):
                 await self.connectDBFail(ctx)
 
-            if missingQuestTemplates: await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(set(missingQuestTemplates))))
+            if missingQuestTemplates:
+                await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(set(missingQuestTemplates))))
 
     @commands.command(name='map')
     @commands.guild_only()
@@ -300,6 +313,7 @@ class ResearchCog(commands.Cog):
 
     async def connectDBFail(self, ctx):
         await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
+
 
 def setup(bot):
     bot.add_cog(ResearchCog(bot))

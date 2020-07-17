@@ -1,7 +1,5 @@
-import discord
 from discord.ext import commands
-import sys, traceback
-import json
+
 
 def get_prefix(bot, message):
     """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
@@ -16,6 +14,7 @@ def get_prefix(bot, message):
     # If we are in a guild, we allow for the user to mention us or use any of the prefixes in our list.
     return commands.when_mentioned_or(*prefixes)(bot, message)
 
+
 initial_extensions = ['cogs.configs',
                       'cogs.events',
                       'cogs.members',
@@ -23,7 +22,7 @@ initial_extensions = ['cogs.configs',
                       'cogs.utilities',
                       'cogs.owner']
 
-with open ("TOKEN", "r") as tokenFile:
+with open("TOKEN", "r") as tokenFile:
     token = tokenFile.readline()
 
 # Here we load our extensions(cogs) listed above in [initial_extensions].

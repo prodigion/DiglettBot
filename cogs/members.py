@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 
+
 class MembersCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -13,7 +14,7 @@ class MembersCog(commands.Cog):
 
     @commands.command(name='top_role', aliases=['toprole'])
     @commands.guild_only()
-    async def show_toprole(self, ctx, *, member: discord.Member=None):
+    async def show_toprole(self, ctx, *, member: discord.Member = None):
         """Simple command which shows the members Top Role."""
 
         if member is None:
@@ -33,7 +34,7 @@ class MembersCog(commands.Cog):
 
     @commands.command(name='perms', aliases=['perms_for', 'permissions'])
     @commands.guild_only()
-    async def check_permissions(self, ctx, *, member: discord.Member=None):
+    async def check_permissions(self, ctx, *, member: discord.Member = None):
         """A simple command which checks a members Guild Permissions.
         If member is not provided, the author will be checked."""
 
@@ -183,6 +184,7 @@ class MembersCog(commands.Cog):
             else:
                 await ctx.author.add_roles(role)
                 await ctx.send(f'Role added: ' + role.name)
+
 
 def setup(bot):
     bot.add_cog(MembersCog(bot))
