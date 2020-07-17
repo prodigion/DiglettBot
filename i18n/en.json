@@ -1575,7 +1575,14 @@
 			"challenge_anniversary2020_gift": "Send a Gift to a Friend",
 			"challenge_anniversary2020_hatch": "Hatch an Egg",
 			"challenge_anniversary2020_raid": "Win a Raid",
-			"challenge_anniversary2020_weather": "Catch 2 Pokemon with Weather Boost"
+			"challenge_anniversary2020_weather": "Catch 2 Pokemon with Weather Boost",
+			"challenge_summer2020_buddy_play": "Play with your Buddy",
+			"challenge_summer2020_buddy_treat": "Give your Buddy a Treat",
+			"challenge_summer2020_buddy_walk": "Earn 2 Candies walking with your Buddy",
+			"challenge_summer2020_catch_grass": "Catch 3 Grass-type Pokemon",
+			"challenge_summer2020_catch_grass_hard": "Catch 6 Grass-type Pokemon",
+			"challenge_summer2020_catch_water": "Catch 3 Water-type Pokemon",
+			"challenge_summer2020_catch_water_hard": "Catch 6 Water-type Pokemon"
 		}
 	}
 }
