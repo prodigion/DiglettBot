@@ -1582,7 +1582,10 @@
 			"challenge_summer2020_catch_grass": "Catch 3 Grass-type Pokemon",
 			"challenge_summer2020_catch_grass_hard": "Catch 6 Grass-type Pokemon",
 			"challenge_summer2020_catch_water": "Catch 3 Water-type Pokemon",
-			"challenge_summer2020_catch_water_hard": "Catch 6 Water-type Pokemon"
+			"challenge_summer2020_catch_water_hard": "Catch 6 Water-type Pokemon",
+			"challenge_ultraunlock2020_dragon_catch": "Catcy 3 Dragon-type Pokemon",
+			"challenge_ultraunlock2020_dragon_raid": "Win a Raid",
+			"challenge_ultraunlock2020_dragon_throw": "Make an Excellent Throw"
 		}
 	}
 }
