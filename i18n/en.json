@@ -1585,7 +1585,22 @@
 			"challenge_summer2020_catch_water_hard": "Catch 6 Water-type Pokemon",
 			"challenge_ultraunlock2020_dragon_catch": "Catcy 3 Dragon-type Pokemon",
 			"challenge_ultraunlock2020_dragon_raid": "Win a Raid",
-			"challenge_ultraunlock2020_dragon_throw": "Make an Excellent Throw"
+			"challenge_ultraunlock2020_dragon_throw": "Make an Excellent Throw",
+			"aug_2020_berry_catch": "Use 5 Berries to help catch Pokemon",
+			"aug_2020_buddy_affection": "Earn 3 Hearts with your Buddy",
+			"aug_2020_buddy_snapshot_fighting": "Take a snapshot of a Fighting-type Pokemon",
+			"aug_2020_catch_fighting_pkmn": "Catch 3 Fighting-type Pokemon",
+			"aug_2020_catch_unique_pkmn": "Catch 9 different species of Pokemon",
+			"aug_2020_catch_weather_pkmn": "Catch 3 Pokemon with Weather Boost",
+			"aug_2020_evolve_pkmn": "Evolve a Pokemon",
+			"aug_2020_feed_treat": "Give your Buddy 3 Treats",
+			"aug_2020_friends_gifts": "Send 3 Gifts to your Friends",
+			"aug_2020_friends_trade": "Trade a Pokemon",
+			"aug_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"aug_2020_quest_hatch_egg_single": "Hatch an Egg",
+			"aug_2020_raid_win": "Win a Raid",
+			"aug_2020_rocket_win": "Defeat 2 Team GO Rocket Grunts",
+			"aug_2020_transfer_pokemon_plural": "Transfer 5 Pokemon"
 		}
 	}
 }
