@@ -54,10 +54,7 @@ class ResearchCog(commands.Cog):
         return out
 
     def parse_quest_template(self, template):
-        try:
-            return self.bot.data['quests']['templates'][template]
-        except:
-            return ""
+        return self.bot.data['quests']['templates'].get(template, "")
 
     async def get_quests(self, ctx, cur, mon: int, quest_type):
         """List all quests for a specific reward."""
@@ -263,7 +260,7 @@ class ResearchCog(commands.Cog):
                             if questRequirement == "":
                                 # print(r)
                                 questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
-                                missingQuestTemplates.append(r[1])
+                                missingQuestTemplates.append( f'"{r[1]}": "{reward}"' )
                             questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
                             if len(questList + footer) > 1850 or ctr == numResults:
                                 await ctx.send(embed=discord.Embed(description=questList + footer))
