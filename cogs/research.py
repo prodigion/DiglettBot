@@ -111,7 +111,10 @@ class ResearchCog(commands.Cog):
                         questList += f'({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n'
                         if len(questList + footer) > 1850 or ctr2 == numResults and ctr == numTemplates:
                             await ctx.send(embed=discord.Embed(description=questList + footer))
-                            await ctx.author.send(embed=discord.Embed(description=questList + footer))
+                            try:
+                                await ctx.author.send(embed=discord.Embed(description=questList + footer))
+                            except commands.errors.CommandInvokeError:
+                                await ctx.send("I'm not able to DM you {ctx.author.mention}.")
                             if ctr2 == numResults:
                                 questList = ""
                             else:
