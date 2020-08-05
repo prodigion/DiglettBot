@@ -23,9 +23,13 @@ class ResearchCog(commands.Cog):
 
         async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
             async with conn.cursor() as cur:
-                await cur.execute(f"select count(*) from pokestop where url is not null and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat));")
+                await cur.execute(f"SELECT count(*) "
+                                  f"FROM pokestop "
+                                  f"WHERE url is not null and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat));")
                 (self.numStops,) = await cur.fetchone()
-                await cur.execute(f"select count(*) from pokestop where quest_type is not null and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat));")
+                await cur.execute(f"SELECT count(*) "
+                                  f"FROM pokestop "
+                                  f"WHERE quest_type is not null and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat));")
                 (self.numScannedStops,) = await cur.fetchone()
 
     def parse_quest_type(self, quest_type, target):
@@ -62,12 +66,21 @@ class ResearchCog(commands.Cog):
         geofence = self.bot.configs[str(ctx.guild.id)]['cities'][str(ctx.channel.id)]['geofence']
         if quest_type == "encounters":
             reward = self.bot.data['pokedex'][mon]
-            await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 7 and quest_pokemon_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_template;")
+            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions "
+                              f"FROM pokestop "
+                              f"WHERE quest_reward_type = 7 and quest_pokemon_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                              f"GROUP BY quest_template;")
         elif quest_type == "items":
-            await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions, json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') from pokestop where quest_reward_type = 2 and quest_item_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_template;")
+            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') "
+                              f"FROM pokestop "
+                              f"WHERE quest_reward_type = 2 and quest_item_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                              f"GROUP BY quest_template;")
         elif quest_type == "stardust":
-            reward = f'<:stardust:543911550734434319>{mon}'
-            await cur.execute(f"select quest_template, quest_type, quest_target, quest_conditions from pokestop where quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_template;")
+            reward = f'<:stardust:740686160535224380>{mon}'
+            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions "
+                              f"FROM pokestop "
+                              f"WHERE quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                              f"GROUP BY quest_template;")
 
         numTemplates = cur.rowcount
         if numTemplates == 0:
@@ -76,7 +89,7 @@ class ResearchCog(commands.Cog):
             elif quest_type == "items":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['items'][mon]}."))
             elif quest_type == "stardust":
-                await ctx.send(embed=discord.Embed(description=f"No results found for <:stardust:543911550734434319>{mon}."))
+                await ctx.send(embed=discord.Embed(description=f"No results found for <:stardust:740686160535224380>{mon}."))
         ctr = 0
         questList = f"Research for {datetime.date.today():%B %d} - {self.numScannedStops} of {self.numStops} ({int(100 * self.numScannedStops/self.numStops)}%) PokeStops scanned.\n"
         footer = "\n" + self.bot.configs[str(ctx.guild.id)]['map-info'] if self.bot.configs[str(ctx.guild.id)]['map-info'] else ""
@@ -86,8 +99,6 @@ class ResearchCog(commands.Cog):
             ctr += 1
             if quest_type == "items":
                 reward = f"{self.bot.data['items'][mon]} ({r[4]})"
-            else:
-                reward = ""
 
             questRequirement = self.parse_quest_template(r[0])
             if questRequirement == "":
@@ -231,11 +242,23 @@ class ResearchCog(commands.Cog):
                 async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                     async with conn.cursor() as cur:
                         if query_type == "encounters":
-                            await cur.execute(f"select quest_pokemon_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 7 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_pokemon_id, quest_template order by quest_pokemon_id;")
+                            await cur.execute(f"SELECT quest_pokemon_id, quest_template, quest_conditions, count(*) "
+                                              f"FROM pokestop "
+                                              f"WHERE quest_reward_type = 7 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                              f"GROUP BY quest_pokemon_id, quest_template "
+                                              f"ORDER BY quest_pokemon_id;")
                         elif query_type == "items":
-                            await cur.execute(f"select quest_item_id, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 2 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by quest_item_id, quest_template order by quest_item_id;")
+                            await cur.execute(f"SELECT quest_item_id, quest_template, quest_conditions, count(*) "
+                                              f"FROM pokestop "
+                                              f"WHERE quest_reward_type = 2 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                              f"GROUP BY quest_item_id, quest_template "
+                                              f"ORDER BY quest_item_id;")
                         elif query_type == "stardust":
-                            await cur.execute(f"select json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, quest_conditions, count(*) from pokestop where quest_reward_type = 3 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) group by amount, quest_template order by amount;")
+                            await cur.execute(f"SELECT json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') as amount, quest_template, quest_conditions, count(*) "
+                                              f"FROM pokestop "
+                                              f"WHERE quest_reward_type = 3 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                              f"GROUP BY amount, quest_template "
+                                              f"ORDER BY amount;")
 
                         numResults = cur.rowcount
                         if numResults <= 1:
@@ -257,7 +280,7 @@ class ResearchCog(commands.Cog):
                             elif query_type == "items":
                                 reward = self.bot.data['items'][r[0]]
                             elif query_type == "stardust":
-                                reward = f'<:stardust:543911550734434319>{r[0]}'
+                                reward = f'<:stardust:740686160535224380>{r[0]}'
 
                             questRequirement = self.parse_quest_template(r[1])
                             if questRequirement == "":
