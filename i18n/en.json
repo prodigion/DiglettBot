@@ -1600,7 +1600,10 @@
 			"aug_2020_quest_hatch_egg_single": "Hatch an Egg",
 			"aug_2020_raid_win": "Win a Raid",
 			"aug_2020_rocket_win": "Defeat 2 Team GO Rocket Grunts",
-			"aug_2020_transfer_pokemon_plural": "Transfer 5 Pokemon"
+			"aug_2020_transfer_pokemon_plural": "Transfer 5 Pokemon",
+			"challenge_ultraunlock2020_enigma_catch": "Catch 3 Psychic-type Pokemon",
+			"challenge_ultraunlock2020_enigma_raid": "Win a Raid",
+			"challenge_ultraunlock2020_enigma_throw": "Make 3 Curveball Throws"
 		}
 	}
 }
