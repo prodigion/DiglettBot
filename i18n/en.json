@@ -1603,7 +1603,10 @@
 			"aug_2020_transfer_pokemon_plural": "Transfer 5 Pokemon",
 			"challenge_ultraunlock2020_enigma_catch": "Catch 3 Psychic-type Pokemon",
 			"challenge_ultraunlock2020_enigma_raid": "Win a Raid",
-			"challenge_ultraunlock2020_enigma_throw": "Make 3 Curveball Throws"
+			"challenge_ultraunlock2020_enigma_throw": "Make 3 Curveball Throws",
+			"challenge_ultraunlock2020_unova_berry": "Use 5 Berries to help catch Pokemon",
+			"challenge_ultraunlock2020_unova_catch": "Catch 5 different species of Pokemon",
+			"challenge_ultraunlock2020_unova_raid": "Win a Raid"
 		}
 	}
 }
