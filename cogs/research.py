@@ -81,7 +81,7 @@ class ResearchCog(commands.Cog):
                               f"WHERE quest_reward_type = 2 and quest_item_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
                               f"GROUP BY quest_template;")
         elif quest_type == "stardust":
-            reward = f'<:stardust:740686160535224380>{mon}'
+            reward = f"<:stardust:740686160535224380>{mon}"
             await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions "
                               f"FROM pokestop "
                               f"WHERE quest_reward_type = 3 and json_extract(json_extract(quest_rewards,_utf8mb4'$[*].info'),_utf8mb4'$[0].amount') = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
@@ -130,7 +130,7 @@ class ResearchCog(commands.Cog):
                     results2 = await cur2.fetchall()
                     for r2 in results2:
                         ctr2 += 1
-                        questList += f'({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n'
+                        questList += f"({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n"
                         if len(questList + footer) > 1850 or ctr2 == numResults and ctr == numTemplates:
                             await ctx.send(embed=discord.Embed(description=questList + footer))
                             try:
@@ -173,9 +173,9 @@ class ResearchCog(commands.Cog):
         for r in results:
             ctr += 1
             if rocket_type == "grunt":
-                rocketList += f'{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
+                rocketList += f"{datetime.datetime.fromtimestamp(int(r[3])):%I:%M %p} at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n"
             else:
-                rocketList += f'at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n'
+                rocketList += f"at [{r[0]}](http://www.google.com/maps/place/{r[1]},{r[2]})\n"
             if len(rocketList + footer) > 1850 or ctr == numResults:
                 await ctx.send(embed=discord.Embed(description=rocketList + footer))
                 rTime = datetime.datetime.fromtimestamp(int(r[3])) - datetime.datetime.now()
@@ -306,14 +306,14 @@ class ResearchCog(commands.Cog):
                             elif query_type == "items":
                                 reward = self.bot.data['items'][r[0]]
                             elif query_type == "stardust":
-                                reward = f'<:stardust:740686160535224380>{r[0]}'
+                                reward = f"<:stardust:740686160535224380>{r[0]}"
 
                             questRequirement = self.parse_quest_template(r[1])
                             if questRequirement == "":
                                 # print(r)
                                 questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
                                 missingQuestTemplates.append( f'"{r[1]}": "{reward}"' )
-                            questList += f'{r[3]} quests for {reward} ({questRequirement})\n'
+                            questList += f"{r[3]} quests for {reward} ({questRequirement})\n"
                             if len(questList + footer) > 1850 or ctr == numResults:
                                 await ctx.send(embed=discord.Embed(description=questList + footer))
                                 questList = header + "\n"
@@ -331,10 +331,10 @@ class ResearchCog(commands.Cog):
             role = discord.utils.get(ctx.guild.roles, name=ctx.invoked_with)
             if role in ctx.author.roles:
                 await ctx.author.remove_roles(role)
-                await ctx.send(f'Role removed: ' + role.name)
+                await ctx.send(f"Role removed: {role.name}")
             else:
                 await ctx.author.add_roles(role)
-                await ctx.send(f'Role added: ' + role.name)
+                await ctx.send(f"Role added: {role.name}")
 
     @commands.command(name='reconnect')
     @commands.guild_only()
