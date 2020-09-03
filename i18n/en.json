@@ -1606,7 +1606,26 @@
 			"challenge_ultraunlock2020_enigma_throw": "Make 3 Curveball Throws",
 			"challenge_ultraunlock2020_unova_berry": "Use 5 Berries to help catch Pokemon",
 			"challenge_ultraunlock2020_unova_catch": "Catch 5 different species of Pokemon",
-			"challenge_ultraunlock2020_unova_raid": "Win a Raid"
+			"challenge_ultraunlock2020_unova_raid": "Win a Raid",
+			"challenge_megasept2020_mega_raid_win": "Win a Mega Raid",
+			"challenge_megasept2020_raids_battle": "Battle in a Raid",
+			"challenge_megasept2020_raids_win_easy": "Win a Raid",
+			"challenge_megasept2020_raids_win_medium": "Win 3 Raids",
+			"challenge_megasept2020_raids_win_hard": "Win 5 Raids",
+			"sep_2020_berry_catch": "Use 5 Berries to help catch Pokemon",
+			"sep_2020_buddy_affection": "Earn 5 Hearts with your Buddy",
+			"sep_2020_catch_psychic_pkmn": "Catch 3 Psychic-type Pokemon",
+			"sep_2020_catch_unique_pkmn": "Catch 9 different species of Pokemon",
+			"sep_2020_catch_weather_pkmn": "Catch 3 Pokemon with Weather Boost",
+			"sep_2020_evolve_pkmn": "Evolve a Pokemon",
+			"sep_2020_feed_treat": "Give your Buddy 3 Treats",
+			"sep_2020_friends_gifts": "Send 3 Gifts to Friends",
+			"sep_2020_friends_trade": "Trade a Pokemon",
+			"sep_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"sep_2020_quest_hatch_egg_single": "Hatch an Egg",
+			"sep_2020_raid_win": "Win a Raid",
+			"sep_2020_rocket_win": "Defeat 2 Team GO Rocket Grunts",
+			"sep_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
 		}
 	}
 }
