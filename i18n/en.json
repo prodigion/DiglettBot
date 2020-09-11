@@ -1626,7 +1626,10 @@
 			"sep_2020_quest_hatch_egg_single": "Hatch an Egg",
 			"sep_2020_raid_win": "Win a Raid",
 			"sep_2020_rocket_win": "Defeat 2 Team GO Rocket Grunts",
-			"sep_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
+			"sep_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
+			"challenge_megabattle2020_bug_unique": "Catch 3 different species of Bug-type Pokemon",
+			"challenge_megabattle2020_mega_beedrill": "Mega Evolve a Beedrill",
+			"challenge_megabattle2020_mega_raid": "Defeat a Team Rocket Grunt"
 		}
 	}
 }
