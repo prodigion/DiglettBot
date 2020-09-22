@@ -1629,7 +1629,10 @@
 			"sep_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
 			"challenge_megabattle2020_bug_unique": "Catch 3 different species of Bug-type Pokemon",
 			"challenge_megabattle2020_mega_beedrill": "Mega Evolve a Beedrill",
-			"challenge_megabattle2020_mega_raid": "Defeat a Team Rocket Grunt"
+			"challenge_megabattle2020_mega_raid": "Defeat a Team Rocket Grunt",
+			"challenge_megabuddy2020_mega_beedrill": "Mega Evolve a Beedrill",
+			"challenge_megabuddy2020_mega_rocket": "Defeat a Team Rocket Grunt",
+			"challenge_megabuddy2020_unique": "Catch 7 different species of Pokemon"
 		}
 	}
 }
