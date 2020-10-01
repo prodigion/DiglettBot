@@ -1632,7 +1632,22 @@
 			"challenge_megabattle2020_mega_raid": "Defeat a Team Rocket Grunt",
 			"challenge_megabuddy2020_mega_beedrill": "Mega Evolve a Beedrill",
 			"challenge_megabuddy2020_mega_rocket": "Defeat a Team Rocket Grunt",
-			"challenge_megabuddy2020_unique": "Catch 7 different species of Pokemon"
+			"challenge_megabuddy2020_unique": "Catch 7 different species of Pokemon",
+			"oct_2020_berry_catch": "Use 5 Berries to help catch Pokemon",
+			"oct_2020_buddy_affection": "Give your buddy 3 treats",
+			"oct_2020_buddy_snapshot_ghost": "Earn 5 Hearts with your Buddy",
+			"oct_2020_catch_ghost_pkmn": "Catch 3 Ghost-type Pokemon",
+			"oct_2020_catch_unique_pkmn": "Catch 10 different species of Pokemon",
+			"oct_2020_catch_weather_pkmn": "Catch 3 Pokemon with Weather Boost",
+			"oct_2020_evolve_pkmn": "Evolve a Pokemon",
+			"oct_2020_feed_treat": "Power up Pokemon 5 times",
+			"oct_2020_friends_gifts": "Send 3 Gifts to Friends",
+			"oct_2020_friends_trade": "Trade a Pokemon",
+			"oct_2020_land_great_curve_inarow_veryhard": "Make 5 Great Curveball Throws in a row",
+			"oct_2020_quest_hatch_egg_single": "Hatch an Egg",
+			"oct_2020_raid_win": "Win a Raid",
+			"oct_2020_rocket_win": "Defeat 2 Team GO Rocket Grunts",
+			"oct_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
 		}
 	}
 }
