@@ -1647,7 +1647,11 @@
 			"oct_2020_quest_hatch_egg_single": "Hatch an Egg",
 			"oct_2020_raid_win": "Win a Raid",
 			"oct_2020_rocket_win": "Defeat 2 Team GO Rocket Grunts",
-			"oct_2020_transfer_pokemon_plural": "Transfer 3 Pokemon"
+			"oct_2020_transfer_pokemon_plural": "Transfer 3 Pokemon",
+			"challenge_fashionweek2020_hatch_eggs": "Hatch an egg",
+			"challenge_fashionweek2020_raids_battle": "Battle in a Raid",
+			"challenge_fashionweek2020_spin_pokestops": "Spin 3 Pokestops",
+			"challenge_fashionweek2020_take_snapshots": "Take 3 snapshots"
 		}
 	}
 }
