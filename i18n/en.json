@@ -1654,7 +1654,9 @@
 			"challenge_fashionweek2020_take_snapshots": "Take 3 snapshots",
 			"challenge_autumn2020_catch_grass": "Catch 3 Grass-type Pokemon",
 			"challenge_autumn2020_catch_normal": "Catch 3 Normal-type Pokemon",
-			"challenge_autumn2020_catch_poison": "Catch 3 Poison-type Pokemon"
+			"challenge_autumn2020_catch_poison": "Catch 3 Poison-type Pokemon",
+			"challenge_rdam_catch_normal_type": "Catch a Normal-type Pokemon",
+			"challenge_rdam_catch_normal_type_all": "Catch a Normal-type Pokemon"
 		}
 	}
 }
