@@ -1103,7 +1103,10 @@
 			"35": "Play with your buddy",
 			"36": "QUEST_BUDDY_LEVEL",
 			"37": "QUEST_BUDDY_WALK",
-			"38": "QUEST_BUDDY_YATTA"
+			"38": "QUEST_BUDDY_YATTA",
+			"39": "QUEST_USE_INCENSE",
+			"43": "QUEST_MEGA_EVOLVE_POKEMON",
+			"46": "UNKNOWN"
 		},
 		"conditions": {
 			"0": "Unset",
@@ -1656,7 +1659,14 @@
 			"challenge_autumn2020_catch_normal": "Catch 3 Normal-type Pokemon",
 			"challenge_autumn2020_catch_poison": "Catch 3 Poison-type Pokemon",
 			"challenge_rdam_catch_normal_type": "Catch a Normal-type Pokemon",
-			"challenge_rdam_catch_normal_type_all": "Catch a Normal-type Pokemon"
+			"challenge_rdam_catch_normal_type_all": "Catch a Normal-type Pokemon",
+			"challenge_autumn2020_catch_dark": "Catch 5 Dark-type Pokemon",
+			"challenge_mega_energy_power_up": "Power up Pokemon 5 times",
+			"geotargeted_ar_scan": "Scan POI",
+			"hallow_2020_catch_dark": "Catch 18 Dark-type Pokemon",
+			"hallow_2020_catch_ghost": "Catch 18 Ghost-type Pokemon",
+			"hallow_2020_purify": "Purify 2 Pokemon",
+			"hallow_2020_win_raid": "Win 2 Raids"
 		}
 	}
 }
