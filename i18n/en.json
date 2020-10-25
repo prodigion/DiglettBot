@@ -1666,7 +1666,10 @@
 			"hallow_2020_catch_dark": "Catch 18 Dark-type Pokemon",
 			"hallow_2020_catch_ghost": "Catch 18 Ghost-type Pokemon",
 			"hallow_2020_purify": "Purify 2 Pokemon",
-			"hallow_2020_win_raid": "Win 2 Raids"
+			"hallow_2020_win_raid": "Win 2 Raids",
+			"challenge_catch_mastery_ghost_2020_great_curve_throw": "Make 3 great curveball throws",
+			"challenge_catch_mastery_ghost_2020_transfer": "Transfer 5 Pokemon",
+			"challenge_catch_mastery_ghost_2020_catch": "Catch 5 Ghost-type Pokemon"
 		}
 	}
 }
