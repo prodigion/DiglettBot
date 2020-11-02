@@ -1669,7 +1669,21 @@
 			"hallow_2020_win_raid": "Win 2 Raids",
 			"challenge_catch_mastery_ghost_2020_great_curve_throw": "Make 3 great curveball throws",
 			"challenge_catch_mastery_ghost_2020_transfer": "Transfer 5 Pokemon",
-			"challenge_catch_mastery_ghost_2020_catch": "Catch 5 Ghost-type Pokemon"
+			"challenge_catch_mastery_ghost_2020_catch": "Catch 5 Ghost-type Pokemon",
+			"nov_2020_buddy_heart": "Earn 5 Hearts with your Buddy",
+			"nov_2020_buddy_treat": "Give your buddy 3 treats",
+			"nov_2020_catch_berry": "Use 5 Berries to help catch Pokemon",
+			"nov_2020_catch_fairy": "Catch 3 Fairy-type Pokemon",
+			"nov_2020_catch_unique": "Catch 10 different species of Pokemon",
+			"nov_2020_catch_weather": "Catch 3 Pokemon with Weather Boost",
+			"nov_2020_evolve": "Evolve a Pokemon",
+			"nov_2020_friend_gifts": "Send 3 Gifts to Friends",
+			"nov_2020_friend_trade": "Trade a Pokemon",
+			"nov_2020_hatch_egg": "Hatch an egg",
+			"nov_2020_powerup": "Power up Pokemon 5 times",
+			"nov_2020_throw_great_hard": "Make 3 great curveball throws in a row",
+			"nov_2020_win_raid": "Win a raid",
+			"nov_2020_win_rocket": "Defeat 3 Team GO Rocket Grunts"
 		}
 	}
 }
