@@ -58,10 +58,12 @@ class MembersCog(commands.Cog):
     @commands.guild_only()
     async def show_welcome(self, ctx):
         if ctx.channel.id == self.bot.configs[str(ctx.guild.id)]['team-channel']:
+            await ctx.channel.purge()
+            await self.setWelcomeMessage(ctx.channel)
+        elif ctx.channel.id == 462262985423978496:
             await self.setWelcomeMessage(ctx.channel)
 
     async def setWelcomeMessage(self, channel: discord.TextChannel):
-        await channel.purge()
         welcomeMsg = await channel.send(f"Welcome to {channel.guild.name}, please choose a team! If you have any questions tag the `@Mods`.")
 
         await welcomeMsg.add_reaction(":instinct:408859733831843867")
@@ -75,33 +77,29 @@ class MembersCog(commands.Cog):
             guild = self.bot.get_guild(payload.guild_id)
             message = await self.bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
             user = guild.get_member(payload.user_id)
-            if payload.channel_id == 462262985423978496 or payload.channel_id == self.bot.configs[str(guild.id)]['team-channel'] and len(user.roles) < 2:
-                if str(payload.emoji) == "<:instinct:408859733831843867>":
-                    await message.remove_reaction(payload.emoji, user)
-                    welcomeMsg = f'Welcome to team Instinct {user.mention}!'
-                    await user.add_roles(discord.utils.get(guild.roles, name="instinct"),
-                                         discord.utils.get(guild.roles, name="chat"),
-                                         atomic=True)
+            if payload.channel_id == 462262985423978496 or payload.channel_id == self.bot.configs[str(guild.id)]['team-channel']:
+                if str(payload.emoji) == "<:harmony:509206588553297930>":
+                    team_choice = "harmony"
+                elif str(payload.emoji) == "<:instinct:408859733831843867>":
+                    team_choice = "instinct"
                 elif str(payload.emoji) == "<:valor:408859732280082444>":
-                    await message.remove_reaction(payload.emoji, user)
-                    welcomeMsg = f'Welcome to team Valor {user.mention}!'
-                    await user.add_roles(discord.utils.get(guild.roles, name="valor"),
-                                         discord.utils.get(guild.roles, name="chat"),
-                                         atomic=True)
+                    team_choice = "valor"
                 elif str(payload.emoji) == "<:mystic:408859736134516759>":
-                    await message.remove_reaction(payload.emoji, user)
-                    welcomeMsg = f'Welcome to team Mystic {user.mention}!'
-                    await user.add_roles(discord.utils.get(guild.roles, name="mystic"),
-                                         discord.utils.get(guild.roles, name="chat"),
-                                         atomic=True)
-                elif str(payload.emoji) == "<:harmony:509206588553297930>":
-                    await message.remove_reaction(payload.emoji, user)
-                    welcomeMsg = f'Welcome to team Harmony {user.mention}!'
-                    await user.add_roles(discord.utils.get(guild.roles, name="harmony"),
-                                         discord.utils.get(guild.roles, name="chat"),
-                                         atomic=True)
+                    team_choice = "mystic"
                 else:
                     return
+
+                await message.remove_reaction(payload.emoji, user)
+                harmony_role = discord.utils.get(guild.roles, name="harmony")
+                if harmony_role in user.roles:
+                    if team_choice == "harmony":
+                        return
+                    else:
+                        await user.remove_roles(harmony_role)
+                welcomeMsg = f'Welcome to team {team_choice.capitalize()} {user.mention}!'
+                await user.add_roles(discord.utils.get(guild.roles, name=team_choice),
+                                     discord.utils.get(guild.roles, name="chat"),
+                                     atomic=True)
 
                 teamSelectMessage = (
                   f"Now that you've selected a team, {user.mention}, the below commands are available. They work as toggles so you can join/leave them as you require. Join as many as you'd like!\n"

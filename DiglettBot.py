@@ -1,3 +1,4 @@
+from discord import Intents
 from discord.ext import commands
 
 
@@ -27,7 +28,10 @@ with open("TOKEN", "r") as tokenFile:
 
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
-    bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett Bot. Trio Trio Trio.')
+    intents = Intents.default()
+    intents.members = True # Requires setting in Bot settings on discord developer site
+
+    bot = commands.Bot(command_prefix=get_prefix, description='Diglett Bot Diglett Bot. Trio Trio Trio.', intents=intents)
 
     for extension in initial_extensions:
         bot.load_extension(extension)

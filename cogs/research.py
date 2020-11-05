@@ -285,7 +285,7 @@ class ResearchCog(commands.Cog):
                                               f"ORDER BY amount;")
 
                         numResults = cur.rowcount
-                        if numResults <= 1:
+                        if numResults < 1:
                             await ctx.send(f"No research found")
                         await self.get_stats(ctx)
 
