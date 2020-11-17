@@ -1688,9 +1688,13 @@
 			"nov_2020_friend_trade": "Trade a Pokemon",
 			"nov_2020_hatch_egg": "Hatch an egg",
 			"nov_2020_powerup": "Power up Pokemon 5 times",
-			"nov_2020_throw_great_hard": "Make 3 great curveball throws in a row",
+			"nov_2020_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"nov_2020_win_raid": "Win a raid",
-			"nov_2020_win_rocket": "Defeat 3 Team GO Rocket Grunts"
+			"nov_2020_win_rocket": "Defeat 3 Team GO Rocket Grunts",
+			"home_2020_catch_unique": "Catch 3 different species of Pokemon",
+			"home_2020_raid_win": "Win 2 Raids",
+			"home_2020_buddy_feed": "Give your buddy 3 treats",
+			"home_2020_catch_any": "Catch 30 Pokemon"
 		}
 	}
 }
