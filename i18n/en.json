@@ -1694,7 +1694,11 @@
 			"home_2020_catch_unique": "Catch 3 different species of Pokemon",
 			"home_2020_raid_win": "Win 2 Raids",
 			"home_2020_buddy_feed": "Give your buddy 3 treats",
-			"home_2020_catch_any": "Catch 30 Pokemon"
+			"home_2020_catch_any": "Catch 30 Pokemon",
+			"laketrio_2020_berry_any": "Use 5 Berries to help catch Pokemon",
+			"laketrio_2020_catch_water": "Catch 5 water-type Pokemon",
+			"laketrio_2020_send_gift": "Send 3 Gifts to Friends",
+			"laketrio_2020_win_raid": "Win a Raid"
 		}
 	}
 }
