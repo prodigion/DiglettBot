@@ -1698,7 +1698,24 @@
 			"laketrio_2020_berry_any": "Use 5 Berries to help catch Pokemon",
 			"laketrio_2020_catch_water": "Catch 5 water-type Pokemon",
 			"laketrio_2020_send_gift": "Send 3 Gifts to Friends",
-			"laketrio_2020_win_raid": "Win a Raid"
+			"laketrio_2020_win_raid": "Win a Raid",
+			"dec_2020_buddy_heart": "Earn 5 Hearts with your Buddy",
+			"dec_2020_buddy_treat": "Give your buddy 3 treats",
+			"dec_2020_catch_berry": "Use 5 Berries to help catch Pokemon",
+			"dec_2020_catch_fire": "Catch 5 water-type Pokemon",
+			"dec_2020_catch_unique": "Catch 5 different species of Ice-type Pokemon",
+			"dec_2020_catch_weather": "Catch 5 Pokemon with Weather Boost",
+			"dec_2020_evolve": "Evolve a Pokemon",
+			"dec_2020_friend_gifts": "Send 3 Gifts to Friends",
+			"dec_2020_friend_trade": "Trade a Pokemon",
+			"dec_2020_hatch_egg": "Hatch an egg",
+			"dec_2020_powerup": "Power up Pokemon 5 times",
+			"dec_2020_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"dec_2020_win_raid": "Win 2 Raids",
+			"dec_2020_win_rocket": "Defeat 2 Team GO Rocket Grunts",
+			"challenge_gen6_launch_catch_fire": "Catch 7 Fire-type Pokemon",
+			"challenge_gen6_launch_catch_flying": "Catch 5 Flying-type Pokemon",
+			"challenge_gen6_launch_catch_normal": "Catch 3 Normal-type Pokemon"
 		}
 	}
 }
