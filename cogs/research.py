@@ -312,7 +312,7 @@ class ResearchCog(commands.Cog):
                             if questRequirement == "":
                                 # print(r)
                                 questRequirement = f"<{r[1]}> " + self.parse_quest_conditions(json.loads(r[2]))
-                                missingQuestTemplates.append( f'"{r[1]}": "{reward}"' )
+                                missingQuestTemplates.append( f'"{r[1]}": "{reward}",' )
                             questList += f"{r[3]} quests for {reward} ({questRequirement})\n"
                             if len(questList + footer) > 1850 or ctr == numResults:
                                 await ctx.send(embed=discord.Embed(description=questList + footer))
@@ -321,7 +321,9 @@ class ResearchCog(commands.Cog):
                 await self.connectDBFail(ctx)
 
             if missingQuestTemplates:
-                await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(set(missingQuestTemplates))))
+                missingQuestTemplates = list(set(missingQuestTemplates))
+                missingQuestTemplates.sort()
+                await ctx.send(embed=discord.Embed(description="Undefined quests\n\n" + "\n".join(missingQuestTemplates)))
 
     @commands.command(name='map')
     @commands.guild_only()
