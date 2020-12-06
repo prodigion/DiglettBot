@@ -76,8 +76,7 @@ class MembersCog(commands.Cog):
         try:
             guild = self.bot.get_guild(payload.guild_id)
             message = await self.bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
-            user = guild.get_member(payload.user_id)
-            if payload.channel_id == 462262985423978496 or payload.channel_id == self.bot.configs[str(guild.id)]['team-channel']:
+            if (payload.channel_id == self.bot.configs[str(guild.id)]['team-channel'] or payload.channel_id == 462262985423978496) and not payload.member.bot:
                 if str(payload.emoji) == "<:harmony:509206588553297930>":
                     team_choice = "harmony"
                 elif str(payload.emoji) == "<:instinct:408859733831843867>":
@@ -89,23 +88,23 @@ class MembersCog(commands.Cog):
                 else:
                     return
 
-                await message.remove_reaction(payload.emoji, user)
+                await message.remove_reaction(payload.emoji, payload.member)
                 harmony_role = discord.utils.get(guild.roles, name="harmony")
-                if harmony_role in user.roles:
+                if harmony_role in payload.member.roles:
                     if team_choice == "harmony":
                         return
                     else:
-                        await user.remove_roles(harmony_role)
-                welcomeMsg = f'Welcome to team {team_choice.capitalize()} {user.mention}!'
-                await user.add_roles(discord.utils.get(guild.roles, name=team_choice),
-                                     discord.utils.get(guild.roles, name="chat"),
-                                     atomic=True)
+                        await payload.member.remove_roles(harmony_role)
+                welcomeMsg = f'Welcome to team {team_choice.capitalize()} {payload.member.mention}!'
+                await payload.member.add_roles(discord.utils.get(guild.roles, name=team_choice),
+                                               discord.utils.get(guild.roles, name="chat"),
+                                               atomic=True)
 
                 teamSelectMessage = (
-                  f"Now that you've selected a team, {user.mention}, the below commands are available. They work as toggles so you can join/leave them as you require. Join as many as you'd like!\n"
+                  f"Now that you've selected a team, {payload.member.mention}, the below commands are available. They work as toggles so you can join/leave them as you require. Join as many as you'd like!\n"
                   f"Tag `@Mods` or `@Coordinators` if you have any questions.\n"
                   f"\n"
-                  f"Regions\n"
+                  f"Regions of Ontario, Canada\n"
                   f"`!hamilton` - City of Hamilton\n"
                   f"`!burlington` - City of Burlington\n"
                   f"`!niagara` - Niagara Region\n"
