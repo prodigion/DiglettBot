@@ -1715,7 +1715,12 @@
 			"dec_2020_win_rocket": "Defeat 2 Team GO Rocket Grunts",
 			"challenge_gen6_launch_catch_fire": "Catch 7 Fire-type Pokemon",
 			"challenge_gen6_launch_catch_flying": "Catch 5 Flying-type Pokemon",
-			"challenge_gen6_launch_catch_normal": "Catch 3 Normal-type Pokemon"
+			"challenge_gen6_launch_catch_normal": "Catch 3 Normal-type Pokemon",
+			"winter_2020_catch_ice_l": "Catch 15 Ice-type Pokemon",
+			"winter_2020_catch_ice_m": "Catch 10 Ice-type Pokemon",
+			"winter_2020_catch_ice_s": "Catch 5 Ice-type Pokemon",
+			"winter_2020_send_gift": "Send 5 Gifts to Friends",
+			"winter_2020_win_raid": "Win 2 Raids"
 		}
 	}
 }
