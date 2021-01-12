@@ -1741,7 +1741,11 @@
 			"quest_gen5_jan21_berry_l": "Use 3 Golden Razz Berries to help catch Pokemon",
 			"quest_gen5_jan21_berry_m": "Use 5 Berries to help catch Pokemon",
 			"quest_gen5_jan21_catch": "Catch 5 Pokemon",
-			"quest_gen5_jan21_hatch": "Hatch 2 Eggs"
+			"quest_gen5_jan21_hatch": "Hatch 2 Eggs",
+			"quest_gen4_jan21_power": "Power up Pokemon 4 times",
+			"quest_gen4_jan21_raid": "Win 2 raids",
+			"quest_gen4_jan21_rocket_s": "Defeat a Team Rocket Grunt",
+			"quest_gen4_jan21_rocket_m": "Defeat 2 Team GO Rocket Grunts"
 		}
 	}
 }
