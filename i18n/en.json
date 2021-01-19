@@ -1745,7 +1745,12 @@
 			"quest_gen4_jan21_power": "Power up Pokemon 4 times",
 			"quest_gen4_jan21_raid": "Win 2 raids",
 			"quest_gen4_jan21_rocket_s": "Defeat a Team Rocket Grunt",
-			"quest_gen4_jan21_rocket_m": "Defeat 2 Team GO Rocket Grunts"
+			"quest_gen4_jan21_rocket_m": "Defeat 2 Team GO Rocket Grunts",
+			"quest_gen3_jan21_catch_s": "Catch 11 Pokemon",
+			"quest_gen3_jan21_catch_m": "Catch 15 Pokemon",
+			"quest_gen3_jan21_power_s": "Power up Pokemon 5 times",
+			"quest_gen3_jan21_power_m": "Power up Pokemon 9 times",
+			"quest_gen3_jan21_weather": "Catch 3 Pokemon with Weather Boost"
 		}
 	}
 }
