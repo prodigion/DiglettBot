@@ -1774,7 +1774,11 @@
 			"quest_tgr_feb21_catch_dark": "Catch 15 Dark-type Pokemon",
 			"quest_tgr_feb21_catch_poison": "Catch 7 Poison-type Pokemon",
 			"quest_tgr_feb21_grunt": "Defeat 2 Team GO Rocket Grunts",
-			"quest_tgr_feb21_purify": "Purify 2 Pokemon"
+			"quest_tgr_feb21_purify": "Purify 2 Pokemon",
+			"quest_lny_feb21_catch": "Catch 12 Pokemon",
+			"quest_lny_feb21_catch_water": "Catch 6 Water-type Pokemon",
+			"quest_lny_feb21_gift_s": "Send 3 Gifts to Friends",
+			"quest_lny_feb21_gift_m": "Send 10 Gifts to Friends",
 		}
 	}
 }
