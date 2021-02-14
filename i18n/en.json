@@ -1779,6 +1779,12 @@
 			"quest_lny_feb21_catch_water": "Catch 6 Water-type Pokemon",
 			"quest_lny_feb21_gift_s": "Send 3 Gifts to Friends",
 			"quest_lny_feb21_gift_m": "Send 10 Gifts to Friends",
+			"quest_vday_feb21_catch_berry": "Use 5 Berries to help catch Pokemon",
+			"quest_vday_feb21_catch_fairy": "Catch 3 Fairy-type Pokemon",
+			"quest_vday_feb21_catch_specific": "Catch 20 Luvdisc",
+			"quest_vday_feb21_gift": "Send 3 Gifts to Friends",
+			"quest_vday_feb21_raid": "Win 2 raids",
+			"quest_vday_feb21_throw_curve": "Make 5 Great Curveball Throws in a row"
 		}
 	}
 }
