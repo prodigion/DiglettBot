@@ -1784,7 +1784,13 @@
 			"quest_vday_feb21_catch_specific": "Catch 20 Luvdisc",
 			"quest_vday_feb21_gift": "Send 3 Gifts to Friends",
 			"quest_vday_feb21_raid": "Win 2 raids",
-			"quest_vday_feb21_throw_curve": "Make 5 Great Curveball Throws in a row"
+			"quest_vday_feb21_throw_curve": "Make 5 Great Curveball Throws in a row",
+			"quest_gen1_feb21_catch": "Catch 3 Pokemon",
+			"quest_gen1_feb21_hatch": "Hatch an Egg",
+			"quest_gen1_feb21_heart": "Earn 3 Hearts with your Buddy",
+			"quest_gen1_feb21_raid": "Win a Raid",
+			"quest_gen1_feb21_rocket": "Defeat 2 Team GO Rocket Grunts",
+			"quest_gen1_feb21_transfer": "Transfer 6 Pokemon"
 		}
 	}
 }
