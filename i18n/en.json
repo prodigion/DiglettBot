@@ -1805,7 +1805,13 @@
 			"mar_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"mar_2021_use_incense": "Use an Incense",
 			"mar_2021_win_raid": "Win a Raid",
-			"mar_2021_win_rocket": "Defeat 2 Team GO Rocket Grunts"
+			"mar_2021_win_rocket": "Defeat 2 Team GO Rocket Grunts",
+			"quest_sfl_mar21_catch_rock": "Catch 5 Rock-type Pokemon",
+			"quest_sfl_mar21_catch_steel": "Catch 5 Steel-type Pokemon",
+			"quest_sfl_mar21_incense": "Use an Incense",
+			"quest_sfl_mar21_powerup": "Power up Pokemon 5 times",
+			"quest_sfl_mar21_raid": "Win a Raid",
+			"quest_sfl_mar21_walk": "Earn a candy walking with your Buddy"
 		}
 	}
 }
