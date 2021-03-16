@@ -1811,7 +1811,12 @@
 			"quest_sfl_mar21_incense": "Use an Incense",
 			"quest_sfl_mar21_powerup": "Power up Pokemon 5 times",
 			"quest_sfl_mar21_raid": "Win a Raid",
-			"quest_sfl_mar21_walk": "Earn a candy walking with your Buddy"
+			"quest_sfl_mar21_walk": "Earn a candy walking with your Buddy",
+			"quest_chr_mar21_catch_electric_s": "Catch 5 Electric-type Pokemon",
+			"quest_chr_mar21_catch_electric_l": "Catch 25 Electric-type Pokemon",
+			"quest_chr_mar21_powerup_s": "Power up Pokemon 5 times",
+			"quest_chr_mar21_powerup_m": "Power up Pokemon 7 times",
+			"quest_chr_mar21_powerup_l": "Power up Pokemon 10 times"
 		}
 	}
 }
