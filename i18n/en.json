@@ -1816,7 +1816,12 @@
 			"quest_chr_mar21_catch_electric_l": "Catch 25 Electric-type Pokemon",
 			"quest_chr_mar21_powerup_s": "Power up Pokemon 5 times",
 			"quest_chr_mar21_powerup_m": "Power up Pokemon 7 times",
-			"quest_chr_mar21_powerup_l": "Power up Pokemon 10 times"
+			"quest_chr_mar21_powerup_l": "Power up Pokemon 10 times",
+			"quest_wea_mar21_catch_flying": "Catch 5 Flying-type Pokemon",
+			"quest_wea_mar21_catch_rainy": "Catch 7 Water-, Electric-, or Bug-type Pokemon",
+			"quest_wea_mar21_catch_water": "Tympole",
+			"quest_wea_mar21_catch_windy": "Catch 7 Flying-, Psychic-, or Dragon-type Pokemon",
+			"quest_wea_mar21_raid": "Win 2 raids"
 		}
 	}
 }
