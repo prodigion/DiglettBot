@@ -1821,7 +1821,22 @@
 			"quest_wea_mar21_catch_rainy": "Catch 7 Water-, Electric-, or Bug-type Pokemon",
 			"quest_wea_mar21_catch_water": "Tympole",
 			"quest_wea_mar21_catch_windy": "Catch 7 Flying-, Psychic-, or Dragon-type Pokemon",
-			"quest_wea_mar21_raid": "Win 2 raids"
+			"quest_wea_mar21_raid": "Win 2 raids",
+			"apr_2021_battle_trainer": "Battle another Trainer",
+			"apr_2021_buddy_heart": "Earn 5 hearts with your buddy",
+			"apr_2021_buddy_treat": "Give your buddy 3 treats",
+			"apr_2021_catch_berry": "Use 5 Berries to help catch Pokemon",
+			"apr_2021_catch_grass_pkmn": "Catch 5 Grass-type Pokemon",
+			"apr_2021_catch_grnd_pkmn": "Catch 5 Ground-type Pokemon",
+			"apr_2021_catch_pokemon": "Catch 5 Pokemon",
+			"apr_2021_friend_gifts": "Send 3 Gifts to Friends",
+			"apr_2021_friend_trade": "Trade a Pokemon",
+			"apr_2021_powerup": "Power up Pokemon 10 times",
+			"apr_2021_snapshot_grass_pkmn": "Take a snapshot of a Grass-type Pokemon",
+			"apr_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"apr_2021_use_incense": "Use an Incense",
+			"apr_2021_win_raid": "Win a Raid",
+			"apr_2021_win_rocket": "Defeat a Team GO Rocket Grunt"
 		}
 	}
 }
