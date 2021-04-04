@@ -1836,7 +1836,12 @@
 			"apr_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"apr_2021_use_incense": "Use an Incense",
 			"apr_2021_win_raid": "Win a Raid",
-			"apr_2021_win_rocket": "Defeat a Team GO Rocket Grunt"
+			"apr_2021_win_rocket": "Defeat a Team GO Rocket Grunt",
+			"quest_egg_apr21_catch_l": "Catch 25 Exeggcute",
+			"quest_egg_apr21_catch_m": "Catch 15 Exeggcute",
+			"quest_egg_apr21_catch_s": "Catch 5 Exeggcute",
+			"quest_egg_apr21_incense": "Use an Incense",
+			"quest_egg_apr21_raid": "Win 2 Raids"
 		}
 	}
 }
