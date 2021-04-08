@@ -107,6 +107,7 @@ class MembersCog(commands.Cog):
                   f"Regions of Ontario, Canada\n"
                   f"`!hamilton` - City of Hamilton\n"
                   f"`!burlington` - City of Burlington\n"
+                  f"`!oakville` - Town of Oakville\n"
                   f"`!niagara` - Niagara Region\n"
                   f"`!brant` - County of Brant\n"
                   f"`!haldimand` - Haldimand County\n"
@@ -123,7 +124,7 @@ class MembersCog(commands.Cog):
         except Exception as e:
             print(e)
 
-    @commands.command(name='hamilton', aliases=['burlington', 'niagara', 'brant', 'haldimand', 'norfolk'])
+    @commands.command(name='hamilton', aliases=['burlington', 'oakville', 'niagara', 'brant', 'haldimand', 'norfolk'])
     @commands.guild_only()
     async def set_region(self, ctx):
         """Set region role"""
