@@ -1841,7 +1841,12 @@
 			"quest_egg_apr21_catch_m": "Catch 15 Exeggcute",
 			"quest_egg_apr21_catch_s": "Catch 5 Exeggcute",
 			"quest_egg_apr21_incense": "Use an Incense",
-			"quest_egg_apr21_raid": "Win 2 Raids"
+			"quest_egg_apr21_raid": "Win 2 Raids",
+			"quest_riv_apr21_catch_fighting_s": "Catch 3 Fighting-type Pokemon",
+			"quest_riv_apr21_catch_fighting_m": "Catch 6 Fighting-type Pokemon",
+			"quest_riv_apr21_catch_fighting_l": "Catch 15 Fighting-type Pokemon",
+			"quest_riv_apr21_gbl": "Win in the GO Battle League",
+			"quest_riv_apr21_raid": "Win a Raid"
 		}
 	}
 }
