@@ -1846,7 +1846,12 @@
 			"quest_riv_apr21_catch_fighting_m": "Catch 6 Fighting-type Pokemon",
 			"quest_riv_apr21_catch_fighting_l": "Catch 15 Fighting-type Pokemon",
 			"quest_riv_apr21_gbl": "Battle in the GO Battle League",
-			"quest_riv_apr21_raid": "Win a Raid"
+			"quest_riv_apr21_raid": "Win a Raid",
+			"quest_ear_apr21_berry": "Use 5 Berries to help catch Pokemon",
+			"quest_ear_apr21_berry_gold": "Use 3 Golden Razz Berries to help catch Pokemon",
+			"quest_ear_apr21_catch_poison_s": "Catch 5 Grimer",
+			"quest_ear_apr21_catch_poison_l": "Catch 5 Trubbish",
+			"quest_ear_apr21_incense": "Use an Incense"
 		}
 	}
 }
