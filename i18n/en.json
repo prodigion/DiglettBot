@@ -1851,7 +1851,11 @@
 			"quest_ear_apr21_berry_gold": "Use 3 Golden Razz Berries to help catch Pokemon",
 			"quest_ear_apr21_catch_poison_s": "Catch 5 Grimer",
 			"quest_ear_apr21_catch_poison_l": "Catch 5 Trubbish",
-			"quest_ear_apr21_incense": "Use an Incense"
+			"quest_ear_apr21_incense": "Use an Incense",
+			"quest_nps_apr21_berry": "Use 5 Berries to help catch Pokemon",
+			"quest_nps_apr21_berry_gold": "Use 5 Golden Razz Berries to help catch Pokemon",
+			"quest_nps_apr21_snapshot_wild_s": "Take a snapshot of a wild Pokemon",
+			"quest_nps_apr21_snapshot_wild_l": "Take 5 snapshots of wild Pokemon"
 		}
 	}
 }
