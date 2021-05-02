@@ -1855,7 +1855,22 @@
 			"quest_nps_apr21_berry": "Use 5 Berries to help catch Pokemon",
 			"quest_nps_apr21_berry_gold": "Use 5 Golden Razz Berries to help catch Pokemon",
 			"quest_nps_apr21_snapshot_wild_s": "Take a snapshot of a wild Pokemon",
-			"quest_nps_apr21_snapshot_wild_l": "Take 5 snapshots of wild Pokemon"
+			"quest_nps_apr21_snapshot_wild_l": "Take 5 snapshots of wild Pokemon",
+			"may_2021_battle_league": "Battle in the GO Battle League",
+			"may_2021_buddy_good": "Reach Good Buddy with a Pokemon",
+			"may_2021_buddy_heart": "Earn 5 hearts with your buddy",
+			"may_2021_catch_berry": "Use 10 Berries to help catch Pokemon",
+			"may_2021_catch_dark_pkmn": "Catch 5 Dark-type Pokemon",
+			"may_2021_catch_fairy_pkmn": "Catch 5 Fairy-type Pokemon",
+			"may_2021_catch_pokemon": "Catch 3 Pokemon",
+			"may_2021_friend_gifts": "Send 3 Gifts to Friends",
+			"may_2021_friend_trade": "Trade a Pokemon",
+			"may_2021_powerup": "Power up Pokemon 10 times",
+			"may_2021_snapshot_grass_pkmn": "Take a snapshot of a Bug-type Pokemon",
+			"may_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"may_2021_use_incense": "Use an Incense",
+			"may_2021_win_raid": "Win a Raid",
+			"may_2021_win_rocket": "Battle 5 Team GO Rocket Grunts"
 		}
 	}
 }
