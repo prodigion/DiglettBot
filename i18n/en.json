@@ -1876,7 +1876,13 @@
 			"quest_llx_may21_catch_fairy_s": "Catch 5 Fairy-type Pokemon",
 			"quest_llx_may21_catch_fairy_m": "Catch 10 Fairy-type Pokemon",
 			"quest_llx_may21_catch_fairy_l": "Catch 15 Fairy-type Pokemon",
-			"quest_llx_may21_raid": "Win 2 Raids"
+			"quest_llx_may21_raid": "Win 2 Raids",
+			"quest_lly_may21_purify": "Purify 5 Shadow Pokemon",
+			"quest_lly_may21_raid": "Win 2 Raids",
+			"quest_lly_may21_rocket_s": "Defeat 2 Team GO Rocket Grunts",
+			"quest_lly_may21_rocket_m": "Defeat 5 Team GO Rocket Grunts",
+			"quest_lly_may21_rocket_l": "Defeat a Team GO Rocket Leader",
+			"quest_lly_may21_shadow": "Catch 5 Shadow Pokemon"
 		}
 	}
 }
