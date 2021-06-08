@@ -1882,7 +1882,19 @@
 			"quest_lly_may21_rocket_s": "Defeat 2 Team GO Rocket Grunts",
 			"quest_lly_may21_rocket_m": "Defeat 5 Team GO Rocket Grunts",
 			"quest_lly_may21_rocket_l": "Defeat a Team GO Rocket Leader",
-			"quest_lly_may21_shadow": "Catch 5 Shadow Pokemon"
+			"quest_lly_may21_shadow": "Catch 5 Shadow Pokemon",
+			"challenge_base_buddy_walk_s": "Earn 2 candies walking with your Buddy",
+			"challenge_base_catch_fire": "Catch 10 Fire-type Pokemon",
+			"challenge_base_catch_grass": "Catch 10 Grass-type Pokemon",
+			"challenge_base_catch_water": "Catch 10 Water-type Pokemon",
+			"challenge_base_hatch_m": "Hatch 2 Eggs",
+			"challenge_base_hatch_s": "Hatch an Egg",
+			"challenge_base_powerup_m": "Power up Pokemon 7 times",
+			"challenge_base_powerup_s": "Power up Pokemon 3 times",
+			"challenge_base_spin_s": "Spin 3 Pokestops",
+			"challenge_base_spin_m": "Spin 5 Pokestops",
+			"challenge_base_spin_s_item": "Spin 3 Pokestops",
+			"challenge_base_wild_snapshot": "Take a snapshot of a wild Pokemon"
 		}
 	}
 }
