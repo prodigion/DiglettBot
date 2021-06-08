@@ -1894,7 +1894,22 @@
 			"challenge_base_spin_s": "Spin 3 Pokestops",
 			"challenge_base_spin_m": "Spin 5 Pokestops",
 			"challenge_base_spin_s_item": "Spin 3 Pokestops",
-			"challenge_base_wild_snapshot": "Take a snapshot of a wild Pokemon"
+			"challenge_base_wild_snapshot": "Take a snapshot of a wild Pokemon",
+			"june_2021_battle_league": "Win in the GO Battle League",
+			"june_2021_buddy_heart": "Earn 5 hearts with your buddy",
+			"june_2021_catch_berry": "Use 10 Berries to help catch Pokemon",
+			"june_2021_catch_diff_pkmn": "Catch 5 different species of Pokemon",
+			"june_2021_catch_fight_pkmn": "Catch 7 Fighting-type Pokemon",
+			"june_2021_catch_pokemon": "Catch 3 Pokemon",
+			"june_2021_earn_buddy_candy": "Earn a candy walking with your Buddy",
+			"june_2021_friend_gifts": "Send 3 Gifts to Friends",
+			"june_2021_friend_trade": "Trade a Pokemon",
+			"june_2021_hatch_egg": "Hatch an Egg",
+			"june_2021_powerup": "Power up Pokemon 10 times",
+			"june_2021_snapshot_wild_pkmn": "Kings Rock",
+			"june_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"june_2021_win_raid": "Win a Raid",
+			"june_2021_win_rocket": "Defeat 3 Team GO Rocket Grunts"
 		}
 	}
 }
