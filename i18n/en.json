@@ -1146,7 +1146,8 @@
 			"27": "Specific pokemon alignment",
 			"28": "Invasion category",
 			"29": "Specific invasion category",
-			"41": "Win in the Go Battle League"
+			"41": "Win in the Go Battle League",
+			"44": "Time limit"
 		},
 		"templates": {
 			"challenge_berry_moderate": "Use 5 berries to help catch Pokemon",
@@ -1909,7 +1910,16 @@
 			"june_2021_snapshot_wild_pkmn": "Kings Rock",
 			"june_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"june_2021_win_raid": "Win a Raid",
-			"june_2021_win_rocket": "Defeat 3 Team GO Rocket Grunts"
+			"june_2021_win_rocket": "Defeat 3 Team GO Rocket Grunts",
+			"slow_discovery_2021_beat_raid_60_seconds": "Win a raid in under 60 seconds",
+			"slow_discovery_2021_beat_raid_600_seconds": "Win a raid in under 10 minutes",
+			"slow_discovery_2021_buddy_treat": "Give your buddy 3 treats",
+			"slow_discovery_2021_catch_psy": "Catch 8 Psychic-type Pokemon",
+			"slow_discovery_2021_catch_wtr": "Catch 8 Water-type Pokemon",
+			"slow_discovery_2021_evolve_easy": "Evolve a Pokemon",
+			"slow_discovery_2021_evolve_psy": "Evolve a Psychic-type Pokemon",
+			"slow_discovery_2021_evolve_slwpoke_many": "Evolve 3 Slowpoke",
+			"slow_discovery_2021_evolve_slwpoke_single": "Evolve a Slowpoke"
 		}
 	}
 }
