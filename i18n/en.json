@@ -1464,7 +1464,7 @@
 			"challenge_psychicspec2020_catch_psychic_easy": "Catch 10 Psychic-type Pokemon",
 			"challenge_psychicspec2020_catch_specific": "Catch 5 Natu",
 			"challenge_psychicspec2020_evolve_specific": "Evolve 1 Abra",
-			"challenge_trickster2020_buddy_candy": "Earn 3 candy walking with your buddy",
+			"challenge_trickster2020_buddy_candy": "Earn 3 candies walking with your buddy",
 			"challenge_trickster2020_catch_ditto": "Catch 3 Ditto",
 			"challenge_trickster2020_catch_specific": "Catch 3 Voltorb",
 			"challenge_trickster2020_feed_berry": "Give your buddy a treat",
@@ -1919,7 +1919,14 @@
 			"slow_discovery_2021_evolve_easy": "Evolve a Pokemon",
 			"slow_discovery_2021_evolve_psy": "Evolve a Psychic-type Pokemon",
 			"slow_discovery_2021_evolve_slwpoke_many": "Evolve 3 Slowpoke",
-			"slow_discovery_2021_evolve_slwpoke_single": "Evolve a Slowpoke"
+			"slow_discovery_2021_evolve_slwpoke_single": "Evolve a Slowpoke",
+			"quest_regiraids_jun21_raid_speed": "Win a raid in under 60 seconds",
+			"quest_sol_s_jun21_catch": "Catch 10 Pokemon",
+			"quest_sol_s_jun21_lunatone_m": "Catch 15 Lunatone",
+			"quest_sol_s_jun21_lunatone_s": "Catch 5 Lunatone",
+			"quest_sol_s_jun21_solrock_m": "Catch 15 Solrock",
+			"quest_sol_s_jun21_solrock_s": "Catch 5 Solrock",
+			"quest_sol_s_jun21_walk": "Earn 3 candies walking with your buddy"
 		}
 	}
 }
