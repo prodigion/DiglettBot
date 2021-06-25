@@ -1926,7 +1926,10 @@
 			"quest_sol_s_jun21_lunatone_s": "Catch 5 Lunatone",
 			"quest_sol_s_jun21_solrock_m": "Catch 15 Solrock",
 			"quest_sol_s_jun21_solrock_s": "Catch 5 Solrock",
-			"quest_sol_s_jun21_walk": "Earn 3 candies walking with your buddy"
+			"quest_sol_s_jun21_walk": "Earn 3 candies walking with your buddy",
+			"quest_bid_jun21_catch_s": "Catch a Bidoof",
+			"quest_bid_jun21_catch_m": "Catch 3 Bidoof",
+			"quest_bid_jun21_catch_l": "Catch 5 Bidoof"
 		}
 	}
 }
