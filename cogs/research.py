@@ -70,6 +70,11 @@ class ResearchCog(commands.Cog):
                               f"FROM pokestop "
                               f"WHERE quest_reward_type = 7 and quest_pokemon_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
                               f"GROUP BY quest_template;")
+        elif quest_type == "candy":
+            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
+                              f"FROM pokestop "
+                              f"WHERE quest_reward_type = 4 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                              f"GROUP BY quest_template;")
         elif quest_type == "energy":
             await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
                               f"FROM pokestop "
@@ -91,6 +96,8 @@ class ResearchCog(commands.Cog):
         if numTemplates == 0:
             if quest_type == "encounters":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][mon]}."))
+            elif quest_type == "candy":
+                await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][mon]} candy."))
             elif quest_type == "energy":
                 await ctx.send(embed=discord.Embed(description=f"No results found for {self.bot.data['pokedex'][mon]} Mega Energy."))
             elif quest_type == "items":
@@ -104,7 +111,9 @@ class ResearchCog(commands.Cog):
         results = await cur.fetchall()
         for r in results:
             ctr += 1
-            if quest_type == "energy":
+            if quest_type == "candy":
+                reward = f"{self.bot.data['pokedex'][mon]} candy ({r[4]})"
+            elif quest_type == "energy":
                 reward = f"{self.bot.data['pokedex'][mon]} Mega Energy ({r[4]})"
             elif quest_type == "items":
                 reward = f"{self.bot.data['items'][mon]} ({r[4]})"
@@ -118,7 +127,9 @@ class ResearchCog(commands.Cog):
                 async with conn.cursor() as cur2:
                     if quest_type == "encounters":
                         await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
-                    if quest_type == "energy":
+                    elif quest_type == "candy":
+                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 4 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
+                    elif quest_type == "energy":
                         await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 12 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
                     elif quest_type == "items":
                         await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 2 and quest_item_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
@@ -195,6 +206,13 @@ class ResearchCog(commands.Cog):
             if researchString == "":
                 await ctx.send("Please select a valid mon or item to search for. For example, `!dig Chansey`")
                 return
+            elif researchString[:5].lower() == "candy":
+                query_type = "candy"
+                try:
+                    mon = next(key for key, value in self.bot.data['pokedex'].items() if value.lower() == researchString[6:].strip().lower())
+                    researchString = self.bot.data['pokedex'][mon]
+                except StopIteration:
+                    mon = 0
             elif researchString[:6].lower() == "energy":
                 query_type = "energy"
                 try:
@@ -265,6 +283,12 @@ class ResearchCog(commands.Cog):
                                               f"WHERE quest_reward_type = 7 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
                                               f"GROUP BY quest_pokemon_id, quest_template "
                                               f"ORDER BY quest_pokemon_id;")
+                        elif query_type == "candy":
+                            await cur.execute(f"SELECT quest_rewards->'$[0].info[0].pokemon_id' as pokemon_id, quest_template, quest_conditions, count(*) "
+                                              f"FROM pokestop "
+                                              f"WHERE quest_reward_type = 4 and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                              f"GROUP BY pokemon_id, quest_template "
+                                              f"ORDER BY pokemon_id;")
                         elif query_type == "energy":
                             await cur.execute(f"SELECT quest_rewards->'$[0].info[0].pokemon_id' as pokemon_id, quest_template, quest_conditions, count(*) "
                                               f"FROM pokestop "
@@ -301,6 +325,8 @@ class ResearchCog(commands.Cog):
                             ctr += 1
                             if query_type == "encounters":
                                 reward = self.bot.data['pokedex'][r[0]]
+                            elif query_type == "candy":
+                                reward = f"{self.bot.data['pokedex'][int(r[0])]} candy"
                             elif query_type == "energy":
                                 reward = f"{self.bot.data['pokedex'][int(r[0])]} Mega Energy"
                             elif query_type == "items":
