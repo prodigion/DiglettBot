@@ -1932,7 +1932,29 @@
 			"quest_sol_s_jun21_walk": "Earn 3 candies walking with your buddy",
 			"quest_bid_jun21_catch_s": "Catch a Bidoof",
 			"quest_bid_jun21_catch_m": "Catch 3 Bidoof",
-			"quest_bid_jun21_catch_l": "Catch 5 Bidoof"
+			"quest_bid_jun21_catch_l": "Catch 5 Bidoof",
+			"july_2021_battle_league": "Battle in the GO Battle League",
+			"july_2021_buddy_heart": "Earn 5 hearts with your buddy",
+			"july_2021_catch_diff_pkmn": "Catch 5 different species of Pokemon",
+			"july_2021_catch_pinap": "Use 3 Pinap Berries to help catch Pokemon",
+			"july_2021_catch_pokemon": "Catch 3 Pokemon",
+			"july_2021_earn_buddy_candy": "Earn 5 candies walking with your buddy",
+			"july_2021_friend_gifts": "Send 3 Gifts to Friends",
+			"july_2021_friend_trade": "Trade a Pokemon",
+			"july_2021_hatch_egg": "Hatch 2 Eggs",
+			"july_2021_powerup": "Power up Pokemon 10 times",
+			"july_2021_snapshot_wild_norm_pkmn": "Take 5 snapshots of wild Normal-type Pokemon",
+			"july_2021_spin_easy": "Spin 5 Pokestops or Gyms",
+			"july_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"july_2021_win_raid_60_seconds": "Win a raid in under 60 seconds",
+			"july_2021_win_rocket_leader": "Defeat a Team GO Rocket Leader",
+			"quest_ann_jul21_buddy_candy": "Earn 2 candies walking with your Buddy",
+			"quest_ann_jul21_berry": "Use 5 Berries to help catch Pokemon",
+			"quest_ann_jul21_catch": "Catch 5 Pokemon",
+			"quest_ann_jul21_gift": "Send 5 Gifts to Friends",
+			"quest_ann_jul21_snapshot": "Take 5 snapshots of wild Pokemon",
+			"quest_ann_jul21_spin": "Spin 5 Pokestops or Gyms",
+			"quest_ann_jul21_throw": "Make 5 Great Throws"
 		}
 	}
 }
