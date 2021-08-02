@@ -1959,7 +1959,22 @@
 			"quest_uu1_jul21_earn_buddy_candy": "Earn a candy walking with your Buddy",
 			"quest_uu1_jul21_hatch_egg": "Hatch an Egg",
 			"quest_uu1_jul21_spin": "Spin 10 PokeStops or Gyms",
-			"quest_uu1_jul21_win_raid_m": "Win a raid in under 60 seconds"
+			"quest_uu1_jul21_win_raid_m": "Win a raid in under 60 seconds",
+			"aug_2021_battle_league": "Battle in the GO Battle League",
+			"aug_2021_buddy_heart": "Earn 5 hearts with your buddy",
+			"aug_2021_catch_pokemon": "Catch 3 Pokemon",
+			"aug_2021_catch_razz": "Use 3 Razz Berries to help catch Pokemon",
+			"aug_2021_catch_weather_boost": "Catch 5 Pokemon with Weather Boost",
+			"aug_2021_charged_attacks": "Use 10 supereffective Charged Attacks",
+			"aug_2021_earn_buddy_candy": "Earn 3 candies walking with your buddy",
+			"aug_2021_friend_gifts": "Send 3 Gifts to Friends",
+			"aug_2021_friend_trade": "Trade a Pokemon",
+			"aug_2021_hatch_egg": "Hatch an Egg",
+			"aug_2021_snapshot_wild_rock_pkmn": "Take 2 snapshots of a wild Rock-type Pokemon",
+			"aug_2021_spin_easy": "Spin 5 PokeStops or Gyms",
+			"aug_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"aug_2021_win_raid": "Win 2 Raids",
+			"aug_2021_win_rocket_grunt": "Defeat 3 Team GO Rocket Grunts"
 		}
 	}
 }
