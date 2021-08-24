@@ -1979,7 +1979,13 @@
 			"quest_uu2_aug21_curve_s": "Make 5 Curveball Throws",
 			"quest_uu2_aug21_curve_m": "Make 5 Great Curveball Throws",
 			"quest_uu2_aug21_spin": "Spin 10 PokeStops or Gyms",
-			"quest_uu2_aug21_transfer": "Transfer 5 Pokemon"
+			"quest_uu2_aug21_transfer": "Transfer 5 Pokemon",
+			"quest_uu3_aug21_berry": "Use 7 Berries to help catch Pokemon",
+			"quest_uu3_aug21_buddy": "Earn 5 hearts with your buddy",
+			"quest_uu3_aug21_raid": "Win 2 Raids",
+			"quest_uu3_aug21_snapshot": "Take a snapshot of a wild Pokemon",
+			"quest_uu3_aug21_spin": "Spin 10 PokeStops or Gyms",
+			"quest_uu3_aug21_tgr": "Defeat 3 Team GO Rocket Grunts"
 		}
 	}
 }
