@@ -1985,7 +1985,22 @@
 			"quest_uu3_aug21_raid": "Win 2 Raids",
 			"quest_uu3_aug21_snapshot": "Take a snapshot of a wild Pokemon",
 			"quest_uu3_aug21_spin": "Spin 10 PokeStops or Gyms",
-			"quest_uu3_aug21_tgr": "Defeat 3 Team GO Rocket Grunts"
+			"quest_uu3_aug21_tgr": "Defeat 3 Team GO Rocket Grunts",
+			"sep_2021_battle_league": "Battle in the GO Battle League",
+			"sep_2021_buddy_heart": "Earn 3 Hearts with your Buddy",
+			"sep_2021_catch_curve_row": "Make 3 curveball throws in a row",
+			"sep_2021_catch_nanab": "Use 3 Nanab Berries to help catch Pokemon",
+			"sep_2021_catch_pokemon": "Catch 3 Pokemon",
+			"sep_2021_catch_shadow": "Catch a Shadow Pokemon",
+			"sep_2021_charged_attacks": "Use 10 supereffective Charged Attacks",
+			"sep_2021_friend_gifts": "Send a Gift to a Friend",
+			"sep_2021_friend_trade": "Trade a Pokemon",
+			"sep_2021_purify": "Purify 3 Shadow Pokemon",
+			"sep_2021_snapshot_wild_psy_pkmn": "Take 3 snapshots of wild Psychic-type Pokemon",
+			"sep_2021_throw_excellent": "Make 2 Excellent Throws",
+			"sep_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"sep_2021_walk": "Walk 2 km",
+			"sep_2021_win_raid": "Win a Raid"
 		}
 	}
 }
