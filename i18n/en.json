@@ -2000,7 +2000,13 @@
 			"sep_2021_throw_excellent": "Make 2 Excellent Throws",
 			"sep_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"sep_2021_walk": "Walk 2 km",
-			"sep_2021_win_raid": "Win a Raid"
+			"sep_2021_win_raid": "Win a Raid",
+			"psysp_sep21_buddy_candy_m": "Earn 3 candies walking with your buddy",
+			"psysp_sep21_catch_psy_m": "Catch 10 Psychic-type Pokemon",
+			"psysp_sep21_evolve_inkay": "Evolve an Inkay",
+			"psysp_sep21_great_throws_row_h": "Make 7 Great Curveball Throws in a row",
+			"psysp_sep21_nice_throws_row_h": "Make 7 Nice Curveball Throws in a row",
+			"psysp_sep21_nice_throws_row_m": "Make 3 Nice Curveball Throws in a row"
 		}
 	}
 }
