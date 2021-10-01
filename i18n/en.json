@@ -2006,7 +2006,11 @@
 			"psysp_sep21_evolve_inkay": "Evolve an Inkay",
 			"psysp_sep21_great_throws_row_h": "Make 7 Great Curveball Throws in a row",
 			"psysp_sep21_nice_throws_row_h": "Make 7 Nice Curveball Throws in a row",
-			"psysp_sep21_nice_throws_row_m": "Make 3 Nice Curveball Throws in a row"
+			"psysp_sep21_nice_throws_row_m": "Make 3 Nice Curveball Throws in a row",
+			"quest_fw_sept21_snapshot": "Take a snapshot of Butterfree, Shinx, or Blitzle in the wild",
+			"quest_fw_sept21_throw_curve": "Make 3 Curveball throws in a row",
+			"quest_fw_sept21_throw_great": "Make 2 Great Curveball Throws in a row",
+			"quest_fw_sept21_throw_nice": "Make 3 Nice Throws in a row"
 		}
 	}
 }
