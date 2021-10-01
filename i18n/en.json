@@ -2008,9 +2008,15 @@
 			"psysp_sep21_nice_throws_row_h": "Make 7 Nice Curveball Throws in a row",
 			"psysp_sep21_nice_throws_row_m": "Make 3 Nice Curveball Throws in a row",
 			"quest_fw_sept21_snapshot": "Take a snapshot of Butterfree, Shinx, or Blitzle in the wild",
-			"quest_fw_sept21_throw_curve": "Make 3 Curveball throws in a row",
+			"quest_fw_sept21_throw_curve": "Make 3 Curveball Throws in a row",
 			"quest_fw_sept21_throw_great": "Make 2 Great Curveball Throws in a row",
-			"quest_fw_sept21_throw_nice": "Make 3 Nice Throws in a row"
+			"quest_fw_sept21_throw_nice": "Make 3 Nice Throws in a row",
+			"quest_m23_oct21_berry": "Use 5 Berries to help catch Pokemon",
+			"quest_m23_oct21_catch": "Catch 10 different species of Pokemon",
+			"quest_m23_oct21_hatch": "Hatch 2 Eggs",
+			"quest_m23_oct21_snapshot": "Take a snapshot of your buddy",
+			"quest_m23_oct21_tgr": "Defeat 5 Team GO Rocket Grunts",
+			"quest_m23_oct21_throw": "Make 5 Curveball Throws"
 		}
 	}
 }
