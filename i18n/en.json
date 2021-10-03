@@ -2016,7 +2016,24 @@
 			"quest_m23_oct21_hatch": "Hatch 2 Eggs",
 			"quest_m23_oct21_snapshot": "Take a snapshot of your buddy",
 			"quest_m23_oct21_tgr": "Defeat 5 Team GO Rocket Grunts",
-			"quest_m23_oct21_throw": "Make 5 Curveball Throws"
+			"quest_m23_oct21_throw": "Make 5 Curveball Throws",
+			"oct_2021_charged_attacks": "Use 10 supereffective Charged Attacks",
+			"oct_2021_buddy_heart": "Earn 3 Hearts with your Buddy",
+			"oct_2021_catch_dark": "Catch 18 Dark-type Pokemon",
+			"oct_2021_catch_ghost": "Catch 18 Ghost-type Pokemon",
+			"oct_2021_catch_nice_row": "Make 3 Nice throws in a row",
+			"oct_2021_catch_pinap": "Use 3 Pinap Berries to help catch Pokemon",
+			"oct_2021_catch_pokemon": "Catch 5 Pokemon",
+			"oct_2021_defeat_grunts": "Defeat 3 Team GO Rocket Grunts",
+			"oct_2021_friend_gifts": "Send a Gift to a friend",
+			"oct_2021_friend_trade": "Trade a Pokemon",
+			"oct_2021_hatch": "Hatch an Egg",
+			"oct_2021_snapshot_wild_ghost_pkmn": "Take 2 snapshots of a wild Ghost-type Pokemon",
+			"oct_2021_throw_excellent": "Make 2 Excellent throws",
+			"oct_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"oct_2021_walk": "Earn 3 candies walking with your buddy",
+			"oct_2021_win_battle_league": "Battle in the GO Battle League",
+			"oct_2021_win_raid": "Win a Raid"
 		}
 	}
 }
