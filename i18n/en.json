@@ -2048,7 +2048,10 @@
 			"quest_hal2_oct21_raid": "Win a Raid",
 			"quest_hal2_oct21_spin_s": "Spin 3 PokeStops or Gyms",
 			"quest_hal2_oct21_spin_l": "Spin 7 PokeStops or Gyms",
-			"quest_hal2_oct21_transfer": "Transfer 5 Pokemon"
+			"quest_hal2_oct21_transfer": "Transfer 5 Pokemon",
+			"quest_ddlm_nov21_great_throw": "Make a Great Throw",
+			"quest_ddlm_nov21_nice_curve": "Make a Nice Curveball Throw",
+			"quest_ddlm_nov21_win_go_battle": "Win a Trainer Battle in the GO Battle League"
 		}
 	}
 }
