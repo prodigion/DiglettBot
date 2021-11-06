@@ -2053,7 +2053,22 @@
 			"quest_ddlm_nov21_nice_curve": "Make a Nice Curveball Throw",
 			"quest_ddlm_nov21_win_go_battle": "Win a Trainer Battle in the GO Battle League",
 			"sponsored_2019_moderate_catch": "Catch 8 Pokemon",
-			"sponsored_2019_moderate_gifts": "Send 3 Gifts to Friends"
+			"sponsored_2019_moderate_gifts": "Send 3 Gifts to Friends",
+			"nov_2021_buddy_treats": "Give your buddy 3 treats",
+			"nov_2021_catch_pokemon": "Catch 7 Pokemon",
+			"nov_2021_catch_razz": "Use 5 Razzberries to help catch Pokemon",
+			"nov_2021_catch_shadow": "Catch 3 Shadow Pokemon",
+			"nov_2021_charged_attacks": "Use 10 supereffective Charged Attacks",
+			"nov_2021_friend_gifts": "Send 5 Gifts to Friends",
+			"nov_2021_friend_trade": "Trade a Pokemon",
+			"nov_2021_hatch_eggs": "Hatch 3 Eggs",
+			"nov_2021_snapshot_wild_elec_pkmn": "Take 2 snapshots of a wild Electric-type Pokemon",
+			"nov_2021_spin_pokestop": "Spin 3 PokeStops or Gyms",
+			"nov_2021_throw_excellent": "Make 3 excellent throws",
+			"nov_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"nov_2021_walk": "Walk 2 km",
+			"nov_2021_win_battle_league": "Win a Trainer Battle in the GO Battle League",
+			"nov_2021_win_raid_under_60": "Win a raid in under 60 seconds"
 		}
 	}
 }
