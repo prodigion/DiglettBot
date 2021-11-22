@@ -2079,7 +2079,13 @@
 			"quest_folp1_nov21_send_gifts_medium": "Send 7 Gifts to Friends",
 			"quest_folp1_nov21_walk": "Walk 1km",
 			"quest_folp1_nov21_catch_pokemon": "Catch 10 Pokemon",
-			"quest_folp1_nov21_defeat_tgrleader": "Defeat a Team GO Rocket Leader"
+			"quest_folp1_nov21_defeat_tgrleader": "Defeat a Team GO Rocket Leader",
+			"quest_bdsp_nov16_chimchar": "Catch 2 Chimchar",
+			"quest_bdsp_nov16_piplup": "Catch 2 Piplup",
+			"quest_bdsp_nov16_raid_hard": "Win a level 3 or higher raid",
+			"quest_bdsp_nov16_trade": "Trade a Pokemon",
+			"quest_bdsp_nov16_turtwig": "Catch 2 Turtwig",
+			"quest_bdsp_nov16_win_raid": "Win a raid"
 		}
 	}
 }
