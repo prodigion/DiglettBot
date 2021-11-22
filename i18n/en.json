@@ -2085,7 +2085,9 @@
 			"quest_bdsp_nov16_raid_hard": "Win a level 3 or higher raid",
 			"quest_bdsp_nov16_trade": "Trade a Pokemon",
 			"quest_bdsp_nov16_turtwig": "Catch 2 Turtwig",
-			"quest_bdsp_nov16_win_raid": "Win a raid"
+			"quest_bdsp_nov16_win_raid": "Win a raid",
+			"quest_guitar_nov21_research": "Complete 7 Field Research Tasks",
+			"quest_guitar_nov21_walk": "Walk 1 km with your buddy"
 		}
 	}
 }
