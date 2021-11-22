@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import aiomysql
+
 
 class EventsCog(commands.Cog):
     """EventsCog"""
@@ -47,9 +47,10 @@ class EventsCog(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         for mention in message.role_mentions:
-          if mention.name in ["rh0", "rh1", "rh2", "rh3", "rh4", "rh5", "rh6", "rh7", "rh8", "rh9", "hundo", "nundo"]:
-            roleChannel = discord.utils.get(message.guild.channels, name="role-select")
-            await message.channel.send(f"To get tagged when someone mentions `@{mention.name}`, please go to {roleChannel.mention} and type `!{mention.name}`.")
+            if mention.name in ["rh0", "rh1", "rh2", "rh3", "rh4", "rh5", "rh6", "rh7", "rh8", "rh9", "hundo", "nundo"]:
+                roleChannel = discord.utils.get(message.guild.channels, name="role-select")
+                await message.channel.send(f"To get tagged when someone mentions `@{mention.name}`, please go to {roleChannel.mention} and type `!{mention.name}`.")
+
 
 def setup(bot):
     bot.add_cog(EventsCog(bot))

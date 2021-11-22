@@ -59,7 +59,7 @@ class UtilityCog(commands.Cog):
                           'roserade', 'mismagius', 'honchkrow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass',
                           'smeargle', 'kecleon',
                           'rampardos', 'bastiodon', 'wormadam', 'mothim', 'vespiquen', 'gastrodon', 'ambipom', 'garchomp', 'rotom'
-                         ]
+                          ]
         clearedRoles = 0
         for delRole in forbiddenRoles:
             role = discord.utils.get(ctx.guild.roles, name=delRole)

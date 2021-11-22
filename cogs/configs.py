@@ -3,6 +3,7 @@ from discord.ext import commands
 from asyncio import TimeoutError
 import json
 
+
 class ConfigsCog(commands.Cog):
     """ConfigsCog"""
 
@@ -14,10 +15,10 @@ class ConfigsCog(commands.Cog):
             self.bot.data = json.load(f)
 
         for data in ('pokedex', 'items', 'pokemon_types', 'activities'):
-            self.bot.data[data] = {int(k):v for k,v in self.bot.data[data].items()}
+            self.bot.data[data] = {int(k): v for k, v in self.bot.data[data].items()}
 
         for data in ('types', 'conditions'):
-            self.bot.data['quests'][data] = {int(k):v for k,v in self.bot.data['quests'][data].items()}
+            self.bot.data['quests'][data] = {int(k): v for k, v in self.bot.data['quests'][data].items()}
         print("Data loaded")
 
     def loadConfigs(self):
@@ -32,16 +33,16 @@ class ConfigsCog(commands.Cog):
 
     @commands.command(name='diglett')
     @commands.is_owner()
-    async def run_config(self, ctx, *, config = ""):
+    async def run_config(self, ctx, *, config=""):
         def check(msg):
             return msg.author == ctx.author and msg.channel == ctx.channel
 
         if config == "":
-            await ctx.send("Configuration options: ```nests - Response to !nests command\n" \
-                                                     "admins - Assign role with admin access to DiglettBot\n" \
-                                                     "team - Channel for team selection\n" \
-                                                     "role - Channel for role selection\n" \
-                                                     "research - Channel for quest queries```")
+            await ctx.send("Configuration options: ```nests - Response to !nests command\n"
+                                                    "admins - Assign role with admin access to DiglettBot\n"
+                                                    "team - Channel for team selection\n"
+                                                    "role - Channel for role selection\n"
+                                                    "research - Channel for quest queries```")
         elif config == "nests":
             try:
                 await ctx.send("Please enter a response for the `!nests` command. Enter `cancel` to exit.")
@@ -125,8 +126,8 @@ class ConfigsCog(commands.Cog):
                 await ctx.send("Error. City not updated")
                 print(e)
             city = {
-              "city": cityName,
-              "geofence": geofence
+                "city": cityName,
+                "geofence": geofence
             }
             self.bot.configs[str(ctx.guild.id)]['cities'][str(ctx.channel.id)] = city
             self.saveConfigs()
@@ -146,6 +147,7 @@ class ConfigsCog(commands.Cog):
             await ctx.send("Config loaded")
 
         await ctx.message.delete()
+
 
 def setup(bot):
     bot.add_cog(ConfigsCog(bot))

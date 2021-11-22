@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import aiomysql
-from pymysql.err import OperationalError
+from pymysql.err import OperationalError, InternalError
 import datetime
 import json
 
@@ -64,33 +64,36 @@ class ResearchCog(commands.Cog):
         """List all quests for a specific reward."""
 
         geofence = self.bot.configs[str(ctx.guild.id)]['cities'][str(ctx.channel.id)]['geofence']
-        if quest_type == "encounters":
-            reward = self.bot.data['pokedex'][mon]
-            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions "
-                              f"FROM pokestop "
-                              f"WHERE quest_reward_type = 7 and quest_pokemon_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
-                              f"GROUP BY quest_template;")
-        elif quest_type == "candy":
-            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
-                              f"FROM pokestop "
-                              f"WHERE quest_reward_type = 4 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
-                              f"GROUP BY quest_template;")
-        elif quest_type == "energy":
-            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
-                              f"FROM pokestop "
-                              f"WHERE quest_reward_type = 12 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
-                              f"GROUP BY quest_template;")
-        elif quest_type == "items":
-            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
-                              f"FROM pokestop "
-                              f"WHERE quest_reward_type = 2 and quest_item_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
-                              f"GROUP BY quest_template;")
-        elif quest_type == "stardust":
-            reward = f"<:stardust:740686160535224380>{mon}"
-            await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions "
-                              f"FROM pokestop "
-                              f"WHERE quest_reward_type = 3 and quest_rewards->'$[0].info[0].amount' = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
-                              f"GROUP BY quest_template;")
+        try:
+            if quest_type == "encounters":
+                reward = self.bot.data['pokedex'][mon]
+                await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions "
+                                  f"FROM pokestop "
+                                  f"WHERE quest_reward_type = 7 and quest_pokemon_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                  f"GROUP BY quest_template;")
+            elif quest_type == "candy":
+                await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
+                                  f"FROM pokestop "
+                                  f"WHERE quest_reward_type = 4 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                  f"GROUP BY quest_template;")
+            elif quest_type == "energy":
+                await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
+                                  f"FROM pokestop "
+                                  f"WHERE quest_reward_type = 12 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                  f"GROUP BY quest_template;")
+            elif quest_type == "items":
+                await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions, quest_rewards->'$[0].info[0].amount' "
+                                  f"FROM pokestop "
+                                  f"WHERE quest_reward_type = 2 and quest_item_id = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                  f"GROUP BY quest_template;")
+            elif quest_type == "stardust":
+                reward = f"<:stardust:740686160535224380>{mon}"
+                await cur.execute(f"SELECT quest_template, quest_type, quest_target, quest_conditions "
+                                  f"FROM pokestop "
+                                  f"WHERE quest_reward_type = 3 and quest_rewards->'$[0].info[0].amount' = {mon} and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(pokestop.lon, pokestop.lat)) "
+                                  f"GROUP BY quest_template;")
+        except InternalError:
+            await ctx.send(embed=discord.Embed(description="Internal Error: please try again"))
 
         numTemplates = cur.rowcount
         if numTemplates == 0:
@@ -263,6 +266,8 @@ class ResearchCog(commands.Cog):
                             await self.get_quests(ctx, cur, int(mon), query_type)
             except (OperationalError, RuntimeError, AttributeError):
                 await self.connectDBFail(ctx)
+            except InternalError:
+                await ctx.send(embed=discord.Embed(description="Internal Error: please try again"))
 
     @commands.command(name='trio')
     @commands.guild_only()
@@ -345,6 +350,8 @@ class ResearchCog(commands.Cog):
                                 questList = header + "\n"
             except (OperationalError, RuntimeError, AttributeError):
                 await self.connectDBFail(ctx)
+            except InternalError:
+                await ctx.send(embed=discord.Embed(description="Internal Error: please try again"))
 
             if missingQuestTemplates:
                 missingQuestTemplates = list(set(missingQuestTemplates))

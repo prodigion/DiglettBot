@@ -1,5 +1,6 @@
 from discord.ext import commands
 
+
 class OwnerCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -50,6 +51,7 @@ class OwnerCog(commands.Cog):
         else:
             print("SUCCESS")
             await ctx.message.delete()
+
 
 def setup(bot):
     bot.add_cog(OwnerCog(bot))
