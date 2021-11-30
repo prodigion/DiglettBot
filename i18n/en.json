@@ -2087,7 +2087,13 @@
 			"quest_bdsp_nov16_turtwig": "Catch 2 Turtwig",
 			"quest_bdsp_nov16_win_raid": "Win a raid",
 			"quest_guitar_nov21_research": "Complete 7 Field Research Tasks",
-			"quest_guitar_nov21_walk": "Walk 1 km with your buddy"
+			"quest_guitar_nov21_walk": "Walk 1 km with your buddy",
+			"quest_hoo_unb_nov21_catch_s": "Catch 5 Pokemon",
+			"quest_hoo_unb_nov21_catch_m": "Catch 10 Pokemon",
+			"quest_hoo_unb_nov21_catch_l": "Catch 20 Pokemon",
+			"quest_hoo_unb_nov21_catch_xl": "Catch 50 Pokemon",
+			"quest_hoo_unb_nov21_transfer_s": "Transfer 10 Pokemon",
+			"quest_hoo_unb_nov21_transfer_m": "Transfer 20 Pokemon"
 		}
 	}
 }
