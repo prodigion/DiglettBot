@@ -2093,7 +2093,22 @@
 			"quest_hoo_unb_nov21_catch_l": "Catch 20 Pokemon",
 			"quest_hoo_unb_nov21_catch_xl": "Catch 50 Pokemon",
 			"quest_hoo_unb_nov21_transfer_s": "Transfer 10 Pokemon",
-			"quest_hoo_unb_nov21_transfer_m": "Transfer 20 Pokemon"
+			"quest_hoo_unb_nov21_transfer_m": "Transfer 20 Pokemon",
+			"dec_2021_battle_league": "Battle in the GO Battle League",
+			"dec_2021_buddy_hearts": "Earn 5 hearts with your buddy",
+			"dec_2021_catch_berries": "Use 5 Berries to help catch Pokemon",
+			"dec_2021_catch_pokemon": "Catch 5 Pokemon",
+			"dec_2021_catch_unique_pkmn": "Catch 5 different species of Pokemon",
+			"dec_2021_charged_attacks": "Use 10 supereffective Charged Attacks",
+			"dec_2021_defeat_tgr_grunts": "Defeat 3 Team GO Rocket Grunts",
+			"dec_2021_friend_gifts": "Send 10 Gifts to Friends",
+			"dec_2021_friend_trade": "Trade a Pokemon",
+			"dec_2021_hatch_eggs": "Hatch 3 Eggs",
+			"dec_2021_snapshot_wild_ice_pkmn": "Take 2 snapshots of a wild Ice-type Pokemon",
+			"dec_2021_throw_curve_row_med": "Make 3 Curveball throws in a row",
+			"dec_2021_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"dec_2021_walk_buddy": "Earn 3 candies walking with your buddy",
+			"dec_2021_win_raid": "Win a Raid"
 		}
 	}
 }
