@@ -2141,7 +2141,14 @@
 			"quest_dd_dec07_nice_curve_row": "Make 3 Nice curveball throws in a row",
 			"quest_dd_dec07_win_raid": "Win a Raid",
 			"quest_dd_dec07_win_raid_timed": "Win a raid in under 60 seconds",
-			"quest_dd_dec07_win_raids": "Win 3 Raids"
+			"quest_dd_dec07_win_raids": "Win 3 Raids",
+			"quest_wh1_dec16_catch_ice": "Catch 5 Ice-type Pokemon",
+			"quest_wh1_dec16_gifts_daily_easy": "Spin 3 PokeStops or Gyms",
+			"quest_wh1_dec16_gifts_daily_hard": "Catch 7 different species of Pokemon",
+			"quest_wh1_dec16_gifts_easy": "Send 3 Gifts to Friends",
+			"quest_wh1_dec16_gifts_hard": "Open 5 Gifts",
+			"quest_wh1_dec16_raid_hard": "Win a level 3 or higher raid",
+			"quest_wh1_dec16_wild_ice_snapshot": "Take 3 snapshots of wild Ice-type Pokemon"
 		}
 	}
 }
