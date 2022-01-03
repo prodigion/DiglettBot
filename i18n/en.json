@@ -2156,7 +2156,10 @@
 			"quest_wh2_dec23_hatch_easy": "Hatch an Egg",
 			"quest_wh2_dec23_hatch_hard": "Hatch 5 Eggs",
 			"quest_wh2_dec23_spin_easy": "Spin 3 PokeStops or Gyms",
-			"quest_wh2_dec23_wild_ice_snapshot": "Take 3 snapshots of wild Ice-type Pokemon"
+			"quest_wh2_dec23_wild_ice_snapshot": "Take 3 snapshots of wild Ice-type Pokemon",
+			"quest_wwl_dec21_open_gift": "Open 5 Gifts",
+			"quest_wwl_dec21_send_gift": "Send 5 Gifts to Friends"
+
 		}
 	}
 }
