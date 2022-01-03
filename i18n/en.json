@@ -2158,8 +2158,27 @@
 			"quest_wh2_dec23_spin_easy": "Spin 3 PokeStops or Gyms",
 			"quest_wh2_dec23_wild_ice_snapshot": "Take 3 snapshots of wild Ice-type Pokemon",
 			"quest_wwl_dec21_open_gift": "Open 5 Gifts",
-			"quest_wwl_dec21_send_gift": "Send 5 Gifts to Friends"
-
+			"quest_wwl_dec21_send_gift": "Send 5 Gifts to Friends",
+			"quest_ny_jan2022_buddy_candy": "Earn 2 candies walking with your Buddy",
+			"quest_ny_jan2022_catch_easy": "Catch 5 Pokemon",
+			"quest_ny_jan2022_catch_medium": "Catch 10 Pokemon",
+			"quest_ny_jan2022_catch_hard": "Catch 15 Pokemon",
+			"quest_ny_jan2022_walk": "Walk 3 km",
+			"jan_2022_charged_attacks": "Use 10 supereffective Charged Attacks",
+			"jan_2022_battle_league": "Battle in the GO Battle League",
+			"jan_2022_buddy_hearts": "Earn 5 hearts with your buddy",
+			"jan_2022_catch_berries": "Use 5 Berries to help catch Pokemon",
+			"jan_2022_catch_pokemon": "Catch 5 Pokemon",
+			"jan_2022_catch_unique_pkmn": "Catch 5 different species of Pokemon",
+			"jan_2022_defeat_tgr_leader": "Defeat a Team GO Rocket Leader",
+			"jan_2022_friend_gifts_easy": "Open 5 Gifts",
+			"jan_2022_friend_trade": "Trade a Pokemon",
+			"jan_2022_hatch_eggs": "Hatch 3 Eggs",
+			"jan_2022_snapshot_wild": "Take a snapshot of a wild Pokemon",
+			"jan_2022_throw_curve_row_med": "Make 5 Curveball Throws in a row",
+			"jan_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"jan_2022_walk_player": "Walk 2 km",
+			"jan_2022_win_raids": "Win 2 Raids"
 		}
 	}
 }
