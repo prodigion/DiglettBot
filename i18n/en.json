@@ -2178,7 +2178,11 @@
 			"jan_2022_throw_curve_row_med": "Make 5 Curveball Throws in a row",
 			"jan_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"jan_2022_walk_player": "Walk 2 km",
-			"jan_2022_win_raids": "Win 2 Raids"
+			"jan_2022_win_raids": "Win 2 Raids",
+			"quest_mop_jan7_buddy_candy": "Earn 2 candies walking with your Buddy",
+			"quest_mop_jan7_hatch_easy": "Hatch an Egg",
+			"quest_mop_jan7_walk_easy": "Walk 1 km"
+
 		}
 	}
 }
