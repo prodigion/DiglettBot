@@ -2181,8 +2181,13 @@
 			"jan_2022_win_raids": "Win 2 Raids",
 			"quest_mop_jan7_buddy_candy": "Earn 2 candies walking with your Buddy",
 			"quest_mop_jan7_hatch_easy": "Hatch an Egg",
-			"quest_mop_jan7_walk_easy": "Walk 1 km"
-
+			"quest_mop_jan7_walk_easy": "Walk 1 km",
+			"quest_ppl_jan22_catch": "Catch 5 Electric-type Pokemon",
+			"quest_ppl_jan22_curve": "Make 3 curveball throws",
+			"quest_ppl_jan22_walk_s": "Walk 1 km",
+			"quest_ppl_jan22_walk_m": "Walk 2 km",
+			"quest_ppl_jan22_walk_l": "Walk 4 km",
+			"quest_ppl_jan22_snapshot": "Take 2 snapshots of a wild Electric-type Pokemon"
 		}
 	}
 }
