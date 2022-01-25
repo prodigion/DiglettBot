@@ -2187,7 +2187,8 @@
 			"quest_ppl_jan22_walk_s": "Walk 1 km",
 			"quest_ppl_jan22_walk_m": "Walk 2 km",
 			"quest_ppl_jan22_walk_l": "Walk 4 km",
-			"quest_ppl_jan22_snapshot": "Take 2 snapshots of a wild Electric-type Pokemon"
+			"quest_ppl_jan22_snapshot": "Take 2 snapshots of a wild Electric-type Pokemon",
+			"quest_tgr_jan22_tgr": "Defeat 2 Team GO Rocket Grunts"
 		}
 	}
 }
