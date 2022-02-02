@@ -2188,7 +2188,15 @@
 			"quest_ppl_jan22_walk_m": "Walk 2 km",
 			"quest_ppl_jan22_walk_l": "Walk 4 km",
 			"quest_ppl_jan22_snapshot": "Take 2 snapshots of a wild Electric-type Pokemon",
-			"quest_tgr_jan22_tgr": "Defeat 2 Team GO Rocket Grunts"
+			"quest_tgr_jan22_tgr": "Defeat 2 Team GO Rocket Grunts",
+			"quest_volt_jan22_catch": "Poke Ball",
+			"quest_lny_feb2022_catch_pokemon": "Catch 12 Pokemon",
+			"quest_lny_feb2022_catch_pokemon_s": "Catch 5 Pokemon",
+			"quest_lny_feb2022_hatch": "Hatch an Egg",
+			"quest_lny_feb2022_send_gifts": "Send 3 Gifts",
+			"quest_lny_feb2022_send_gifts_sticker": "Send 3 Gifts and add a sticker to each",
+			"quest_lny_feb2022_trade": "Trade a Pokemon",
+			"quest_lny_feb2022_win_rade": "Win a raid"
 		}
 	}
 }
