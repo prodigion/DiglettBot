@@ -2196,7 +2196,22 @@
 			"quest_lny_feb2022_send_gifts": "Send 3 Gifts",
 			"quest_lny_feb2022_send_gifts_sticker": "Send 3 Gifts and add a sticker to each",
 			"quest_lny_feb2022_trade": "Trade a Pokemon",
-			"quest_lny_feb2022_win_rade": "Win a raid"
+			"quest_lny_feb2022_win_rade": "Win a raid",
+			"feb_2022_battle_league": "Battle in the GO Battle League",
+			"feb_2022_buddy_hearts": "Earn 5 hearts with your buddy",
+			"feb_2022_catch_berries": "Use 5 Berries to help catch Pokemon",
+			"feb_2022_catch_pokemon": "Catch 5 Pokemon",
+			"feb_2022_catch_unique_pkmn": "Catch 5 different species of Pokemon",
+			"feb_2022_defeat_tgr_leader": "Defeat 2 Team GO Rocket Grunts",
+			"feb_2022_friend_gifts_easy": "Open 3 Gifts",
+			"feb_2022_friend_trade": "Trade a Pokemon",
+			"feb_2022_hatch_eggs": "Hatch 2 Eggs",
+			"feb_2022_snapshot_wild": "Take a snapshot of a wild Pokemon",
+			"feb_2022_throw_curve_row_med": "Make 5 Curveball Throws in a row",
+			"feb_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"feb_2022_win_raids": "Win a Raid",
+			"feb_2022_charged_attacks": "Use 10 supereffective Charged Attacks",
+			"feb_2022_walk_player": "Walk 2 km"
 		}
 	}
 }
