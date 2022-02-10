@@ -2211,7 +2211,12 @@
 			"feb_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"feb_2022_win_raids": "Win a Raid",
 			"feb_2022_charged_attacks": "Use 10 supereffective Charged Attacks",
-			"feb_2022_walk_player": "Walk 2 km"
+			"feb_2022_walk_player": "Walk 2 km",
+			"quest_vday_feb10_berries": "Use 5 Berries to help catch Pokemon",
+			"quest_vday_feb10_buddy_hearts": "Earn 3 Hearts with your Buddy",
+			"quest_vday_feb10_catch": "Catch 5 Pokemon",
+			"quest_vday_feb10_luvdisc": "Catch 20 Luvdisc",
+			"quest_vday_feb10_raid": "Win a Raid"
 		}
 	}
 }
