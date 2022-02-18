@@ -2216,7 +2216,13 @@
 			"quest_vday_feb10_buddy_hearts": "Earn 3 Hearts with your Buddy",
 			"quest_vday_feb10_catch": "Catch 5 Pokemon",
 			"quest_vday_feb10_luvdisc": "Catch 20 Luvdisc",
-			"quest_vday_feb10_raid": "Win a Raid"
+			"quest_vday_feb10_raid": "Win a Raid",
+			"quest_johtoprep_feb22_catch_voltorb_easy": "Catch 2 Voltorb",
+			"quest_johtoprep_feb22_throw_excellent_medium": "Make an Excellent Throw",
+			"quest_johtoprep_feb22_throw_great_curve_row_medium": "Make 4 Great Curveball throws in a row",
+			"quest_johtoprep_feb22_throw_great_easy": "Make 3 Great Throws",
+			"quest_johtoprep_feb22_throw_nice_easy": "Make 5 Nice Throws",
+			"quest_johtoprep_feb22_throw_nice_row_easy": "Make 3 Nice Curveball throws in a row"
 		}
 	}
 }
