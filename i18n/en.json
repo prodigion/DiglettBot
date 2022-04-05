@@ -2222,7 +2222,25 @@
 			"quest_johtoprep_feb22_throw_great_curve_row_medium": "Make 4 Great Curveball throws in a row",
 			"quest_johtoprep_feb22_throw_great_easy": "Make 3 Great Throws",
 			"quest_johtoprep_feb22_throw_nice_easy": "Make 5 Nice Throws",
-			"quest_johtoprep_feb22_throw_nice_row_easy": "Make 3 Nice Curveball throws in a row"
+			"quest_johtoprep_feb22_throw_nice_row_easy": "Make 3 Nice Curveball throws in a row",
+			"quest_alo_mar2022_berry": "Use 7 Berries to help catch Pokemon",
+			"quest_alo_mar2022_catch": "Catch 7 Pokemon",
+			"quest_alo_mar2022_walk": "Walk 1 km",
+			"mar_2022_battle_league": "Battle in the GO Battle League",
+			"mar_2022_buddy_candy": "Earn a candy walking with your Buddy",
+			"mar_2022_buddy_hearts": "Earn 5 hearts with your buddy",
+			"mar_2022_catch_berries": "Use 5 Berries to help catch Pokemon",
+			"mar_2022_catch_pokemon": "Catch 5 Pokemon",
+			"mar_2022_catch_unique_pkmn": "Catch 5 different species of Pokemon",
+			"mar_2022_defeat_tgr_leader": "Defeat 2 Team GO Rocket Grunts",
+			"mar_2022_excellent_throw": "Make 2 Excellent throws",
+			"mar_2022_friend_gifts_stickers": "Send 5 Gifts and add a sticker to each",
+			"mar_2022_friend_trade": "Trade a Pokemon",
+			"mar_2022_hatch_eggs": "Hatch 2 Eggs",
+			"mar_2022_power_up_pkmn": "Power up Pokemon 10 times",
+			"mar_2022_snapshot_wild": "Take a snapshot of a wild Pokemon",
+			"mar_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"mar_2022_win_raids": "Win a Raid"
 		}
 	}
 }
