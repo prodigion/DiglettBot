@@ -2240,7 +2240,26 @@
 			"mar_2022_power_up_pkmn": "Power up Pokemon 10 times",
 			"mar_2022_snapshot_wild": "Take a snapshot of a wild Pokemon",
 			"mar_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
-			"mar_2022_win_raids": "Win a Raid"
+			"mar_2022_win_raids": "Win a Raid",
+			"apr_2022_battle_league": "Battle in the GO Battle League",
+			"apr_2022_buddy_hearts": "Earn 3 Hearts with your Buddy",
+			"apr_2022_buddy_play": "Play with your Buddy",
+			"apr_2022_catch_berries": "Use 5 Nanab berries to help catch Pokemon",
+			"apr_2022_catch_pokemon": "Catch 5 Pokemon",
+			"apr_2022_catch_unique_pkmn": "Catch 7 different species of Pokemon",
+			"apr_2022_charged_attacks": "Power up Pokemon 10 times",
+			"apr_2022_defeat_tgr_grunt": "Defeat a Team GO Rocket Grunt",
+			"apr_2022_friend_gifts_easy": "Send 3 Gifts and add a sticker to each",
+			"apr_2022_friend_trade": "Trade a Pokemon",
+			"apr_2022_hatch_eggs": "Hatch an Egg",
+			"apr_2022_snapshot_wild_grass": "Take a snapshot of a wild Grass-type Pokemon",
+			"apr_2022_throw_curve_row_med": "Make 5 Nice Curveball throws in a row",
+			"apr_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"apr_2022_win_raids": "Win a Raid",
+			"quest_rockethq10_apr22_catch_shadow": "Catch 3 Shadow Pokemon",
+			"quest_rockethq10_apr22_defeat_tgr_grunt": "Defeat 2 Team GO Rocket Grunts",
+			"quest_rockethq10_apr22_defeat_tgr_leader": "Defeat a Team Go Rocket Leader",
+			"quest_rockethq10_apr22_purify_shadow": "Purify 3 Shadow Pokemon"
 		}
 	}
 }
