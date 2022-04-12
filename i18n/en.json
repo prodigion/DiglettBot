@@ -2259,7 +2259,11 @@
 			"quest_rockethq10_apr22_catch_shadow": "Catch 3 Shadow Pokemon",
 			"quest_rockethq10_apr22_defeat_tgr_grunt": "Defeat 2 Team GO Rocket Grunts",
 			"quest_rockethq10_apr22_defeat_tgr_leader": "Defeat a Team Go Rocket Leader",
-			"quest_rockethq10_apr22_purify_shadow": "Purify 3 Shadow Pokemon"
+			"quest_rockethq10_apr22_purify_shadow": "Purify 3 Shadow Pokemon",
+			"quest_ss22_apr12_hatch_easy": "Hatch an Egg",
+			"quest_ss22_apr12_hatch_medium": "Hatch 2 Eggs",
+			"quest_ss22_apr12_hatch_hard": "Hatch 4 Eggs"
+
 		}
 	}
 }
