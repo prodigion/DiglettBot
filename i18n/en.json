@@ -2262,8 +2262,13 @@
 			"quest_rockethq10_apr22_purify_shadow": "Purify 3 Shadow Pokemon",
 			"quest_ss22_apr12_hatch_easy": "Hatch an Egg",
 			"quest_ss22_apr12_hatch_medium": "Hatch 2 Eggs",
-			"quest_ss22_apr12_hatch_hard": "Hatch 4 Eggs"
-
+			"quest_ss22_apr12_hatch_hard": "Hatch 4 Eggs",
+			"quest_erth_apr22_catch": "Catch 5 Grass-type Pokemon",
+			"quest_erth_apr22_catch_grimer": "Catch 3 Grimer",
+			"quest_erth_apr22_catch_trubbish": "Catch 3 Trubbish",
+			"quest_erth_apr22_power": "Power up Pokemon 5 times",
+			"quest_erth_apr22_walk_s": "Walk 1 km",
+			"quest_erth_apr22_walk_m": "Walk 3 km"
 		}
 	}
 }
