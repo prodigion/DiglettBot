@@ -2268,7 +2268,10 @@
 			"quest_erth_apr22_catch_trubbish": "Catch 3 Trubbish",
 			"quest_erth_apr22_power": "Power up Pokemon 5 times",
 			"quest_erth_apr22_walk_s": "Walk 1 km",
-			"quest_erth_apr22_walk_m": "Walk 3 km"
+			"quest_erth_apr22_walk_m": "Walk 3 km",
+			"quest_mega_apr22_power_s": "Power up Pokemon 5 times",
+			"quest_mega_apr22_power_m": "Power up Pokemon 10 times",
+			"quest_mega_apr22_power_l": "Power up Pokemon 10 times"
 		}
 	}
 }
