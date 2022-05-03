@@ -2271,7 +2271,26 @@
 			"quest_erth_apr22_walk_m": "Walk 3 km",
 			"quest_mega_apr22_power_s": "Power up Pokemon 5 times",
 			"quest_mega_apr22_power_m": "Power up Pokemon 10 times",
-			"quest_mega_apr22_power_l": "Power up Pokemon 10 times"
+			"quest_mega_apr22_power_l": "Power up Pokemon 10 times",
+			"may_2022_battle_league": "Battle in the GO Battle League",
+			"may_2022_buddy_candy": "Earn a candy walking with your Buddy",
+			"may_2022_buddy_hearts": "Earn 5 hearts with your buddy",
+			"may_2022_catch_berries": "Use 5 Berries to help catch Pokemon",
+			"may_2022_catch_pokemon": "Catch 5 Pokemon",
+			"may_2022_catch_unique_pkmn": "Catch 5 different species of Pokemon",
+			"may_2022_friend_gifts_easy": "Send 3 Gifts and add a sticker to each",
+			"may_2022_friend_trade": "Trade a Pokemon",
+			"may_2022_hatch_eggs": "Hatch an Egg",
+			"may_2022_power_up": "Power up Pokemon 10 times",
+			"may_2022_purify_shadow_pokemon": "Purify 1 Shadow Pokemon",
+			"may_2022_snapshot_wild": "Take a snapshot of a wild Water-type Pokemon",
+			"may_2022_throw_curve_row_med": "Make an Excellent Throw",
+			"may_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"may_2022_win_raids": "Win a Raid",
+			"aa2022_global_quest_catch_flying": "Catch 3 Flying-Type Pokemon",
+			"aa2022_global_quest_catch_weather": "Catch 10 Pokemon with weather boost",
+			"aa2022_global_quest_defeat": "Defeat 3 Team GO Rocket Grunts",
+			"aa2022_global_quest_purify": "Purify 1 Shadow Pokemon"
 		}
 	}
 }
