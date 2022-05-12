@@ -2287,10 +2287,19 @@
 			"may_2022_throw_curve_row_med": "Make an Excellent Throw",
 			"may_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"may_2022_win_raids": "Win a Raid",
-			"aa2022_global_quest_catch_flying": "Catch 3 Flying-Type Pokemon",
+			"aa2022_global_quest_catch_flying": "Catch 3 Flying-type Pokemon",
 			"aa2022_global_quest_catch_weather": "Catch 10 Pokemon with weather boost",
 			"aa2022_global_quest_defeat": "Defeat 3 Team GO Rocket Grunts",
-			"aa2022_global_quest_purify": "Purify 1 Shadow Pokemon"
+			"aa2022_global_quest_purify": "Purify 1 Shadow Pokemon",
+			"quest_wf_may2022_catch_easy": "Catch 5 Pokemon",
+			"quest_wf_may2022_catch_medium": "Catch 15 Pokemon",
+			"quest_wf_may2022_catch_hard": "Catch 25 Pokemon",
+			"quest_wf_may2022_catch_wailm_magi": "Catch 5 Magikarp or Wailmer",
+			"quest_wf_may2022_catch_water_easy": "Catch 5 Water-type Pokemon",
+			"quest_wf_may2022_catch_water_medium": "Catch 10 Water-type Pokemon",
+			"quest_wf_may2022_catch_water_medium_mega": "Catch 10 Water-type Pokemon",
+			"quest_wf_may2022_evolve_easy": "Evolve 2 Water-type Pokemon",
+			"quest_wf_may2022_hatch_easy": "Hatch an Egg"
 		}
 	}
 }
