@@ -2299,7 +2299,27 @@
 			"quest_wf_may2022_catch_water_medium": "Catch 10 Water-type Pokemon",
 			"quest_wf_may2022_catch_water_medium_mega": "Catch 10 Water-type Pokemon",
 			"quest_wf_may2022_evolve_easy": "Evolve 2 Water-type Pokemon",
-			"quest_wf_may2022_hatch_easy": "Hatch an Egg"
+			"quest_wf_may2022_hatch_easy": "Hatch an Egg",
+			"quest_alo_may2022_berry": "Use 7 Berries to help catch Pokemon",
+			"quest_alo_may2022_gift_s": "Send 3 Gifts",
+			"quest_alo_may2022_gift_m": "Send 3 Gifts and add a sticker to each",
+			"quest_alo_may2022_power": "Power up Pokemon 7 times",
+			"quest_alo_may2022_walk": "Walk 1 km",
+			"june_2022_charged_attacks": "Power up Pokemon 10 times",
+			"june_2022_battle_buddy": "Battle alongside your buddy while it's adventuring with you",
+			"june_2022_battle_grunt": "Battle 2 Team GO Rocket Grunts",
+			"june_2022_battle_league": "Battle in the GO Battle League",
+			"june_2022_buddy_candy": "Walk 2 km with your buddy",
+			"june_2022_buddy_play": "Play with your Buddy",
+			"june_2022_catch_berries": "Use 5 Berries to help catch Pokemon",
+			"june_2022_catch_pokemon": "Catch 5 Pokemon",
+			"june_2022_catch_rock_pkmn": "Catch 5 Rock-type Pokemon",
+			"june_2022_friend_gifts_easy": "Send 3 Gifts and add a sticker to each",
+			"june_2022_friend_trade": "Trade a Pokemon",
+			"june_2022_hatch_eggs": "Hatch an Egg",
+			"june_2022_snapshot_wild": "Take a snapshot of a wild Rock-type Pokemon",
+			"june_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"june_2022_throw_great_row_med": "Make 3 Great Throws in a row"
 		}
 	}
 }
