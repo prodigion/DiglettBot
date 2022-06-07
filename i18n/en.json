@@ -2319,7 +2319,16 @@
 			"june_2022_hatch_eggs": "Hatch an Egg",
 			"june_2022_snapshot_wild": "Take a snapshot of a wild Rock-type Pokemon",
 			"june_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
-			"june_2022_throw_great_row_med": "Make 3 Great Throws in a row"
+			"june_2022_throw_great_row_med": "Make 3 Great Throws in a row",
+			"quest_aw_june2022_catch_rock_types": "Catch 15 Rock-type Pokemon",
+			"quest_aw_june2022_earn_buddy_candy": "Earn 3 candies exploring with your buddy",
+			"quest_aw_june2022_hatch_eggs_medium": "Hatch 2 Eggs",
+			"quest_aw_june2022_hatch_eggs_hard": "Hatch 4 Eggs",
+			"quest_aw_june2022_spin_stops_medium": "Spin 15 PokeStops or Gyms",
+			"quest_aw_june2022_spin_stops_hard": "Spin 25 PokeStops or Gyms",
+			"quest_aw_june2022_spin_unique_stops": "Spin 2 PokeStops you haven't visited before",
+			"quest_aw_june2022_walk_easy": "Walk 1 km",
+			"quest_aw_june2022_walk_hard": "Walk 5 km"
 		}
 	}
 }
