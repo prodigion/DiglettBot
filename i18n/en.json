@@ -2328,7 +2328,14 @@
 			"quest_aw_june2022_spin_stops_hard": "Spin 25 PokeStops or Gyms",
 			"quest_aw_june2022_spin_unique_stops": "Spin 2 PokeStops you haven't visited before",
 			"quest_aw_june2022_walk_easy": "Walk 1 km",
-			"quest_aw_june2022_walk_hard": "Walk 5 km"
+			"quest_aw_june2022_walk_hard": "Walk 5 km",
+			"quest_tcg_jun2022_catch_s": "Catch 10 Pokemon",
+			"quest_tcg_jun2022_catch_m": "Catch 15 Pokemon",
+			"quest_tcg_jun2022_catch_l": "Catch 25 Pokemon",
+			"quest_tcg_jun2022_catch_xl": "Catch 40 Pokemon",
+			"quest_tcg_jun2022_spin": "Spin 5 PokeStops or Gyms",
+			"quest_tcg_jun2022_trade": "Trade a Pokemon",
+			"quest_tcg_jun2022_transfer": "Transfer 10 Pokemon"
 		}
 	}
 }
