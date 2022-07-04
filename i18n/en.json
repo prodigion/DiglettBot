@@ -2335,7 +2335,22 @@
 			"quest_tcg_jun2022_catch_xl": "Catch 40 Pokemon",
 			"quest_tcg_jun2022_spin": "Spin 5 PokeStops or Gyms",
 			"quest_tcg_jun2022_trade": "Trade a Pokemon",
-			"quest_tcg_jun2022_transfer": "Transfer 10 Pokemon"
+			"quest_tcg_jun2022_transfer": "Transfer 10 Pokemon",
+			"july_2022_charged_attacks": "Power up Pokemon 10 times",
+			"july_2022_battle_grunt": "Defeat a Team Go Rocket Grunt",
+			"july_2022_battle_league": "Battle in the GO Battle League",
+			"july_2022_buddy_hearts": "Earn 3 Hearts with your Buddy",
+			"july_2022_buddy_snapshot": "Take a snapshot of your buddy",
+			"july_2022_catch_berries": "Use 5 Razz berries to help catch pokemon",
+			"july_2022_catch_nrml_pkmn": "Catch 5 Normal-Type Pokemon",
+			"july_2022_catch_pokemon": "Catch 5 Pokemon",
+			"july_2022_friend_gifts_easy": "Send 3 Gifts and add a sticker to each",
+			"july_2022_friend_trade": "Trade a Pokemon",
+			"july_2022_hatch_eggs": "Hatch an Egg",
+			"july_2022_snapshot_nrml_wild": "Take a snapshot of a Normal-type Pokemon",
+			"july_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"july_2022_throw_great_row_med": "Make 5 Great Throws in a row",
+			"july_2022_win_raid": "Win a Raid"
 		}
 	}
 }
