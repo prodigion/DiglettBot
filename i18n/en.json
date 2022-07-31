@@ -2350,7 +2350,16 @@
 			"july_2022_snapshot_nrml_wild": "Take a snapshot of a Normal-type Pokemon",
 			"july_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
 			"july_2022_throw_great_row_med": "Make 5 Great Throws in a row",
-			"july_2022_win_raid": "Win a Raid"
+			"july_2022_win_raid": "Win a Raid",
+			"july_2022_anniver_buddy_hearts": "Earn 6 Hearts with your Buddy",
+			"july_2022_anniver_catch_berry": "Use 6 Berries to help catch Pokemon",
+			"july_2022_anniver_catch_pokemon": "Catch 6 Pokemon",
+			"july_2022_anniver_catch_unique": "Catch 6 different species of Pokemon",
+			"july_2022_anniver_curve_throw": "Make 6 Curveball Throws",
+			"july_2022_anniver_nice_throw": "Make 6 Nice Throws",
+			"july_2022_anniver_snapshot_wild": "Take 6 snapshots of wild Pokemon",
+			"july_2022_anniver_spin_stop": "Spin 6 Pokestops or Gyms",
+			"july_2022_anniver_sticker_gift": "Send 6 Gifts and add a sticker to each"
 		}
 	}
 }
