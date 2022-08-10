@@ -2381,7 +2381,19 @@
 			"aug_2022_snapshot_wild": "Take a snapshot of a wild Pokemon",
 			"aug_2022_throw_excell": "Make 3 Excellent Throws",
 			"aug_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
-			"aug_2022_win_raid": "Win a raid"
+			"aug_2022_win_raid": "Win a raid",
+			"quest_uu_bug_berries": "Use 10 Berries to help catch Pokemon",
+			"quest_uu_bug_catch_bug_type": "Catch 10 Bug-type Pokemon",
+			"quest_uu_bug_catch_easy": "Catch 5 Pokemon",
+			"quest_uu_bug_catch_medium": "Catch 10 Pokemon",
+			"quest_uu_bug_catch_hard": "Catch 15 Pokemon",
+			"quest_uu_bug_excellent": "Nincada",
+			"quest_uu_bug_nice": "Make 3 Nice Throws",
+			"quest_uu_bug_nice_row": "Make 3 Nice Throws in a row",
+			"quest_uu_bug_great": "Make 3 Great Throws",
+			"quest_uu_bug_great_row": "Make 3 Great Throws in a row",
+			"quest_uu_bug_trade": "Trade a Pokemon",
+			"quest_uu_bug_unique_bug_snap": "Take Snapshots of 3 different Bug-type Pokemon you caught"
 		}
 	}
 }
