@@ -2393,7 +2393,22 @@
 			"quest_uu_bug_great": "Make 3 Great Throws",
 			"quest_uu_bug_great_row": "Make 3 Great Throws in a row",
 			"quest_uu_bug_trade": "Trade a Pokemon",
-			"quest_uu_bug_unique_bug_snap": "Take Snapshots of 3 different Bug-type Pokemon you caught"
+			"quest_uu_bug_unique_bug_snap": "Take Snapshots of 3 different Bug-type Pokemon you caught",
+			"sept_2022_battle_league": "Battle in the GO Battle League",
+			"sept_2022_buddy_candy": "Earn a candy walking with your Buddy",
+			"sept_2022_buddy_heart": "Earn 3 Hearts with your Buddy",
+			"sept_2022_catch_berries": "Use 5 Berries to help catch Pokemon",
+			"sept_2022_catch_pkmn": "Catch 5 different species of Pokemon",
+			"sept_2022_catch_pokemon": "Catch 5 Pokemon",
+			"sept_2022_charged_attacks": "Power up Pokemon 25 times",
+			"sept_2022_friend_gifts_easy": "Send 3 Gifts and add a sticker to each",
+			"sept_2022_friend_trade": "Trade a Pokemon",
+			"sept_2022_hatch_egg": "Hatch an Egg",
+			"sept_2022_snapshot_steel": "Take 2 snapshots of a wild Steel-type Pokemon",
+			"sept_2022_tgr_grunt": "Defeat 2 Team GO Rocket Grunts",
+			"sept_2022_throw_curve": "Make 5 Curveball Throws in a row",
+			"sept_2022_throw_great_hard": "Spinda",
+			"sept_2022_win_raid": "Win a raid"
 		}
 	}
 }
