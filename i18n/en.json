@@ -2408,7 +2408,11 @@
 			"sept_2022_tgr_grunt": "Defeat 2 Team GO Rocket Grunts",
 			"sept_2022_throw_curve": "Make 5 Curveball Throws in a row",
 			"sept_2022_throw_great_hard": "Spinda",
-			"sept_2022_win_raid": "Win a raid"
+			"sept_2022_win_raid": "Win a raid",
+			"quest_psy_sep2022_curve_s": "Make 5 Curveball Throws",
+			"quest_psy_sep2022_curve_m": "Make 5 Curveball Throws in a row",
+			"quest_psy_sep2022_spin_s": "Spin 5 PokeStops or Gyms",
+			"quest_psy_sep2022_spin_m": "Spin 15 PokeStops or Gyms"
 		}
 	}
 }
