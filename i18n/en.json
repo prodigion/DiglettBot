@@ -2412,7 +2412,12 @@
 			"quest_psy_sep2022_curve_s": "Make 5 Curveball Throws",
 			"quest_psy_sep2022_curve_m": "Make 5 Curveball Throws in a row",
 			"quest_psy_sep2022_spin_s": "Spin 5 PokeStops or Gyms",
-			"quest_psy_sep2022_spin_m": "Spin 15 PokeStops or Gyms"
+			"quest_psy_sep2022_spin_m": "Spin 15 PokeStops or Gyms",
+			"quest_test_mettle_catch_easy": "Catch 5 Pokemon",
+			"quest_test_mettle_catch_medium": "Catch 10 Pokemon",
+			"quest_test_mettle_catch_hard": "Catch 15 Pokemon",
+			"quest_test_mettle_evolve_steel": "Evolve 2 Steel-type Pokemon",
+			"quest_test_mettle_powerup_steel": "Power up 5 Steel-type Pokemon"
 		}
 	}
 }
