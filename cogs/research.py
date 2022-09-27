@@ -399,5 +399,5 @@ class ResearchCog(commands.Cog):
         await ctx.send('Server is not currently available. Please try again later or use Meowth reporting.')
 
 
-def setup(bot):
-    bot.add_cog(ResearchCog(bot))
+async def setup(bot):
+    await bot.add_cog(ResearchCog(bot))

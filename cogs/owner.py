@@ -14,7 +14,7 @@ class OwnerCog(commands.Cog):
 
         print("\nLoad module: " + cog)
         try:
-            self.bot.load_extension(cog)
+            await self.bot.load_extension(cog)
         except Exception as e:
             await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
         else:
@@ -45,7 +45,7 @@ class OwnerCog(commands.Cog):
         print("\nReload module: " + cog)
         try:
             self.bot.unload_extension(cog)
-            self.bot.load_extension(cog)
+            await self.bot.load_extension(cog)
         except Exception as e:
             await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
         else:
@@ -53,5 +53,5 @@ class OwnerCog(commands.Cog):
             await ctx.message.delete()
 
 
-def setup(bot):
-    bot.add_cog(OwnerCog(bot))
+async def setup(bot):
+    await bot.add_cog(OwnerCog(bot))

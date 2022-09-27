@@ -1,0 +1,4 @@
+aiomysql==0.0.21
+discord.py==2.0.1
+PyMySQL==0.9.3
+requests==2.27.1

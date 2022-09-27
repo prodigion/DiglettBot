@@ -74,5 +74,5 @@ class UtilityCog(commands.Cog):
         await ctx.send(f"{clearedRoles} Roles cleared.")
 
 
-def setup(bot):
-    bot.add_cog(UtilityCog(bot))
+async def setup(bot):
+    await bot.add_cog(UtilityCog(bot))

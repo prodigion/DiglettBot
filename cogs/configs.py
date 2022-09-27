@@ -149,5 +149,5 @@ class ConfigsCog(commands.Cog):
         await ctx.message.delete()
 
 
-def setup(bot):
-    bot.add_cog(ConfigsCog(bot))
+async def setup(bot):
+    await bot.add_cog(ConfigsCog(bot))

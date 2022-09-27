@@ -184,5 +184,5 @@ class MembersCog(commands.Cog):
                 await ctx.send(f'Role added: ' + role.name)
 
 
-def setup(bot):
-    bot.add_cog(MembersCog(bot))
+async def setup(bot):
+    await bot.add_cog(MembersCog(bot))

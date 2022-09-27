@@ -52,5 +52,5 @@ class EventsCog(commands.Cog):
                 await message.channel.send(f"To get tagged when someone mentions `@{mention.name}`, please go to {roleChannel.mention} and type `!{mention.name}`.")
 
 
-def setup(bot):
-    bot.add_cog(EventsCog(bot))
+async def setup(bot):
+    await bot.add_cog(EventsCog(bot))
