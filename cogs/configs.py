@@ -37,9 +37,11 @@ class ConfigsCog(commands.Cog):
 
         if config == "":
             await ctx.send("Configuration options: ```nests - Response to !nests command\n"
+                                                    "map info - Details about mapping data source\n"
                                                     "admins - Assign role with admin access to DiglettBot\n"
                                                     "team - Channel for team selection\n"
                                                     "role - Channel for role selection\n"
+                                                    "friend - Channel for friend code listing\n"
                                                     "research - Channel for quest queries```")
         elif config == "nests":
             try:
@@ -95,6 +97,10 @@ class ConfigsCog(commands.Cog):
             self.bot.configs[str(ctx.guild.id)]['role-channel'] = ctx.channel.id
             self.saveConfigs()
             await ctx.send("Role selection channel updated")
+        elif config == "friend":
+            self.bot.configs[str(ctx.guild.id)]['friend-channel'] = ctx.channel.id
+            self.saveConfigs()
+            await ctx.send("Friend code reporting channel updated")
         elif config == "research":
             try:
                 await ctx.send("Please enter a city name.  Enter `delete` to de-register this channel. Enter `cancel` to exit.")

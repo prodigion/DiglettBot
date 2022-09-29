@@ -49,6 +49,11 @@ class EventsCog(commands.Cog):
                 roleChannel = discord.utils.get(message.guild.channels, name="role-select")
                 await message.channel.send(f"To get tagged when someone mentions `@{mention.name}`, please go to {roleChannel.mention} and type `!{mention.name}`.")
 
+        if message.channel.id == self.bot.configs[str(message.guild.id)]['friend-channel']:
+            if message.author.id == self.bot.user.id:
+                return
+            await message.delete()
+
 
 async def setup(bot):
     await bot.add_cog(EventsCog(bot))

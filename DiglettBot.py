@@ -26,9 +26,6 @@ class DiglettBot(commands.Bot):
         for extension in self.initial_extensions:
             await self.load_extension(extension)
 
-    async def close(self):
-        await super().close()
-
 
 if __name__ == '__main__':
     with open("TOKEN", "r") as tokenFile:

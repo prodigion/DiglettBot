@@ -1,5 +1,7 @@
+import re
 import discord
 from discord.ext import commands
+from discord import app_commands
 
 
 class WelcomeView(discord.ui.View):
@@ -179,6 +181,22 @@ class MembersCog(commands.Cog):
             else:
                 await ctx.author.add_roles(role)
                 await ctx.send(f'Role added: ' + role.name)
+
+    @app_commands.command()
+    @app_commands.describe(
+        friend_code='Friend code message',
+        username='Username associated with the friend code',
+    )
+    async def friendcode(self, interaction, friend_code: str, username: str):
+        fcRegex = re.compile(r"\d\d\d\d ?\d\d\d\d ?\d\d\d\d")
+        if interaction.channel.id == self.bot.configs[str(interaction.guild.id)]['friend-channel']:
+            fc = re.search(fcRegex, friend_code)
+            if not fc:
+                await interaction.response.send_message("Invalid friend code entered. Please try again", ephemeral=True)
+            else:
+                await interaction.response.send_message(f"Friend code: {fc.group(0)}\nusername: {username}")
+        else:
+            await interaction.response.send_message(f"This only works in channel <#{self.bot.configs[str(interaction.guild.id)]['friend-channel']}>", ephemeral=True)
 
 
 async def setup(bot):
