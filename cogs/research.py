@@ -12,7 +12,7 @@ class ResearchCog(commands.Cog):
         self.numStops = 0
         self.numScannedStops = 0
 
-    def is_admin_check(ctx):
+    async def is_admin_check(ctx):
         role = discord.utils.get(ctx.guild.roles, id=ctx.bot.configs[str(ctx.guild.id)]['admin-role'])
         return role in ctx.author.roles
 
@@ -273,7 +273,7 @@ class ResearchCog(commands.Cog):
     @commands.guild_only()
     @commands.check(is_admin_check)
     async def get_all_research(self, ctx, query_type="encounters"):
-        """List all encounters, sorted by Pokemon number"""
+        """List all encounters, sorted by Pokémon number"""
 
         missingQuestTemplates = []
         geofence = self.bot.configs[str(ctx.guild.id)]['cities'][str(ctx.channel.id)]['geofence']

@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from cogs.members import WelcomeView
 
 
 class DiglettBot(commands.Bot):
@@ -20,6 +21,8 @@ class DiglettBot(commands.Bot):
         ]
 
     async def setup_hook(self):
+        self.add_view(WelcomeView(self))
+
         for extension in self.initial_extensions:
             await self.load_extension(extension)
 

@@ -3,8 +3,6 @@ from discord.ext import commands
 
 
 class EventsCog(commands.Cog):
-    """EventsCog"""
-
     def __init__(self, bot):
         self.bot = bot
         self.bot.configs = {}

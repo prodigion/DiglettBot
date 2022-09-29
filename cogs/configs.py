@@ -5,8 +5,6 @@ import json
 
 
 class ConfigsCog(commands.Cog):
-    """ConfigsCog"""
-
     def __init__(self, bot):
         self.bot = bot
 

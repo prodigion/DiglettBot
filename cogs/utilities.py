@@ -1,12 +1,7 @@
-import discord
 from discord.ext import commands
-
-"""Utility functions"""
 
 
 class UtilityCog(commands.Cog):
-    """UtilityCog"""
-
     def __init__(self, bot):
         self.bot = bot
 
@@ -39,39 +34,6 @@ class UtilityCog(commands.Cog):
             await ctx.send(self.bot.configs[str(ctx.guild.id)]['nests'])
 
         await ctx.message.delete()
-
-    @commands.command(name='cleanroles')
-    @commands.has_role('Mods')
-    @commands.guild_only()
-    async def clean_roles(self, ctx):
-        """Clean Roles"""
-
-        # Forbid Babies, Regionals, Special Research, Legendary (1, 2, 3, 4), Uncatchable (2, 3, 4), Unreleased (1, 2, 3, 4)
-        forbiddenRoles = ['pichu', 'cleffa', 'igglybuff', 'togepi', 'tyrogue', 'smoochum', 'elekid', 'magby', 'azurill', 'wynaut', 'budew', 'chingling', 'bonsly', 'mime jr', 'happiny', 'munchlax', 'riolu', 'mantyke',
-                          'corsola', "farfetch'd", 'heracross', 'kangaskhan', 'mr mime', 'relicanth', 'lunatone', 'torkoal', 'tropius', 'volbeat', 'zangoose', 'pachirisu', 'chatot', 'carnivine',
-                          'celebi', 'jirachi', 'mew', 'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'spiritomb', 'meltan', 'melmetal',
-                          'articuno', 'moltres', 'zapdos', 'mewtwo',
-                          'raikou', 'entei', 'suicune', 'lugia', 'ho-oh',
-                          'regirock', 'regice', 'registeel', 'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'deoxys',
-                          'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
-                          'bellossom', 'politoed', 'sunflora', 'espeon', 'umbreon', 'slowking', 'steelix', 'scizor', 'kingdra', 'porygon2',
-                          'nincada', 'ninjask', 'mawile', 'spinda', 'altaria', 'milotic', 'absol',
-                          'roserade', 'mismagius', 'honchkrow', 'weavile', 'magnezone', 'lickilicky', 'rhyperior', 'tangrowth', 'electivire', 'magmortar', 'togekiss', 'yanmega', 'leafeon', 'glaceon', 'gliscor', 'mamoswine', 'porygon z', 'gallade', 'probopass', 'dusknoir', 'froslass',
-                          'smeargle', 'kecleon',
-                          'rampardos', 'bastiodon', 'wormadam', 'mothim', 'vespiquen', 'gastrodon', 'ambipom', 'garchomp', 'rotom'
-                          ]
-        clearedRoles = 0
-        for delRole in forbiddenRoles:
-            role = discord.utils.get(ctx.guild.roles, name=delRole)
-            if role:
-                try:
-                    await role.delete()
-                    await ctx.send(f"The role {role.name} has been deleted!")
-                    clearedRoles += 1
-                except discord.Forbidden:
-                    await ctx.send("Missing Permissions to delete this role!")
-
-        await ctx.send(f"{clearedRoles} Roles cleared.")
 
 
 async def setup(bot):
