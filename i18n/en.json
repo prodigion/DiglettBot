@@ -2417,7 +2417,18 @@
 			"quest_test_mettle_catch_medium": "Catch 10 Pokemon",
 			"quest_test_mettle_catch_hard": "Catch 15 Pokemon",
 			"quest_test_mettle_evolve_steel": "Evolve 2 Steel-type Pokemon",
-			"quest_test_mettle_powerup_steel": "Power up 5 Steel-type Pokemon"
+			"quest_test_mettle_powerup_steel": "Power up 5 Steel-type Pokemon",
+			"sept_fashion_2022_berries": "Use 10 Berries to help catch Pokemon",
+			"sept_fashion_2022_catch_pkmn": "Catch 5 Pokemon",
+			"sept_fashion_2022_catch_pkmn_med": "Catch 15 Pokemon",
+			"sept_fashion_2022_great_curve": "Make 5 Great Throws",
+			"sept_fashion_2022_great_throw_easy": "Make 3 Great Throws",
+			"sept_fashion_2022_great_throw_med": "Make 3 Great Curveball throws in a row",
+			"sept_fashion_2022_nice_throw": "Make 3 Nice Throws",
+			"sept_fashion_2022_snap_blitz": "Take a snapshot of Blitzle in the wild",
+			"sept_fashion_2022_snap_buddy": "Take a snapshot of your buddy",
+			"sept_fashion_2022_snap_glam": "Take a snapshot of Glameow in the wild",
+			"sept_fashion_2022_wild_pkmn": "Take 3 snapshots of wild Pokemon"
 		}
 	}
 }
