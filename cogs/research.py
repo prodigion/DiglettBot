@@ -6,15 +6,16 @@ import datetime
 import json
 
 
+async def is_admin_check(ctx):
+    role = discord.utils.get(ctx.guild.roles, id=ctx.bot.configs[str(ctx.guild.id)]['admin-role'])
+    return role in ctx.author.roles
+
+
 class ResearchCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.numStops = 0
         self.numScannedStops = 0
-
-    async def is_admin_check(ctx):
-        role = discord.utils.get(ctx.guild.roles, id=ctx.bot.configs[str(ctx.guild.id)]['admin-role'])
-        return role in ctx.author.roles
 
     async def get_stats(self, ctx):
         """How many pokestops have been scanned."""
@@ -129,23 +130,42 @@ class ResearchCog(commands.Cog):
             async with self.bot.pool[str(ctx.guild.id)].acquire() as conn:
                 async with conn.cursor() as cur2:
                     if quest_type == "encounters":
-                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 7 and quest_pokemon_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
+                        await cur2.execute(f"SELECT name, lat, lon "
+                                           f"FROM pokestop "
+                                           f"WHERE quest_reward_type = 7 and quest_pokemon_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat)) "
+                                           f"ORDER BY RAND();")
                     elif quest_type == "candy":
-                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 4 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
+                        await cur2.execute(f"SELECT name, lat, lon "
+                                           f"FROM pokestop "
+                                           f"WHERE quest_reward_type = 4 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat)) "
+                                           f"ORDER BY RAND();")
                     elif quest_type == "energy":
-                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 12 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
+                        await cur2.execute(f"SELECT name, lat, lon "
+                                           f"FROM pokestop "
+                                           f"WHERE quest_reward_type = 12 and quest_rewards->'$[0].info[0].pokemon_id' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat)) "
+                                           f"ORDER BY RAND();")
                     elif quest_type == "items":
-                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 2 and quest_item_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
+                        await cur2.execute(f"SELECT name, lat, lon "
+                                           f"FROM pokestop "
+                                           f"WHERE quest_reward_type = 2 and quest_item_id={mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat)) "
+                                           f"ORDER BY RAND();")
                     elif quest_type == "stardust":
-                        await cur2.execute(f"select name, lat, lon from pokestop where quest_reward_type = 3 and quest_rewards->'$[0].info[0].amount' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat));")
+                        await cur2.execute(f"SELECT name, lat, lon "
+                                           f"FROM pokestop "
+                                           f"WHERE quest_reward_type = 3 and quest_rewards->'$[0].info[0].amount' = {mon} and quest_template = '{r[0]}' and ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({geofence}))'), POINT(lon, lat)) "
+                                           f"ORDER BY RAND();")
 
                     numResults = cur2.rowcount
                     ctr2 = 0
+                    resultLimit = 25
                     results2 = await cur2.fetchall()
                     for r2 in results2:
                         ctr2 += 1
-                        questList += f"({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n"
+                        if resultLimit and ctr2 <= resultLimit:
+                            questList += f"({ctr2}/{numResults}) PokeStop: [{r2[0]}](http://www.google.com/maps/place/{r2[1]},{r2[2]})\n"
                         if len(questList + footer) > 1850 or ctr2 == numResults and ctr == numTemplates:
+                            if resultLimit and (ctr2 > resultLimit or ctr2 == numResults and numResults == resultLimit):
+                                questList += "Trial version - results truncated\n"
                             await ctx.send(embed=discord.Embed(description=questList + footer))
                             try:
                                 await ctx.author.send(embed=discord.Embed(description=questList + footer))
@@ -156,6 +176,8 @@ class ResearchCog(commands.Cog):
                             else:
                                 questList = f"{reward} - {questRequirement}\n\n"
                         elif ctr2 == numResults:
+                            if resultLimit and ctr2 > resultLimit:
+                                questList += "Trial version - results truncated\n"
                             questList += "\n"
 
     async def get_rocket(self, ctx, cur, rocket_type):
