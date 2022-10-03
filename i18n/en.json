@@ -2428,7 +2428,22 @@
 			"sept_fashion_2022_snap_blitz": "Take a snapshot of Blitzle in the wild",
 			"sept_fashion_2022_snap_buddy": "Take a snapshot of your buddy",
 			"sept_fashion_2022_snap_glam": "Take a snapshot of Glameow in the wild",
-			"sept_fashion_2022_wild_pkmn": "Take 3 snapshots of wild Pokemon"
+			"sept_fashion_2022_wild_pkmn": "Take 3 snapshots of wild Pokemon",
+			"oct_2022_charged_attacks": "Power up Pokemon 10 times",
+			"oct_2022_battle_buddy": "Battle alongside your buddy while it's adventuring with you",
+			"oct_2022_battle_league": "Battle in the GO Battle League",
+			"oct_2022_buddy_candy": "Take a snapshot of your buddy",
+			"oct_2022_buddy_heart": "Earn 3 Hearts with your Buddy",
+			"oct_2022_catch_ghost_pkmn": "Catch 3 Ghost-type Pokemon",
+			"oct_2022_catch_nanab": "Use 5 Nanab Berries to help catch Pokemon",
+			"oct_2022_catch_pokemon": "Catch 5 Pokemon",
+			"oct_2022_friend_gifts_easy": "Send 3 Gifts",
+			"oct_2022_friend_trade": "Trade a Pokemon",
+			"oct_2022_hatch_egg": "Hatch an Egg",
+			"oct_2022_snapshot_ghost": "Take 2 snapshots of ghost-type Pokemon",
+			"oct_2022_throw_ex_curve": "Make 3 Excellent Throws",
+			"oct_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"oct_2022_win_raid": "Win a raid"
 		}
 	}
 }
