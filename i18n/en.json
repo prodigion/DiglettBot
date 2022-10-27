@@ -2451,7 +2451,14 @@
 			"quest_evo_oct2022_power_m": "Power up Pokemon 7 times",
 			"quest_evo_oct2022_spin_s": "Spin 10 PokeStops or Gyms",
 			"quest_evo_oct2022_spin_m": "Spin 15 PokeStops or Gyms",
-			"quest_evo_oct2022_spin_l": "Spin 20 PokeStops or Gyms"
+			"quest_evo_oct2022_spin_l": "Spin 20 PokeStops or Gyms",
+			"quest_hal_oct2022_catch_s": "Catch 5 Ghost-type Pokemon",
+			"quest_hal_oct2022_catch_m": "Catch 10 Ghost-type Pokemon",
+			"quest_hal_oct2022_catch_l": "Catch 25 Ghost-type Pokemon",
+			"quest_hal_oct2022_spin_s": "Spin 5 PokeStops or Gyms",
+			"quest_hal_oct2022_spin_m": "Spin 10 PokeStops or Gyms",
+			"quest_hal_oct2022_walk": "Walk 5 km",
+			"quest_hal_oct2022_walk_s": "Walk 2 km"
 		}
 	}
 }
