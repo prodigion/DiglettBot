@@ -943,7 +943,8 @@
 		"1402": "Paid Raid Pass",
 		"1403": "EX Raid Pass",
 		"1404": "Star Piece",
-		"1405": "Gift"
+		"1405": "Gift",
+		"1501": "Mysterious Component"
 	},
 	"pokemon_types": {
 		"0": "None",
@@ -2458,7 +2459,27 @@
 			"quest_hal_oct2022_spin_s": "Spin 5 PokeStops or Gyms",
 			"quest_hal_oct2022_spin_m": "Spin 10 PokeStops or Gyms",
 			"quest_hal_oct2022_walk": "Walk 5 km",
-			"quest_hal_oct2022_walk_s": "Walk 2 km"
+			"quest_hal_oct2022_walk_s": "Walk 2 km",
+			"nov_2022_battle_league": "Battle in the GO Battle League",
+			"nov_2022_beat_tgr": "Defeat 2 Team GO Rocket Grunts",
+			"nov_2022_buddy_candy": "Earn 2 candies exploring with your Buddy",
+			"nov_2022_buddy_heart": "Earn 5 hearts with your buddy",
+			"nov_2022_catch_grass_pkmn": "Catch 3 Grass-type Pokemon",
+			"nov_2022_catch_pinap": "Use 5 Pinap Berries to help catch Pokemon",
+			"nov_2022_catch_pokemon": "Catch 5 Pokemon",
+			"nov_2022_charged_attacks": "Power up Pokemon 10 times",
+			"nov_2022_friend_gifts_easy": "Send 3 Gifts to friends",
+			"nov_2022_friend_trade": "Trade a Pokemon",
+			"nov_2022_hatch_egg": "Hatch an Egg",
+			"nov_2022_snapshot_wild": "Take 5 snapshots of wild Pokemon",
+			"nov_2022_throw_great": "Make 5 Great Throws",
+			"nov_2022_throw_great_hard": "Make 5 Great Curveball Throws in a row",
+			"nov_2022_win_raid": "Win a raid",
+			"quest_glu_nov2022_berry_s": "Use 3 Berries to help catch Pokemon",
+			"quest_glu_nov2022_berry_m": "Use 15 Berries to help catch Pokemon",
+			"quest_glu_nov2022_feed": "Give your buddy 15 treats",
+			"quest_glu_nov2022_rocket": "Defeat 2 Team GO Rocket Grunts",
+			"quest_glu_nov2022_walk": "Walk 1km"
 		}
 	}
 }
